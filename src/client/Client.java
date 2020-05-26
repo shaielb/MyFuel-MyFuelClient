@@ -15,7 +15,6 @@ import annotations.Table;
 import db.interfaces.IEntity;
 import globals.Globals;
 import handler.ControlsHandler;
-import javafx.application.Platform;
 import messages.Header.RequestType;
 import messages.Request;
 import messages.Response;
