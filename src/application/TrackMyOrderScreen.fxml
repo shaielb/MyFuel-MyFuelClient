@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Background.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track My Order">
+         <font>
+            <Font name="Constantia" size="48.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MainMenuCustomerScreen" layoutX="40.0" layoutY="184.0" onDragDropped="#Screen" text="Main Menu --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font></Hyperlink>
+      <TextField layoutX="761.0" layoutY="254.0" promptText="Full name" visible="false" />
+      <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
+      <ImageView fx:id="scene$MainMenuCustomerScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BackIcon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="146.0" layoutY="184.0" text="Track My Order" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Text layoutX="835.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID:" wrappingWidth="278.6572265625">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="table$home_heating_order$order_id" layoutX="834.0" layoutY="285.0" prefHeight="34.0" prefWidth="230.0" promptText="Tap here ID Order...">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <ImageView fx:id="scene$MainMenuCustomerScreen" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" layoutX="978.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="908.0" layoutY="669.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For support please call: 04-1111111" wrappingWidth="306.66180419921875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="action$collect$home_heating_order" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="116.0" layoutX="1074.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@search.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Hyperlink fx:id="action$collect$home_heating_order" layoutX="286.0" layoutY="266.0" prefHeight="48.0" prefWidth="194.0" text="All orders" underline="true" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="action$remove$home_heating_order" layoutX="437.0" layoutY="268.0" prefHeight="48.0" prefWidth="258.0" text="Delete order history" underline="true" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Hyperlink>
+      <Text layoutX="417.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" textAlignment="CENTER" wrappingWidth="19.45721435546875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ProgressBar fx:id="table$home_heating_order$status" layoutX="636.0" layoutY="541.0" prefHeight="27.0" prefWidth="331.0" progress="0.43" />
+      <Text layoutX="273.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track order number " wrappingWidth="186.92391967773438">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="543.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="74.25">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <BorderPane fx:id="uitable$noneditable$single$home_heating_order" layoutX="296.0" layoutY="329.0" prefHeight="184.0" prefWidth="882.0" />
+      <Text fx:id="table$home_heating_order$order_id" layoutX="456.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="74.25">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$home_heating_order$status" layoutX="705.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="165.9833984375">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+		
+   </children>
+</Pane>

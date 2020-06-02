@@ -1,18 +1,14 @@
 package application;
 
-import java.util.Collection;
-
 import client.Client;
 import client.IClient;
 import db.entity.ReportsInfo;
-import db.interfaces.IEntity;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import panels.SearchPanel;
-import table.MfTable;
-import widgets.table.MfUpdateTable;
+import sceneswitch.ScenesSwitch;
 
 
 public class Main extends Application {
@@ -25,6 +21,7 @@ public class Main extends Application {
 			stage.setTitle("Employee Details");
 
 			_client = new Client("localhost", 5555);
+
 			_client.cacheEntityEnums(ReportsInfo.class, (response) -> {
 				synchronized (stage) {
 					stage.notifyAll();
@@ -34,22 +31,12 @@ public class Main extends Application {
 			synchronized (stage) {
 				stage.wait();
 			}
-			MfTable<ReportsInfo> et = new MfTable<ReportsInfo>(ReportsInfo.class);
-			MfUpdateTable<ReportsInfo> ut = new MfUpdateTable<ReportsInfo>(et, _client);
 
-			SearchPanel<ReportsInfo> sp = new SearchPanel<ReportsInfo>(ReportsInfo.class, _client,
-					(response) -> {
-						Collection<IEntity> entities = response.getEntities();
-						ObservableList<ReportsInfo> list = et.getObservableList();
-						list.clear();
-						if (entities.size() > 0) {
-							list.addAll(entities.toArray(new ReportsInfo[entities.size()]));
-						}
-					});
+			ScenesSwitch sceneSwitch = new ScenesSwitch(stage);
 
-			et.setTop(sp);
+			Parent root = FXMLLoader.load(getClass().getResource("HomeHeatingTrack.fxml"));
 
-			Scene scene = new Scene(et);
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			stage.setScene(scene);
@@ -58,6 +45,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+
+
 
 	public static void main(String[] args) {
 		launch(args);

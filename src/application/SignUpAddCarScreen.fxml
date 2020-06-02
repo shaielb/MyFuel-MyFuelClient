@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1556.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ba.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up">
+         <font>
+            <Font name="Constantia" size="60.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MainMenuMarketingScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff" />
+      <Hyperlink layoutX="152.0" layoutY="184.0" text="Sign up" textFill="#0400ff" />
+      <TextField layoutX="761.0" layoutY="254.0" promptText="Full name" visible="false" />
+      <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
+      <ImageView fitHeight="50.0" fitWidth="546.0" layoutX="330.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@כפתורים%20SCENE/AddCarNavigation.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="action$insert$customer" fitHeight="43.0" fitWidth="138.0" layoutX="739.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@כפתורים%20SCENE/FinishButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" fitHeight="106.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../לימודים/מיני%20פרוייקט/מצגת%20מסכים/11.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <ImageView fx:id="scene$SignUpPaymentDetailsScreen" fitHeight="43.0" fitWidth="138.0" layoutX="460.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@כפתורים%20SCENE/BackButton.png" />
+         </image>
+      </ImageView>
+      <BorderPane fx:id="uitable$editable$addremove$car" layoutX="273.0" layoutY="270.0" prefHeight="239.0" prefWidth="732.0" />
+		
+   </children>
+</Pane>

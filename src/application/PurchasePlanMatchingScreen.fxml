@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1556.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ba.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="table$customer$customer_id" layoutX="460.0" layoutY="254.0" />
+      <Text layoutX="346.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="267.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Plan Method:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="276.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fueling Companies:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="table$fuel_company$name" layoutX="465.0" layoutY="370.0" prefHeight="31.0" prefWidth="198.0" promptText="Choose Company">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <TextField layoutX="761.0" layoutY="254.0" promptText="Full name" visible="false" />
+      <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
+      <Text layoutX="310.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Plan Matching">
+         <font>
+            <Font name="Constantia" size="60.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MainMenuMarketingScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff" />
+      <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../לימודים/מיני%20פרוייקט/מצגת%20מסכים/11.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="152.0" layoutY="184.0" text="Purchase Plan Matching" textFill="#0400ff" />
+      <ToggleButtonGroup layoutX="465.0" layoutY="312.0" selectionType="SINGLE">
+          <toggles>
+              <ToggleButton fx:id="table$customer$subscription_plan$subscription_plan_rates$type$$multi" prefHeight="31.0" prefWidth="117.0">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@כפתורים%20SCENE/MultiButton.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic></ToggleButton>
+              <ToggleButton fx:id="table$customer$subscription_plan$subscription_plan_rates$type$$single" prefHeight="31.0" prefWidth="118.0" selected="true">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@כפתורים%20SCENE/SingleButton.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic></ToggleButton>
+          </toggles>
+      </ToggleButtonGroup>
+      <TextArea layoutX="691.0" layoutY="370.0" prefHeight="200.0" prefWidth="200.0" />
+      <ImageView fx:id="action$filter$customer" fitHeight="31.0" fitWidth="103.0" layoutX="661.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@כפתורים%20SCENE/SearchButton.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="action$update$customer$subscription_plan" fitHeight="42.0" fitWidth="97.0" layoutX="534.0" layoutY="607.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@כפתורים%20SCENE/FinishButton.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="761.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="228.88280412747554">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+		
+   </children>
+</Pane>

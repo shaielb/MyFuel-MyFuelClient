@@ -3,9 +3,11 @@ package panels;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import controls.button.MfInsertButton;
+import action.ActionControl;
+import action.InsertCapability;
+import adapter.base.ControlAdapter;
+import controls.MfButton;
 import db.interfaces.IEntity;
-import decorator.base.ControlDecorator;
 import handler.ControlsHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -21,7 +23,9 @@ import utilities.StringUtil;
 @SuppressWarnings("rawtypes")
 public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 
-	protected MfInsertButton _insertButton;
+	protected ActionControl _insertButton;
+
+	//protected MfButton _insertButton;
 
 	protected TEntity _insertEntity;
 
@@ -32,15 +36,20 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 	public void initialize(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception {
 		_insertEntity = entityClass.newInstance();
 
-		_insertButton = new MfInsertButton("Submit");
-		_insertButton.setEntity(_insertEntity);
-		_insertButton.setResponseCallBack(callback);
+		_insertButton = new ActionControl();
+		_insertButton.setControl(new MfButton("Submit"));
+
+		InsertCapability insertCapability = new InsertCapability();
+		insertCapability.addEntity(_insertEntity);
+
+		_insertButton.addCapability(new InsertCapability());
+		_insertButton.setCallback(callback);
 
 		placeControls();
 	}
 
 	private GridPane createGridPane() throws Exception {
-		Map<String, ControlDecorator> map = ControlsHandler.createEntityControls(_insertEntity.getClass());
+		Map<String, ControlAdapter> map = ControlsHandler.createEntityControls(_insertEntity.getClass());
 
 		GridPane gridPane = new GridPane();
 		gridPane.setVgap(5); 
@@ -48,7 +57,7 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 		gridPane.setAlignment(Pos.CENTER);
 
 		int i = 0;
-		for (Entry<String, ControlDecorator> entry : map.entrySet()) {
+		for (Entry<String, ControlAdapter> entry : map.entrySet()) {
 			// setting the entity attributes to their default values
 			entry.getValue().clear();
 			String name = StringUtil.swithToUpperCase(entry.getKey(), "_");
@@ -76,10 +85,10 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 
 		HBox hbInsert = new HBox();
 		hbInsert.getChildren().add(createGridPane());
-		hbInsert.getChildren().add(_insertButton.getInstance());
+		hbInsert.getChildren().add(_insertButton.getControl().getInstance());
 		hbInsert.setSpacing(3);
 		BorderPane.setAlignment(hbInsert, Pos.CENTER_LEFT);
-		BorderPane.setAlignment(_insertButton.getInstance(), Pos.CENTER_RIGHT);
+		BorderPane.setAlignment(_insertButton.getControl().getInstance(), Pos.CENTER_RIGHT);
 		setLeft(hbInsert);
 	}
 }

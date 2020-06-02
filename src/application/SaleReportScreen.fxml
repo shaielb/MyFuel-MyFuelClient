@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Background.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Report" wrappingWidth="399.4701232910156">
+         <font>
+            <Font name="Constantia" size="48.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MaimMenuMarketingScreen" layoutX="50.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font></Hyperlink>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$MaimMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BackIcon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="621.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total purchases:" wrappingWidth="230.97033309936523">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="242.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total customers:" wrappingWidth="201.10363388061523">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$SalesManagmentScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1010.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="665.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" wrappingWidth="236.30358505249023">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="867.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="115.77032089233398">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="table$company_sales$fueling_purchase$date_time" layoutX="906.0" layoutY="248.0" prefHeight="25.0" prefWidth="110.0" />
+      <BorderPane fx:id="uitable$noneditable$single$fueling_purchase" layoutX="240.0" layoutY="290.0" prefHeight="311.0" prefWidth="941.0" />
+      <Hyperlink fx:id="scene$SalesManagmentScreen" layoutX="162.0" layoutY="184.0" text="Sales Managment --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="311.0" layoutY="184.0" text="Sale Repoet" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Text layoutX="242.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report for sale:" wrappingWidth="164.83697128295898">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="table$company_sales$fueling_purchase$date_time" layoutX="735.0" layoutY="247.0" prefHeight="25.0" prefWidth="110.0" />
+      <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1043.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@make%20a%20report.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fx:id="table$company_sales$sale" layoutX="407.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="226.70367050170898">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="421.0" layoutY="649.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="177.22768878936768">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="797.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="177.22768878936768">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

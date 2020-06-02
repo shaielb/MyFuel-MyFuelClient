@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Background.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Characterization Report">
+         <font>
+            <Font name="Constantia" size="44.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MainMenuMarketingScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font></Hyperlink>
+      <TextField layoutX="761.0" layoutY="254.0" promptText="Full name" visible="false" />
+      <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
+      <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BackIcon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="338.0" layoutY="184.0" prefHeight="29.0" prefWidth="234.0" text="Customer Characterization Report" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="scene$CustomersManagementScreen" layoutX="144.0" layoutY="184.0" text="Customers Management --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fx:id="scene$CustomersManagementScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1022.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="650.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" wrappingWidth="236.30358505249023">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="852.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="115.77032089233398">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="891.0" layoutY="239.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="720.0" layoutY="238.0" prefHeight="25.0" prefWidth="110.0" />
+      <BorderPane fx:id="uitable$noneditable$single$fueling_purchase" layoutX="242.0" layoutY="282.0" prefHeight="324.0" prefWidth="942.0" />
+      <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1039.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@make%20a%20report.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+		
+   </children>
+</Pane>

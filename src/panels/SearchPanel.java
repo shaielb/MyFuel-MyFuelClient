@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import action.ActionControl;
+import action.FilterCapability;
+import adapter.base.ControlAdapter;
 import client.IClient;
 import comperators.Comperators;
+import controls.MfButton;
 import controls.MfComboBox;
-import controls.button.MfFilterButton;
 import db.interfaces.IEntity;
-import decorator.base.ControlDecorator;
 import handler.ControlsHandler;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import messages.Header.RequestType;
 import messages.response.IResponseCallBack;
 import utilities.StringUtil;
 
@@ -40,7 +43,7 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 				Comperators.EndsWith});
 	}};
 
-	protected MfFilterButton _searchButton;
+	protected ActionControl _searchButton;
 
 	protected TEntity _searchEntity;
 
@@ -53,17 +56,22 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 	public void initialize(Class<TEntity> entityClass, IClient client, IResponseCallBack callback) throws Exception {
 		_searchEntity = entityClass.newInstance();
 
-		_searchButton = new MfFilterButton("Search");
+		_searchButton = new ActionControl();
+		_searchButton.setControl(new MfButton("Search"));
+
 		_searchButton.setClient(client);
-		_searchButton.setEntity(_searchEntity);
-		_searchButton.setQuerySigns(_searchSigns);
-		_searchButton.setResponseCallBack(callback);
+
+		FilterCapability filterCapability = new FilterCapability();
+		filterCapability.setQueryEntity(_searchEntity, _searchSigns);
+
+		_searchButton.addCapability(filterCapability);
+		_searchButton.setCallback(callback);
 
 		placeControls();
 	}
 
 	private GridPane createGridPane() throws Exception {
-		Map<String, ControlDecorator> map = ControlsHandler.createEntityControls(_searchEntity.getClass());
+		Map<String, ControlAdapter> map = ControlsHandler.createEntityControls(_searchEntity.getClass());
 
 		GridPane gridPane = new GridPane();
 		gridPane.setVgap(5); 
@@ -71,8 +79,8 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		gridPane.setAlignment(Pos.CENTER);
 
 		int i = 0;
-		for (Entry<String, ControlDecorator> entry : map.entrySet()) {
-			ControlDecorator control = entry.getValue();
+		for (Entry<String, ControlAdapter> entry : map.entrySet()) {
+			ControlAdapter control = entry.getValue();
 			control.setEntity(_searchEntity);
 			Field field = control.getField();
 			String title = StringUtil.getTitle(control.getColumnName());
@@ -108,10 +116,10 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		hbSearch.setSpacing(3);
 		BorderPane.setAlignment(hbSearch, Pos.CENTER_LEFT);
 		setLeft(hbSearch);
-		setRight(_searchButton.getInstance());
+		setRight(_searchButton.getControl().getInstance());
 	}
 
-	private ComboBox<String> createSignControl(Field field, ControlDecorator control) {
+	private ComboBox<String> createSignControl(Field field, ControlAdapter control) {
 		Class<?> type = field.getType();
 		if (Number.class.isAssignableFrom(type)) {
 			type = Number.class;
@@ -135,6 +143,7 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 	}
 
 	public void search() {
-		_searchButton.search();
+		FilterCapability fc = _searchButton.getCapability(RequestType.Filter);
+		fc.filter();
 	}
 }

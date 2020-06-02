@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Background.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New home heating order">
+         <font>
+            <Font name="Constantia" size="48.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="scene$MaimMenuCustomerScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font></Hyperlink>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$MaimMenuCustomerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BackIcon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="905.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For support please call: 04-1111111" wrappingWidth="306.66180419921875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="151.0" layoutY="184.0" text="New order" textFill="#0400ff">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Text layoutX="266.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel amount" wrappingWidth="278.6572265625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="table$home_heating_order$amount" layoutX="267.0" layoutY="307.0" prefHeight="34.0" prefWidth="230.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Text layoutX="516.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="600-800 liter: discount of 3% from the total price">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="516.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="800+ liter: discount of 4% of the total price">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="268.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery type" wrappingWidth="278.6572265625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$HomeHeatingOrderDetailsScreen" accessibleRole="BUTTON" fitHeight="118.0" fitWidth="230.0" layoutX="903.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@make%20my%20order%20in%20new%20order.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fill="RED" layoutX="402.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="412.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="74.0" fitWidth="669.0" layoutX="248.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@regular%20express.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="536.0" layoutX="266.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Discount.png" />
+         </image>
+      </ImageView>
+      <CheckBox fx:id="table$home_heating_order$order_urgency$$regular" layoutX="376.0" layoutY="502.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </CheckBox>
+      <CheckBox fx:id="table$home_heating_order$order_urgency$$express" layoutX="646.0" layoutY="501.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </CheckBox>
+      <Text layoutX="266.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price per liter:" wrappingWidth="160.57036972045898">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="581.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total price:" wrappingWidth="160.57036972045898">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="592.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price includes freight charge" wrappingWidth="306.66180419921875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$home_heating_order$price_per_liter" layoutX="418.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="126.66998291015625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$home_heating_order$total_price" layoutX="704.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="126.66998291015625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+		
+   </children>
+</Pane>
