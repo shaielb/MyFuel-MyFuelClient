@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,18 +13,14 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Background.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New home heating order">
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Home Heating Order">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="scene$MaimMenuCustomerScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font></Hyperlink>
       <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
          <font>
             <Font size="16.0" />
@@ -33,7 +28,7 @@
       </Text>
       <ImageView fx:id="scene$MaimMenuCustomerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@BackIcon.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -44,11 +39,6 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Hyperlink layoutX="151.0" layoutY="184.0" text="New order" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Hyperlink>
       <Text layoutX="266.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel amount" wrappingWidth="278.6572265625">
          <font>
             <Font size="24.0" />
@@ -76,7 +66,7 @@
       </Text>
       <ImageView fx:id="scene$HomeHeatingOrderDetailsScreen" accessibleRole="BUTTON" fitHeight="118.0" fitWidth="230.0" layoutX="903.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@make%20my%20order%20in%20new%20order.png" />
+            <Image url="@../../resource/images/MakeMyOrder_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -94,12 +84,12 @@
       </Text>
       <ImageView fitHeight="74.0" fitWidth="669.0" layoutX="248.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@regular%20express.png" />
+            <Image url="@../../resource/images/RegularExpress_Aviv.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="98.0" fitWidth="536.0" layoutX="266.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Discount.png" />
+            <Image url="@../../resource/images/Discount_Aviv.png" />
          </image>
       </ImageView>
       <CheckBox fx:id="table$home_heating_order$order_urgency$$regular" layoutX="376.0" layoutY="502.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
@@ -141,6 +131,16 @@
       <Text fx:id="table$home_heating_order$total_price" layoutX="704.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="126.66998291015625">
          <font>
             <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="151.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New order" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
          </font>
       </Text>
 		

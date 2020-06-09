@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView disable="true" fitHeight="680.0" fitWidth="1209.0" layoutX="-4.0">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../../resource/images/BackGround.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="439.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fast Fueling">
+         <font>
+            <Font name="Constantia Bold Italic" size="61.0" />
+         </font>
+      </Text>
+      <Text layoutX="948.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For Support please call: 04-1111111" wrappingWidth="216.9830722808838" />
+      <Text layoutX="637.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text=",We are glad you came back ☺" wrappingWidth="470.0718994140625">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The updated price for Car number:">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="825.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="liter">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="is:" wrappingWidth="40.33984375">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please take the rellevant handler and start fuel">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="336.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final price:">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="543.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ILS per">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fueling_purchase$customer$person$first_name" layoutX="435.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text fx:id="table$fueling_purchase$car$plate_number" layoutX="838.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="120.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text fx:id="table$fueling_purchase$price_per_liter" layoutX="388.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text fx:id="table$fueling_purchase$amount" layoutX="525.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text fx:id="table$fueling_purchase$total_price" layoutX="527.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text fx:id="table$fueling_purchase$fuel_enum$fuel_type_key" layoutX="672.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
+         <font>
+            <Font size="33.0" />
+         </font></Text>
+      <Text layoutX="700.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="liter">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="710.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ILS">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

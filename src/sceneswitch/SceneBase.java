@@ -1,6 +1,7 @@
 package sceneswitch;
 
 import adapter.base.ControlAdapter;
+import client.IClient;
 import db.interfaces.IEntity;
 import javafx.scene.Scene;
 
@@ -17,9 +18,15 @@ public class SceneBase {
 	
 	protected ISceneSwitcher _switcher;
 	
-	protected SceneBase(ISceneSwitcher sceneSwitcher) {
+	protected IClient _client;
+	
+	protected SceneBase(ISceneSwitcher sceneSwitcher, IClient client) throws Exception {
 		_switcher = sceneSwitcher;
+		_client = client;
+		initialize();
 	}
+	
+	public void initialize() throws Exception {}
 	
 	protected void groupControls(ControlAdapter[] adapters) {
 		for (ControlAdapter adapter1 : adapters) {

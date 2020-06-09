@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,21 +13,19 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1556.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ba.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up">
          <font>
-            <Font name="Constantia" size="60.0" />
+            <Font name="Constantia Bold Italic" size="60.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="scene$MainMenuMarketingScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff" />
-      <Hyperlink layoutX="152.0" layoutY="184.0" text="Sign up" textFill="#0400ff" />
       <TextField layoutX="761.0" layoutY="254.0" promptText="Full name" visible="false" />
       <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
       <ImageView fitHeight="50.0" fitWidth="546.0" layoutX="330.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/PaymentDetailsNavigation.png" />
+            <Image url="@../../resource/images/PaymentDetailsNavigation_or.png" />
          </image>
       </ImageView>
       <Text layoutX="355.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expirtation date">
@@ -59,12 +56,12 @@
       </Text>
       <ImageView fx:id="scene$SignUpAddCarScreen" fitHeight="43.0" fitWidth="138.0" layoutX="646.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/NextButton.png" />
+            <Image url="@../../resource/images/Next_btn.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="43.0" fitWidth="80.0" layoutX="517.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/CreditOptions.png" />
+            <Image url="@../../resource/images/Amex_or.png" />
          </image>
       </ImageView>
       <TextField fx:id="table$customer$payment$expiration_date_month" layoutX="520.0" layoutY="375.0" prefHeight="31.0" prefWidth="52.0" promptText="MM" />
@@ -82,7 +79,7 @@
       <TextField fx:id="table$customer$payment$cvv" layoutX="520.0" layoutY="428.0" prefHeight="31.0" prefWidth="52.0" promptText="CVV" />
       <ImageView fitHeight="42.0" fitWidth="60.0" layoutX="843.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/3digit.png" />
+            <Image url="@../../resource/images/3digit_or.png" />
          </image>
       </ImageView>
       <Text layoutX="576.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(3 Digits at the back of the card)">
@@ -108,7 +105,7 @@
       </Text>
       <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../לימודים/מיני%20פרוייקט/מצגת%20מסכים/11.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -120,7 +117,19 @@
          </font></Text>
       <ImageView fx:id="scene$SignUpPersonalDetailsScreen" fitHeight="43.0" fitWidth="138.0" layoutX="424.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/BackButton.png" />
+            <Image url="@../../resource/images/Back_btn.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="6.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu--&gt;" x="40.0" y="184.0" />
+      <Text layoutX="111.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" x="40.0" y="184.0" />
+      <ImageView fitHeight="50.0" fitWidth="72.0" layoutX="570.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/MasterCard_or.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="72.0" layoutX="651.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/Visa_or.png" />
          </image>
       </ImageView>
 		

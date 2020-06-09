@@ -6,13 +6,17 @@ package client;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import annotations.Table;
 import db.interfaces.IEntity;
+import db.interfaces.IEntityBridge;
+import db.services.Services;
 import globals.Globals;
 import handler.ControlsHandler;
 import messages.Header.RequestType;
@@ -94,10 +98,13 @@ public class Client extends AbstractClient implements IClient
 		System.out.println("#############################################");
 		System.out.println(type);
 		if (type.equals(RequestType.Filter)) {
-			System.out.println(req.getQueryEntity());
-			Map<String, String> signs = req.getQuerySigns();
-			for (String field : signs.keySet()) {
-				System.out.println("\t" + field + ": " + signs.get(field));
+			Map<IEntity, Map<String, String>> queryEntities = req.getQueryEntities();
+			for (Entry<IEntity, Map<String, String>> entry : queryEntities.entrySet()) {
+				System.out.println(entry.getKey());
+				Map<String, String> signs = entry.getValue();
+				for (String field : signs.keySet()) {
+					System.out.println("\t" + field + ": " + signs.get(field));
+				}
 			}
 		}
 		else if (type.equals(RequestType.Collect)) {
@@ -129,9 +136,14 @@ public class Client extends AbstractClient implements IClient
 						}
 					}
 				});
-		if (enumTables.size() > 0) {
+		cacheTables(enumTables, callback);
+	}
+
+	@Override
+	public void cacheTables(Collection<String> tables, IResponseCallBack callback) throws IOException {
+		if (tables.size() > 0) {
 			ICollect request = getCollectRequest();
-			request.setTables(enumTables.toArray(new String[enumTables.size()]));
+			request.setTables(tables.toArray(new String[tables.size()]));
 			ResponseEvent responseEvent = sendRequest(request);
 			responseEvent.continueWith((response) -> {
 				Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
@@ -156,6 +168,26 @@ public class Client extends AbstractClient implements IClient
 	public synchronized void handleMessageFromServer(Object msg) 
 	{
 		Response response = (Response) msg;
+		Collection<IEntity> entities = response.getEntities();
+		String table = null;
+		IEntityBridge bridge = null;
+		for (IEntity entity : entities) {
+			if (table == null) {
+				table = entity.getClass().getAnnotation(Table.class).Name();
+				bridge = Services.getBridge(table);
+			}
+			try {
+				bridge.collectFromEntity(entity, 
+						(index, name, value) -> {
+							if (name.endsWith("_enum_fk")) {
+								Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
+								List<IEntity> list = enumsTables.get(name.subSequence(0, name.indexOf("_fk")));
+							}
+						});
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		ResponseEvent responseEvent = _responseEvents.get(response.getHeader().getId());
 		responseEvent.setResponse(response);
 	}

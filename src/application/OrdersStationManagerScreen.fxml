@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,14 +13,13 @@
    <children>
       <ImageView fitHeight="686.0" fitWidth="1206.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ba.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <ButtonBar layoutX="749.0" layoutY="531.0" prefHeight="40.0" prefWidth="280.0" />
-      <Hyperlink fx:id="scene$MainMenuStationManagerScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff" />
       <ImageView fx:id="scene$MainMenuStationManagerScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../לימודים/מיני%20פרוייקט/מצגת%20מסכים/11.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -35,17 +33,18 @@
       <BorderPane fx:id="uitable$noneditable$single$station_supply_order" layoutX="275.0" layoutY="246.0" prefHeight="288.0" prefWidth="810.0" />
       <ImageView fx:id="scene$SupplyOrderConfirmPopScreen" fitHeight="45.0" fitWidth="173.0" layoutX="934.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@כפתורים%20SCENE/ShowOrderDetailsButton.png" />
+            <Image url="@../../resource/images/ShowOrderDetails_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Hyperlink fx:id="scene$MainMenuMarketing1" layoutX="152.0" layoutY="184.0" text="Orders" textFill="#0400ff" />
       <Text layoutX="310.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supply Orders">
          <font>
-            <Font name="Constantia" size="60.0" />
+            <Font name="Constantia Bold Italic" size="60.0" />
          </font>
       </Text>
+      <Text layoutX="6.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu--&gt;" x="40.0" y="184.0" />
+      <Text layoutX="111.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders" x="40.0" y="184.0" />
    </children>
 </AnchorPane>

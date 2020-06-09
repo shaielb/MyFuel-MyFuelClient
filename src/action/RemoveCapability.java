@@ -1,6 +1,7 @@
 package action;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 import adapter.base.ControlAdapter;
@@ -12,7 +13,7 @@ import messages.response.ResponseEvent;
 @SuppressWarnings("rawtypes")
 public class RemoveCapability extends CapabilityDecorator {
 
-	private Set<IEntity> _entities;
+	private Set<IEntity> _entities = new HashSet<IEntity>();
 
 	public RemoveCapability() {
 		_type = RequestType.Remove;

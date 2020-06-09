@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/BackGround.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D width="127.0" />
+         </viewport>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketing Main Menu ">
+         <font>
+            <Font name="Constantia" size="48.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$PricingModelMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/PricingModelUpdate_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$CustomerManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/CustomerManagement_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$SalesManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/SalesManagement_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$SignUpPersonDetailsScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/SignUp_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$PurchasePlanMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/PurchasePlanUpdate_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$SetPriceScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/RateUpdate_btn.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Separator disable="true" layoutX="225.0" layoutY="438.0" prefHeight="20.0" prefWidth="976.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Separator>
+      <Separator layoutX="550.0" layoutY="223.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="3.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Separator>
+      <Separator disable="true" layoutX="875.0" layoutY="224.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="3.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Separator>
+      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="76.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/LogOut_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="53.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

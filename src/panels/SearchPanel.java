@@ -62,7 +62,9 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		_searchButton.setClient(client);
 
 		FilterCapability filterCapability = new FilterCapability();
-		filterCapability.setQueryEntity(_searchEntity, _searchSigns);
+		filterCapability.setQueryEntities(new HashMap<IEntity, Map<String, String>>() {{
+			put(_searchEntity, _searchSigns);
+		}});
 
 		_searchButton.addCapability(filterCapability);
 		_searchButton.setCallback(callback);

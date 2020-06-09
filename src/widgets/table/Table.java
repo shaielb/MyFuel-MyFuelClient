@@ -19,7 +19,9 @@ public class Table<TEntity extends IEntity> {
 		}
 	}
 	public void addDecorator(TableDecorator<TEntity> decorator) {
-		decorator.setTable(_table);
+		if (_table != null) {
+			decorator.setTable(_table);
+		}
 		_decorators.add(decorator);
 	}
 }

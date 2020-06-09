@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/BackGround.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar layoutX="251.0" layoutY="424.0" prefHeight="25.0" prefWidth="262.0" progress="0.78" rotate="-90.0" />
+      <Text layoutX="518.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="667.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="350.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motorcycle" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#f50707" layoutX="335.0" layoutY="615.0" opacity="0.85" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="fuel left :" underline="true" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="1087.0" layoutY="422.0" opacity="0.41" strokeType="OUTSIDE" strokeWidth="0.0" text="(liters)" wrappingWidth="42.000000000000114">
+         <font>
+            <Font name="Arial Italic" size="10.0" />
+         </font>
+      </Text>
+      <Text layoutX="1087.0" layoutY="347.0" opacity="0.41" strokeType="OUTSIDE" strokeWidth="0.0" text="(liters)" wrappingWidth="42.000000000000114">
+         <font>
+            <Font name="Arial Italic" size="10.0" />
+         </font>
+      </Text>
+      <Text layoutX="1087.0" layoutY="500.0" opacity="0.41" strokeType="OUTSIDE" strokeWidth="0.0" text="(liters)" wrappingWidth="42.000000000000114">
+         <font>
+            <Font name="Arial Italic" size="10.0" />
+         </font>
+      </Text>
+      <ProgressBar layoutX="559.0" layoutY="424.0" prefHeight="25.0" prefWidth="262.0" progress="0.3" rotate="-90.0" />
+      <ProgressBar layoutX="402.0" layoutY="424.0" prefHeight="25.0" prefWidth="262.0" progress="0.28" rotate="-90.0" />
+      <TextField fx:id="table$station$stations_fuel$fuel_enum$$motorcycles$fuel_low_level" disable="true" layoutX="983.0" layoutY="479.0" prefHeight="25.0" prefWidth="103.0" promptText="Insert amount" />
+      <TextField fx:id="table$station$stations_fuel$fuel_enum$$soler$fuel_low_level" disable="true" layoutX="984.0" layoutY="400.0" prefHeight="25.0" prefWidth="103.0" promptText="Insert amount" />
+      <TextField fx:id="table$station$stations_fuel$fuel_enum$$benzin$fuel_low_level" disable="true" layoutX="983.0" layoutY="325.0" prefHeight="25.0" prefWidth="103.0" promptText="Insert amount" />
+      <ImageView fx:id="action$update$station$stations_fuel" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="140.0" layoutX="979.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/Commit_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fill="#f50707" layoutX="650.0" layoutY="615.0" opacity="0.85" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="fuel left :" underline="true" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#f50707" layoutX="489.0" layoutY="615.0" opacity="0.85" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="fuel left :" underline="true" y="1.0">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="625.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thershold Level:" underline="true" />
+      <Text layoutX="462.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thershold Level:" underline="true" />
+      <Text layoutX="308.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thershold Level:" underline="true" />
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Threshold Level">
+         <font>
+            <Font name="Constantia" size="60.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$MainMenuStationManagerScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back To Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="137.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Threshold Level" />
+      <Text layoutX="44.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" />
+      <Text layoutX="868.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Threshold Level Area:" underline="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="RED" fontSmoothingType="LCD" layoutX="875.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Please insert the updated fuel levels">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="917.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="926.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="893.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MotorCycle">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$stations_fuel$fuel_low_level$$$txt" layoutX="724.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="40" />
+      <Text fx:id="table$stations_fuel$current_amount$$$txt" layoutX="722.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="110" />
+      <Text fx:id="table$stations_fuel$fuel_low_level$$$txt" layoutX="555.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30" />
+      <Text fx:id="table$stations_fuel$current_amount$$$txt" layoutX="556.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="90" />
+      <Text fx:id="table$stations_fuel$fuel_low_level$$$txt" layoutX="400.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80" />
+      <Text fx:id="table$stations_fuel$current_amount$$$txt" layoutX="399.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="300" />
+   </children>
+</AnchorPane>

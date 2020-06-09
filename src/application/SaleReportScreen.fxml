@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,18 +13,14 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Background.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Report" wrappingWidth="399.4701232910156">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="scene$MaimMenuMarketingScreen" layoutX="50.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font></Hyperlink>
       <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
          <font>
             <Font size="16.0" />
@@ -33,7 +28,7 @@
       </Text>
       <ImageView fx:id="scene$MaimMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@BackIcon.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -49,9 +44,9 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$SalesManagmentScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1010.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$SalesManagmentScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1045.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@back.png" />
+            <Image url="@../../resource/images/Back_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -67,33 +62,23 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <DatePicker fx:id="table$company_sales$fueling_purchase$date_time" layoutX="906.0" layoutY="248.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$special_sales_enum$fueling_purchase$date_time$$$dt" layoutX="906.0" layoutY="248.0" prefHeight="25.0" prefWidth="110.0" />
       <BorderPane fx:id="uitable$noneditable$single$fueling_purchase" layoutX="240.0" layoutY="290.0" prefHeight="311.0" prefWidth="941.0" />
-      <Hyperlink fx:id="scene$SalesManagmentScreen" layoutX="162.0" layoutY="184.0" text="Sales Managment --&gt;" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Hyperlink>
-      <Hyperlink layoutX="311.0" layoutY="184.0" text="Sale Repoet" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Hyperlink>
       <Text layoutX="242.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report for sale:" wrappingWidth="164.83697128295898">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <DatePicker fx:id="table$company_sales$fueling_purchase$date_time" layoutX="735.0" layoutY="247.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$special_sales_enum$fueling_purchase$date_time$$$dt" layoutX="735.0" layoutY="247.0" prefHeight="25.0" prefWidth="110.0" />
       <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1043.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@make%20a%20report.png" />
+            <Image url="@../../resource/images/MakeAReport_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Text fx:id="table$company_sales$sale" layoutX="407.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="226.70367050170898">
+      <Text fx:id="table$special_sales_enum$special_sale_key" layoutX="407.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="226.70367050170898">
          <font>
             <Font size="24.0" />
          </font>
@@ -106,6 +91,21 @@
       <Text layoutX="797.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="177.22768878936768">
          <font>
             <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="296.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Repoet" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="147.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Managment --&gt;" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
          </font>
       </Text>
    </children>

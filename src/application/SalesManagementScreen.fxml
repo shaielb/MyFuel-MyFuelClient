@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -13,51 +12,53 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Background.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Management" wrappingWidth="563.7368469238281">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="scene$MaimMenuMarketingScreen" layoutX="40.0" layoutY="184.0" text="Main Menu --&gt;" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font></Hyperlink>
-      <Hyperlink layoutX="152.0" layoutY="184.0" text="Sales Managment" textFill="#0400ff">
-         <font>
-            <Font size="15.0" />
-         </font></Hyperlink>
       <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to main menu" wrappingWidth="154.3604278564453">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$MaimMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@BackIcon.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <BorderPane fx:id="uitable$editable$single$company_sales" layoutX="247.0" layoutY="240.0" prefHeight="361.0" prefWidth="934.0" />
-      <ImageView fx:id="action$update$company_sales" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="250.0" layoutX="927.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
+      <BorderPane fx:id="uitable$editable$single$special_sales_enum" layoutX="247.0" layoutY="240.0" prefHeight="361.0" prefWidth="934.0" />
+      <ImageView fx:id="action$update$special_sales_enum" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="178.0" layoutX="997.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@commit.png" />
+            <Image url="@../../resource/images/Commit_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$SaleReportScreen" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="250.0" layoutX="635.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$SaleReportScreen" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="253.0" layoutX="709.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@sale%20report.png" />
+            <Image url="@../../resource/images/ShowSaleReport_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Text layoutX="148.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Managment" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

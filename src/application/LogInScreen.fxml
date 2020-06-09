@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView cache="true" fitHeight="681.0" fitWidth="1213.0" focusTraversable="true" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/Login_Background.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="table$system_user$user_name" layoutX="640.0" layoutY="315.0" prefHeight="45.0" prefWidth="217.0" promptText="User ID" />
+      <PasswordField fx:id="table$system_user$user_password" layoutX="640.0" layoutY="404.0" prefHeight="25.0" prefWidth="218.0" promptText="Password" />
+      <Text layoutX="3.0" layoutY="666.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Want to join us? Please call 04-1111111">
+         <font>
+            <Font name="Arial Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="715.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID" wrappingWidth="47.344390869140625">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="712.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="59.28448486328125">
+         <font>
+            <Font name="Arial Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <CheckBox layoutX="680.0" layoutY="506.0" mnemonicParsing="false" text="Always Remember Me" />
+      <ImageView fx:id="action$collect$system_user" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="34.0" fitWidth="123.0" focusTraversable="true" layoutX="680.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resource/images/Login_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

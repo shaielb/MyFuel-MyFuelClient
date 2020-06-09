@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="500.0" fitWidth="215.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@background.jpg" />
+                  <Image url="@../../resource/images/PopUp_Background.jpg" />
                </image>
             </ImageView>
             <Text layoutX="214.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
@@ -55,17 +55,17 @@
             </Text>
             <Text layoutX="264.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Details:" underline="true" wrappingWidth="199.78005981445312">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
             </Text>
             <Text layoutX="256.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer details:" underline="true">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
             </Text>
             <ImageView fx:id="action$insert$home_heating_order" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="364.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../confirm.png" />
+                  <Image url="@../../resource/images/Confirm_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -73,7 +73,7 @@
             </ImageView>
             <ImageView fx:id="scene$HomeHeatingNewOrderScreen" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="243.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../decline.png" />
+                  <Image url="@../../resource/images/Decline_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -99,7 +99,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fx:id="table$home_heating_order$customer$Payment$credit_car_number" layoutX="314.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.4000244140625">
+            <Text fx:id="table$home_heating_order$customer$payment$credit_card_number" layoutX="314.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.4000244140625">
                <font>
                   <Font size="18.0" />
                </font>
@@ -118,7 +118,7 @@
                   </Text>
                </children>
             </HBox>
-            <HBox layoutX="277.0" layoutY="326.0" prefHeight="22.0" prefWidth="206.0">
+            <HBox layoutX="277.0" layoutY="326.0" prefHeight="6.0" prefWidth="217.0">
                <children>
                   <Text fx:id="table$home_heating_order$customer$address$city" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="87.7366943359375">
                      <font>

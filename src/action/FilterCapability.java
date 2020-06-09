@@ -12,17 +12,14 @@ import messages.response.ResponseEvent;
 @SuppressWarnings("rawtypes")
 public class FilterCapability extends CapabilityDecorator {
 
-	private IEntity _queryEntity;
-
-	private Map<String, String> _querySigns;
+	private Map<IEntity, Map<String, String>> _queryEntitiesMap;
 	
 	public FilterCapability() {
 		_type = RequestType.Filter;
 	}
 
-	public void setQueryEntity(IEntity queryEntity, Map<String, String> querySigns) {
-		_queryEntity = queryEntity;
-		_querySigns = querySigns;
+	public void setQueryEntities(Map<IEntity, Map<String, String>> queryEntitiesMap) {
+		_queryEntitiesMap = queryEntitiesMap;
 	}
 
 	@Override
@@ -34,7 +31,7 @@ public class FilterCapability extends CapabilityDecorator {
 
 	public void filter() {
 		IFilter request = _client.getFilterRequest();
-		request.setQueryEntity(_queryEntity, _querySigns);
+		request.setQueryEntities(_queryEntitiesMap);
 		try {
 			ResponseEvent responseEvent = _client.sendRequest(request);
 			responseEvent.continueWith(_callback);
