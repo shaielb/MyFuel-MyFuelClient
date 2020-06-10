@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.interfaces.IEntity;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import javafx.collections.ObservableList;
 
 @SuppressWarnings({ "unchecked" })
@@ -14,7 +14,7 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 
 	@Override
 	protected void apply() {
-		_table.addColumn(ControlsHandler.createButtonColumn(
+		_table.addColumn(UiHandler.createButtonColumn(
 				(entity) -> {
 					return entity.getId().equals(-1) ? "+" : "X";
 				}, "X", 

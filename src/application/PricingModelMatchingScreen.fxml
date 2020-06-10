@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/BackGround.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="335.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pricing Model Matching" wrappingWidth="633.5383911132812">
@@ -43,7 +43,7 @@
       <Text disable="true" layoutX="308.0" layoutY="420.0" opacity="0.37" strokeType="OUTSIDE" strokeWidth="0.0" text="Car List:" underline="true" wrappingWidth="72.04035949707031" />
       <ImageView fx:id="scene$MainMenuMarketingScreen" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/ReturnMain_btn.png" />
+            <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -51,7 +51,7 @@
       </ImageView>
       <ImageView fx:id="action$collect$customer" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="93.0" layoutX="679.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/Search_btn.png" />
+            <Image url="@../../resource/images/Search_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -59,7 +59,7 @@
       </ImageView>
       <ImageView fx:id="action$update$customer$pricing_model_enum" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="143.0" layoutX="371.0" layoutY="586.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/SaveChanges_btn.png" />
+            <Image url="@../../resource/images/SaveChanges_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

@@ -5,7 +5,7 @@ import java.util.List;
 
 import controls.MfCheckBox;
 import db.interfaces.IEntity;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import javafx.collections.ObservableList;
 import javafx.scene.control.CheckBox;
 
@@ -18,7 +18,7 @@ public class MfMultiDecorator<TEntity extends IEntity> extends TableDecorator<TE
 	protected void apply() {
 		MfCheckBox mfCb = new MfCheckBox();
 		mfCb.setColumnName("Select");
-		_table.addColumn(ControlsHandler.createColumn(mfCb, () -> { return new MfCheckBox(); },
+		_table.addColumn(UiHandler.createColumn(mfCb, () -> { return new MfCheckBox(); },
 				(entity, control) -> {
 					CheckBox cb = (CheckBox) control.getInstance();
 					if (cb.isSelected()) {

@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/BackGround.jpg" />
+            <Image url="@../../resource/images/BackGround.jpg" />
          </image>
          <viewport>
             <Rectangle2D width="127.0" />
@@ -27,7 +27,7 @@
       </Text>
       <ImageView fx:id="scene$PricingModelMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/PricingModelUpdate_btn.jpg" />
+            <Image url="@../../resource/images/PricingModelUpdate_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -38,7 +38,7 @@
       </ImageView>
       <ImageView fx:id="scene$CustomerManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/CustomerManagement_btn.jpg" />
+            <Image url="@../../resource/images/CustomerManagement_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -49,7 +49,7 @@
       </ImageView>
       <ImageView fx:id="scene$SalesManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/SalesManagement_btn.jpg" />
+            <Image url="@../../resource/images/SalesManagement_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -60,7 +60,7 @@
       </ImageView>
       <ImageView fx:id="scene$SignUpPersonDetailsScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/SignUp_btn.jpg" />
+            <Image url="@../../resource/images/SignUp_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -71,7 +71,7 @@
       </ImageView>
       <ImageView fx:id="scene$PurchasePlanMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/PurchasePlanUpdate_btn.jpg" />
+            <Image url="@../../resource/images/PurchasePlanUpdate_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -82,7 +82,7 @@
       </ImageView>
       <ImageView fx:id="scene$SetPriceScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/RateUpdate_btn.jpg" />
+            <Image url="@../../resource/images/RateUpdate_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -108,7 +108,7 @@
       </Separator>
       <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="76.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/LogOut_btn.png" />
+            <Image url="@../../resource/images/LogOut_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

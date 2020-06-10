@@ -8,7 +8,7 @@ import action.InsertCapability;
 import adapter.base.ControlAdapter;
 import controls.MfButton;
 import db.interfaces.IEntity;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -49,7 +49,7 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 	}
 
 	private GridPane createGridPane() throws Exception {
-		Map<String, ControlAdapter> map = ControlsHandler.createEntityControls(_insertEntity.getClass());
+		Map<String, ControlAdapter> map = UiHandler.createEntityControls(_insertEntity.getClass());
 
 		GridPane gridPane = new GridPane();
 		gridPane.setVgap(5); 

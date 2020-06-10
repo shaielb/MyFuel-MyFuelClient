@@ -10,6 +10,6 @@
 	<classpathentry kind="lib" path="C:/Java/workspace/jars/controlsfx-8.40.11.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Annotations"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ControlsBase"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UiBase"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

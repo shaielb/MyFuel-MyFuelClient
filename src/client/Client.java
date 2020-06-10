@@ -16,9 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import annotations.Table;
 import db.interfaces.IEntity;
 import db.interfaces.IEntityBridge;
+import db.interfaces.IEnum;
 import db.services.Services;
 import globals.Globals;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import messages.Header.RequestType;
 import messages.Request;
 import messages.Response;
@@ -127,7 +128,7 @@ public class Client extends AbstractClient implements IClient
 	// Cache ************************************************
 	public <TEntity extends IEntity> void cacheEntityEnums(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception {
 		List<String> enumTables = new ArrayList<String>();
-		ControlsHandler.iterateFields(entityClass, 
+		UiHandler.iterateFields(entityClass, 
 				(field, columnName, columnIndex) -> {
 					if (columnName.endsWith("_fk")) {
 						Table tableAnnotation = field.getAnnotation(Table.class);
@@ -155,6 +156,22 @@ public class Client extends AbstractClient implements IClient
 			});
 		}
 	}
+	
+	@Override
+	public IEntity getEnum(String enumTable, String keyValue) {
+		Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
+		List<IEntity> entities = enumsTables.get(enumTable);
+		if (entities != null) {
+			for (IEntity entity : entities) {
+				if (entity instanceof IEnum) {
+					if (((IEnum)entity).getKey().toLowerCase().equals(keyValue.toLowerCase())) {
+						return entity;
+					}
+				}
+			}
+		}
+		return  null;
+	}
 	// Cache ************************************************
 
 	//Response methods ************************************************
@@ -171,21 +188,23 @@ public class Client extends AbstractClient implements IClient
 		Collection<IEntity> entities = response.getEntities();
 		String table = null;
 		IEntityBridge bridge = null;
-		for (IEntity entity : entities) {
-			if (table == null) {
-				table = entity.getClass().getAnnotation(Table.class).Name();
-				bridge = Services.getBridge(table);
-			}
-			try {
-				bridge.collectFromEntity(entity, 
-						(index, name, value) -> {
-							if (name.endsWith("_enum_fk")) {
-								Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
-								List<IEntity> list = enumsTables.get(name.subSequence(0, name.indexOf("_fk")));
-							}
-						});
-			} catch (Exception e) {
-				e.printStackTrace();
+		if (entities != null && entities.size() > 0) {
+			for (IEntity entity : entities) {
+				if (table == null) {
+					table = entity.getClass().getAnnotation(Table.class).Name();
+					bridge = Services.getBridge(table);
+				}
+				try {
+					bridge.collectFromEntity(entity, 
+							(index, name, value) -> {
+								if (name.endsWith("_enum_fk")) {
+									Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
+									List<IEntity> list = enumsTables.get(name.subSequence(0, name.indexOf("_fk")));
+								}
+							});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		ResponseEvent responseEvent = _responseEvents.get(response.getHeader().getId());

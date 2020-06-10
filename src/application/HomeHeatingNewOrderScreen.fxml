@@ -26,7 +26,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$MaimMenuCustomerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$MainMenuCustomerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resource/images/ReturnMain_btn.png" />
          </image>
@@ -92,7 +92,7 @@
             <Image url="@../../resource/images/Discount_Aviv.png" />
          </image>
       </ImageView>
-      <CheckBox fx:id="table$home_heating_order$order_urgency$$regular" layoutX="376.0" layoutY="502.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
+      <CheckBox fx:id="table$home_heating_order$order_urgency_enum$$regular" layoutX="376.0" layoutY="502.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -100,7 +100,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </CheckBox>
-      <CheckBox fx:id="table$home_heating_order$order_urgency$$express" layoutX="646.0" layoutY="501.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
+      <CheckBox fx:id="table$home_heating_order$order_urgency_enum$$express" layoutX="646.0" layoutY="501.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
          <font>
             <Font size="18.0" />
          </font>

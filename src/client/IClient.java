@@ -29,4 +29,6 @@ public interface IClient {
 	public <TEntity extends IEntity> void cacheEntityEnums(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception;
 
 	public void cacheTables(Collection<String> tables, IResponseCallBack callback) throws IOException;
+	
+	public IEntity getEnum(String enumTable, String keyValue);
 }

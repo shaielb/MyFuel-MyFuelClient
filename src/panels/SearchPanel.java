@@ -13,7 +13,7 @@ import comperators.Comperators;
 import controls.MfButton;
 import controls.MfComboBox;
 import db.interfaces.IEntity;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -73,7 +73,7 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 	}
 
 	private GridPane createGridPane() throws Exception {
-		Map<String, ControlAdapter> map = ControlsHandler.createEntityControls(_searchEntity.getClass());
+		Map<String, ControlAdapter> map = UiHandler.createEntityControls(_searchEntity.getClass());
 
 		GridPane gridPane = new GridPane();
 		gridPane.setVgap(5); 

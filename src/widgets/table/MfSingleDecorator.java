@@ -4,7 +4,7 @@ import java.util.List;
 
 import controls.MfRadioButton;
 import db.interfaces.IEntity;
-import handler.ControlsHandler;
+import handler.UiHandler;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -20,7 +20,7 @@ public class MfSingleDecorator<TEntity extends IEntity> extends TableDecorator<T
 	protected void apply() {
 		MfRadioButton mfRb = new MfRadioButton();
 		mfRb.setColumnName("Select");
-		_table.addColumn(ControlsHandler.createColumn(mfRb, () -> { return new MfRadioButton(); },
+		_table.addColumn(UiHandler.createColumn(mfRb, () -> { return new MfRadioButton(); },
 				(entity, control) -> {
 					RadioButton rb = (RadioButton) control.getInstance();
 					rb.setToggleGroup(_toggleGroup);
