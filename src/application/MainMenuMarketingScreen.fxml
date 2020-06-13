@@ -58,7 +58,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$SignUpPersonDetailsScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$SignUpPersonalDetailsScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resource/images/SignUp_btn.jpg" />
          </image>

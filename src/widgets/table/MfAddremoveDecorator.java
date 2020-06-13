@@ -7,11 +7,22 @@ import db.interfaces.IEntity;
 import handler.UiHandler;
 import javafx.collections.ObservableList;
 
+/**
+ * @author shaielb
+ *
+ * @param <TEntity>
+ */
 @SuppressWarnings({ "unchecked" })
 public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorator<TEntity> {
 
+	/**
+	 * 
+	 */
 	private List<IEntity> _entities = new ArrayList<IEntity>();
 
+	/**
+	 *
+	 */
 	@Override
 	protected void apply() {
 		_table.addColumn(UiHandler.createButtonColumn(
@@ -34,6 +45,10 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 				}));
 	}
 
+	/**
+	 * @param entities
+	 * @throws Exception
+	 */
 	public void setEntities(List<TEntity> entities) throws Exception {
 		ObservableList<TEntity> list = _table.getObservableList();
 		for (TEntity entity : entities) {
@@ -42,6 +57,9 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 		addAddRow();
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	private void addAddRow() throws Exception {
 		Class<TEntity> entityClass = _table.getEntityClass();
 		TEntity entity = entityClass.newInstance();
@@ -49,6 +67,9 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 		_table.getObservableList().add(entity);
 	}
 
+	/**
+	 * @return
+	 */
 	public List<IEntity> getEntities(){
 		return _entities;
 	}

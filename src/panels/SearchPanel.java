@@ -1,7 +1,9 @@
 package panels;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -27,12 +29,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import messages.Header.RequestType;
+import messages.QueryContainer;
 import messages.response.IResponseCallBack;
 import utilities.StringUtil;
 
+/**
+ * @author shaielb
+ *
+ * @param <TEntity>
+ */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("serial")
 	private Map<Class<?>, String[]> _signsMap = new HashMap<Class<?>, String[]>() {{
 		put(Number.class, new String[] {Comperators.NoFilter, Comperators.E, Comperators.Ne, 
@@ -43,16 +54,37 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 				Comperators.EndsWith});
 	}};
 
+	/**
+	 * 
+	 */
 	protected ActionControl _searchButton;
 
+	/**
+	 * 
+	 */
 	protected TEntity _searchEntity;
 
+	/**
+	 * 
+	 */
 	protected Map<String, String> _searchSigns = new HashMap<String, String>();
 
+	/**
+	 * @param entityClass
+	 * @param client
+	 * @param callback
+	 * @throws Exception
+	 */
 	public SearchPanel(Class<TEntity> entityClass, IClient client, IResponseCallBack callback) throws Exception {
 		initialize(entityClass, client, callback);
 	}
 
+	/**
+	 * @param entityClass
+	 * @param client
+	 * @param callback
+	 * @throws Exception
+	 */
 	public void initialize(Class<TEntity> entityClass, IClient client, IResponseCallBack callback) throws Exception {
 		_searchEntity = entityClass.newInstance();
 
@@ -62,9 +94,12 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		_searchButton.setClient(client);
 
 		FilterCapability filterCapability = new FilterCapability();
-		filterCapability.setQueryEntities(new HashMap<IEntity, Map<String, String>>() {{
-			put(_searchEntity, _searchSigns);
-		}});
+		List<QueryContainer> queryContainers = new ArrayList<QueryContainer>();
+		QueryContainer qc = new QueryContainer();
+		qc.setQueryEntity(_searchEntity);
+		qc.setQueryMap(_searchSigns);
+		queryContainers.add(qc);
+		filterCapability.setQueryContainers(queryContainers);
 
 		_searchButton.addCapability(filterCapability);
 		_searchButton.setCallback(callback);
@@ -72,6 +107,10 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		placeControls();
 	}
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	private GridPane createGridPane() throws Exception {
 		Map<String, ControlAdapter> map = UiHandler.createEntityControls(_searchEntity.getClass());
 
@@ -110,6 +149,9 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		return gridPane;
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	private void placeControls() throws Exception {
 		setPadding(new Insets(5, 5, 5, 5));
 
@@ -121,6 +163,11 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		setRight(_searchButton.getControl().getInstance());
 	}
 
+	/**
+	 * @param field
+	 * @param control
+	 * @return
+	 */
 	private ComboBox<String> createSignControl(Field field, ControlAdapter control) {
 		Class<?> type = field.getType();
 		if (Number.class.isAssignableFrom(type)) {
@@ -144,6 +191,9 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 		return signControl;
 	}
 
+	/**
+	 * 
+	 */
 	public void search() {
 		FilterCapability fc = _searchButton.getCapability(RequestType.Filter);
 		fc.filter();

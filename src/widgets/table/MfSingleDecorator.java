@@ -9,13 +9,27 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+/**
+ * @author shaielb
+ *
+ * @param <TEntity>
+ */
 @SuppressWarnings({ "unchecked" })
 public class MfSingleDecorator<TEntity extends IEntity> extends TableDecorator<TEntity> {
 
+	/**
+	 * 
+	 */
 	private ToggleGroup _toggleGroup = new ToggleGroup();
 
+	/**
+	 * 
+	 */
 	private IEntity _selectedEntity;
 
+	/**
+	 *
+	 */
 	@Override
 	protected void apply() {
 		MfRadioButton mfRb = new MfRadioButton();
@@ -30,6 +44,10 @@ public class MfSingleDecorator<TEntity extends IEntity> extends TableDecorator<T
 				}));
 	}
 
+	/**
+	 * @param entities
+	 * @throws Exception
+	 */
 	public void setEntities(List<TEntity> entities) throws Exception {
 		ObservableList<TEntity> list = _table.getObservableList();
 		for (TEntity entity : entities) {
@@ -37,6 +55,9 @@ public class MfSingleDecorator<TEntity extends IEntity> extends TableDecorator<T
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public IEntity getSelectedEntity() {
 		return _selectedEntity;
 	}

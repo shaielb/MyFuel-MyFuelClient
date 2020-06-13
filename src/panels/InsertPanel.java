@@ -20,19 +20,40 @@ import javafx.scene.layout.HBox;
 import messages.response.IResponseCallBack;
 import utilities.StringUtil;
 
+/**
+ * @author shaielb
+ *
+ * @param <TEntity>
+ */
 @SuppressWarnings("rawtypes")
 public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 
+	/**
+	 * 
+	 */
 	protected ActionControl _insertButton;
 
 	//protected MfButton _insertButton;
 
+	/**
+	 * 
+	 */
 	protected TEntity _insertEntity;
 
+	/**
+	 * @param entityClass
+	 * @param callback
+	 * @throws Exception
+	 */
 	public InsertPanel(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception {
 		initialize(entityClass, callback);
 	}
 
+	/**
+	 * @param entityClass
+	 * @param callback
+	 * @throws Exception
+	 */
 	public void initialize(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception {
 		_insertEntity = entityClass.newInstance();
 
@@ -48,6 +69,10 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 		placeControls();
 	}
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	private GridPane createGridPane() throws Exception {
 		Map<String, ControlAdapter> map = UiHandler.createEntityControls(_insertEntity.getClass());
 
@@ -80,6 +105,9 @@ public class InsertPanel<TEntity extends IEntity> extends BorderPane{
 		return gridPane;
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	private void placeControls() throws Exception {
 		setPadding(new Insets(5, 5, 5, 5));
 

@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import annotations.Table;
@@ -21,6 +20,7 @@ import db.services.Services;
 import globals.Globals;
 import handler.UiHandler;
 import messages.Header.RequestType;
+import messages.QueryContainer;
 import messages.Request;
 import messages.Response;
 import messages.request.ICollect;
@@ -43,11 +43,21 @@ import utilities.Cache;
  * @author Fran&ccedil;ois B&eacute;langer
  * @version July 2000
  */
+/**
+ * @author shaielb
+ *
+ */
 @SuppressWarnings("unchecked")
 public class Client extends AbstractClient implements IClient
 {
+	/**
+	 * 
+	 */
 	private Long _sourceId = 0l;
 
+	/**
+	 * 
+	 */
 	private ConcurrentHashMap<Long, ResponseEvent> _responseEvents = new ConcurrentHashMap<Long, ResponseEvent>();
 
 	//Constructors ****************************************************
@@ -59,6 +69,11 @@ public class Client extends AbstractClient implements IClient
 	 * @param port The port number to connect on.
 	 * @param clientUI The interface type variable.
 	 */
+	/**
+	 * @param host
+	 * @param port
+	 * @throws IOException
+	 */
 	public Client(String host, int port) 
 			throws IOException 
 	{
@@ -69,26 +84,44 @@ public class Client extends AbstractClient implements IClient
 	//Instance methods ************************************************
 
 	//Request methods ************************************************
+	/**
+	 *
+	 */
 	public IFilter getFilterRequest() {
 		return generateRequest(RequestType.Filter);
 	}
 
+	/**
+	 *
+	 */
 	public ICollect getCollectRequest() {
 		return generateRequest(RequestType.Collect);
 	}
 
+	/**
+	 *
+	 */
 	public IInsert getInsertRequest() {
 		return generateRequest(RequestType.Insert);
 	}
 
+	/**
+	 *
+	 */
 	public IUpdate getUpdateRequest() {
 		return generateRequest(RequestType.Update);
 	}
 
+	/**
+	 *
+	 */
 	public IRemove getRemoveRequest() {
 		return generateRequest(RequestType.Remove);
 	}
 
+	/**
+	 *
+	 */
 	public ResponseEvent sendRequest(IRequest request) throws IOException {
 		Request req = (Request) request;
 		// adding a response event to map
@@ -99,10 +132,10 @@ public class Client extends AbstractClient implements IClient
 		System.out.println("#############################################");
 		System.out.println(type);
 		if (type.equals(RequestType.Filter)) {
-			Map<IEntity, Map<String, String>> queryEntities = req.getQueryEntities();
-			for (Entry<IEntity, Map<String, String>> entry : queryEntities.entrySet()) {
-				System.out.println(entry.getKey());
-				Map<String, String> signs = entry.getValue();
+			List<QueryContainer> queryContainers = req.getQueryContainers();
+			for (QueryContainer entry : queryContainers) {
+				System.out.println(entry.getQueryEntity());
+				Map<String, String> signs = entry.getQueryMap();
 				for (String field : signs.keySet()) {
 					System.out.println("\t" + field + ": " + signs.get(field));
 				}
@@ -126,6 +159,9 @@ public class Client extends AbstractClient implements IClient
 	//End of Request Methods
 
 	// Cache ************************************************
+	/**
+	 *
+	 */
 	public <TEntity extends IEntity> void cacheEntityEnums(Class<TEntity> entityClass, IResponseCallBack callback) throws Exception {
 		List<String> enumTables = new ArrayList<String>();
 		UiHandler.iterateFields(entityClass, 
@@ -140,6 +176,9 @@ public class Client extends AbstractClient implements IClient
 		cacheTables(enumTables, callback);
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void cacheTables(Collection<String> tables, IResponseCallBack callback) throws IOException {
 		if (tables.size() > 0) {
@@ -156,7 +195,10 @@ public class Client extends AbstractClient implements IClient
 			});
 		}
 	}
-	
+
+	/**
+	 *
+	 */
 	@Override
 	public IEntity getEnum(String enumTable, String keyValue) {
 		Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
@@ -180,6 +222,9 @@ public class Client extends AbstractClient implements IClient
 	 * This method handles all data that comes in from the server.
 	 *
 	 * @param msg The message from the server.
+	 */
+	/**
+	 *
 	 */
 	@Override
 	public synchronized void handleMessageFromServer(Object msg) 
@@ -212,6 +257,10 @@ public class Client extends AbstractClient implements IClient
 	}
 	//End of Response Methods
 
+	/**
+	 * @param type
+	 * @return
+	 */
 	private Request generateRequest(RequestType type) {
 		Request request = new Request();
 		request.getHeader().setId((_sourceId + 1) > Long.MAX_VALUE ? 0 : _sourceId++);
@@ -219,6 +268,9 @@ public class Client extends AbstractClient implements IClient
 		return request;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	protected void connectionException(Exception exception) {
 		System.out.println(exception);
@@ -226,6 +278,9 @@ public class Client extends AbstractClient implements IClient
 
 	/**
 	 * This method terminates the client.
+	 */
+	/**
+	 * 
 	 */
 	public void quit()
 	{

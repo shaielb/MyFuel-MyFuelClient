@@ -8,17 +8,36 @@ import client.IClient;
 import messages.Header.RequestType;
 import messages.response.IResponseCallBack;
 
+/**
+ * @author shaielb
+ *
+ */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class ActionControl {
 
+	/**
+	 * 
+	 */
 	private Map<RequestType, CapabilityDecorator> _capabilities = new HashMap<RequestType, CapabilityDecorator>();
 
+	/**
+	 * 
+	 */
 	private IClient _client;
 
+	/**
+	 * 
+	 */
 	private IResponseCallBack _callback;
 
+	/**
+	 * 
+	 */
 	private ControlAdapter _control;
 
+	/**
+	 * @param capability
+	 */
 	public void addCapability(CapabilityDecorator capability) {
 		capability.set(_client);
 		capability.set(_callback);
@@ -26,6 +45,9 @@ public class ActionControl {
 		_capabilities.put(capability.getType(), capability);
 	}
 
+	/**
+	 * @param client
+	 */
 	public void setClient(IClient client) {
 		_client = client;
 		for (CapabilityDecorator capability: _capabilities.values()) {
@@ -33,6 +55,9 @@ public class ActionControl {
 		}
 	}
 
+	/**
+	 * @param callback
+	 */
 	public void setCallback(IResponseCallBack callback) {
 		_callback = callback;
 		for (CapabilityDecorator capability: _capabilities.values()) {
@@ -40,6 +65,9 @@ public class ActionControl {
 		}
 	}
 
+	/**
+	 * @param control
+	 */
 	public void setControl(ControlAdapter control) {
 		_control = control;
 		for (CapabilityDecorator capability: _capabilities.values()) {
@@ -47,10 +75,18 @@ public class ActionControl {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public ControlAdapter getControl() {
 		return _control;
 	}
 	
+	/**
+	 * @param <TCapability>
+	 * @param type
+	 * @return
+	 */
 	public <TCapability extends CapabilityDecorator> TCapability getCapability(RequestType type) {
 		return (TCapability) _capabilities.get(type);
 	}

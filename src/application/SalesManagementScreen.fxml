@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -33,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <BorderPane fx:id="uitable$editable$single$special_sales_enum" layoutX="247.0" layoutY="240.0" prefHeight="361.0" prefWidth="934.0" />
+      <BorderPane fx:id="uitable$editable$single$special_sales_enum" layoutX="252.0" layoutY="279.0" prefHeight="322.0" prefWidth="934.0" />
       <ImageView fx:id="action$update$special_sales_enum" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="178.0" layoutX="997.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resource/images/Commit_btn.png" />
@@ -58,6 +59,42 @@
       <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
          <font>
             <Font size="15.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$EditSalesScreen" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="178.0" layoutX="581.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/EditSale_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="935.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End sale:" wrappingWidth="99.74999999999977">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="712.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start sale:" wrappingWidth="115.77032089233387">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="table$special_sales_enum$special_sales_history$end_time" layoutX="1040.0" layoutY="238.0" prefHeight="26.0" prefWidth="97.0" promptText="23:59">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="table$special_sales_enum$special_sales_history$start_time" layoutX="825.0" layoutY="238.0" prefHeight="26.0" prefWidth="95.0" promptText="Current hour">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="504.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert sale time:" wrappingWidth="196.30364608764637">
+         <font>
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
    </children>

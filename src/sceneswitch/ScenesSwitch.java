@@ -1,50 +1,170 @@
 package sceneswitch;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import db.entity.SystemUser;
+import java.util.Set;
 
 import javafx.stage.Stage;
+import messages.request.IUpdate;
 import sceneswitch.SceneBase.ISceneSwitcher;
 import wrapper.*;
 import client.IClient;
+import db.interfaces.IEntity;
 
 public class ScenesSwitch {
 
+	private IClient _client;
+
+	private Context _context = new Context();
+
 	private Map<String, SceneBase> _scenesMap = new HashMap<String, SceneBase>();
+
+	private ISceneSwitcher _sceneSwitcher;
 	
 	public ScenesSwitch(Stage stage, IClient client) throws Exception {
-		ISceneSwitcher sceneSwitcher = (scenesName) -> { stage.setScene(_scenesMap.get(scenesName).getScene()); };
-		
-		_scenesMap.put("AboutUsScreen", new AboutUsScreen(sceneSwitcher, client));
-		_scenesMap.put("CustomerCharacterizationReportScreen", new CustomerCharacterizationReportScreen(sceneSwitcher, client));
-		_scenesMap.put("CustomerManagementScreen", new CustomerManagementScreen(sceneSwitcher, client));
-		_scenesMap.put("CustomerRatingScreen", new CustomerRatingScreen(sceneSwitcher, client));
-		_scenesMap.put("ExpenseReportScreen", new ExpenseReportScreen(sceneSwitcher, client));
-		_scenesMap.put("FastFuelingScreen", new FastFuelingScreen(sceneSwitcher, client));
-		_scenesMap.put("FuelThresholdLevelScreen", new FuelThresholdLevelScreen(sceneSwitcher, client));
-		_scenesMap.put("HomeHeatingNewOrderScreen", new HomeHeatingNewOrderScreen(sceneSwitcher, client));
-		_scenesMap.put("HomeHeatingOrderDetailsScreen", new HomeHeatingOrderDetailsScreen(sceneSwitcher, client));
-		_scenesMap.put("IncomeReportScreen", new IncomeReportScreen(sceneSwitcher, client));
-		_scenesMap.put("InventoryReportScreen", new InventoryReportScreen(sceneSwitcher, client));
-		_scenesMap.put("LogInScreen", new LogInScreen(sceneSwitcher, client));
-		_scenesMap.put("MainMenuCustomerScreen", new MainMenuCustomerScreen(sceneSwitcher, client));
-		_scenesMap.put("MainMenuMarketingScreen", new MainMenuMarketingScreen(sceneSwitcher, client));
-		_scenesMap.put("MainMenuMyFuelScreen", new MainMenuMyFuelScreen(sceneSwitcher, client));
-		_scenesMap.put("MainMenuStationManagerScreen", new MainMenuStationManagerScreen(sceneSwitcher, client));
-		_scenesMap.put("OrdersStationManagerScreen", new OrdersStationManagerScreen(sceneSwitcher, client));
-		_scenesMap.put("PricingModelMatchingScreen", new PricingModelMatchingScreen(sceneSwitcher, client));
-		_scenesMap.put("PurchasePlanMatchingScreen", new PurchasePlanMatchingScreen(sceneSwitcher, client));
-		_scenesMap.put("SaleReportScreen", new SaleReportScreen(sceneSwitcher, client));
-		_scenesMap.put("SalesManagementScreen", new SalesManagementScreen(sceneSwitcher, client));
-		_scenesMap.put("SetPriceScreen", new SetPriceScreen(sceneSwitcher, client));
-		_scenesMap.put("SignUpAddCarScreen", new SignUpAddCarScreen(sceneSwitcher, client));
-		_scenesMap.put("SignUpPaymentDetailsScreen", new SignUpPaymentDetailsScreen(sceneSwitcher, client));
-		_scenesMap.put("SignUpPersonalDetailsScreen", new SignUpPersonalDetailsScreen(sceneSwitcher, client));
-		_scenesMap.put("SupplyOrderConfirmationPopScreen", new SupplyOrderConfirmationPopScreen(sceneSwitcher, client));
-		_scenesMap.put("TrackMyOrderScreen", new TrackMyOrderScreen(sceneSwitcher, client));	}
+		_client = client;
+		_sceneSwitcher = (scenesName) -> {
+			stage.setScene(getScene(scenesName).getScene());
+		};
+	}
 
-	public SceneBase getScene(String key) {
-		return _scenesMap.get(key);
+	public void onClose() throws IOException {
+		SystemUser su = _context.getSystemUser();
+		if (su != null) {
+			su.setOnlineStatus(false);
+			IUpdate updateRequest = _client.getUpdateRequest();
+			Set<IEntity> set = new HashSet<IEntity>();
+			set.add(su);
+			updateRequest.setEntities(set);
+			_client.sendRequest(updateRequest);
+		}
+	}
+
+	public SceneBase getScene(String scenesName) {
+			SceneBase sb = _scenesMap.get(scenesName);
+			if (sb == null) {
+				try {
+					switch(scenesName) {
+					case "AboutUsScreen" : 
+						_scenesMap.put("AboutUsScreen", sb = new AboutUsScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "CustomerCharacterizationReportScreen" : 
+						_scenesMap.put("CustomerCharacterizationReportScreen", sb = new CustomerCharacterizationReportScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "CustomerManagementScreen" : 
+						_scenesMap.put("CustomerManagementScreen", sb = new CustomerManagementScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "CustomerRatingScreen" : 
+						_scenesMap.put("CustomerRatingScreen", sb = new CustomerRatingScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "EditSalesScreen" : 
+						_scenesMap.put("EditSalesScreen", sb = new EditSalesScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "ExpenseReportScreen" : 
+						_scenesMap.put("ExpenseReportScreen", sb = new ExpenseReportScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "FastFuelingScreen" : 
+						_scenesMap.put("FastFuelingScreen", sb = new FastFuelingScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "FuelThresholdLevelScreen" : 
+						_scenesMap.put("FuelThresholdLevelScreen", sb = new FuelThresholdLevelScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "HomeHeatingNewOrderScreen" : 
+						_scenesMap.put("HomeHeatingNewOrderScreen", sb = new HomeHeatingNewOrderScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "HomeHeatingOrderDetailsScreen" : 
+						_scenesMap.put("HomeHeatingOrderDetailsScreen", sb = new HomeHeatingOrderDetailsScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "IncomeReportScreen" : 
+						_scenesMap.put("IncomeReportScreen", sb = new IncomeReportScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "InventoryReportScreen" : 
+						_scenesMap.put("InventoryReportScreen", sb = new InventoryReportScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "LogInScreen" : 
+						_scenesMap.put("LogInScreen", sb = new LogInScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "MainMenuCustomerScreen" : 
+						_scenesMap.put("MainMenuCustomerScreen", sb = new MainMenuCustomerScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "MainMenuMarketingScreen" : 
+						_scenesMap.put("MainMenuMarketingScreen", sb = new MainMenuMarketingScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "MainMenuMyFuelScreen" : 
+						_scenesMap.put("MainMenuMyFuelScreen", sb = new MainMenuMyFuelScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "MainMenuStationManagerScreen" : 
+						_scenesMap.put("MainMenuStationManagerScreen", sb = new MainMenuStationManagerScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "OrdersStationManagerScreen" : 
+						_scenesMap.put("OrdersStationManagerScreen", sb = new OrdersStationManagerScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "PricingModelMatchingScreen" : 
+						_scenesMap.put("PricingModelMatchingScreen", sb = new PricingModelMatchingScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "PurchasePlanMatchingScreen" : 
+						_scenesMap.put("PurchasePlanMatchingScreen", sb = new PurchasePlanMatchingScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SaleReportScreen" : 
+						_scenesMap.put("SaleReportScreen", sb = new SaleReportScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SalesManagementScreen" : 
+						_scenesMap.put("SalesManagementScreen", sb = new SalesManagementScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SetPriceScreen" : 
+						_scenesMap.put("SetPriceScreen", sb = new SetPriceScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SignUpAddCarScreen" : 
+						_scenesMap.put("SignUpAddCarScreen", sb = new SignUpAddCarScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SignUpPaymentDetailsScreen" : 
+						_scenesMap.put("SignUpPaymentDetailsScreen", sb = new SignUpPaymentDetailsScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SignUpPersonalDetailsScreen" : 
+						_scenesMap.put("SignUpPersonalDetailsScreen", sb = new SignUpPersonalDetailsScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "SupplyOrderConfirmationPopScreen" : 
+						_scenesMap.put("SupplyOrderConfirmationPopScreen", sb = new SupplyOrderConfirmationPopScreen(_sceneSwitcher, _client, _context));
+						break;
+
+					case "TrackMyOrderScreen" : 
+						_scenesMap.put("TrackMyOrderScreen", sb = new TrackMyOrderScreen(_sceneSwitcher, _client, _context));
+						break;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		return sb;
 	}
 }
 

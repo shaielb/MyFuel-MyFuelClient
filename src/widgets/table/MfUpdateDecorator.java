@@ -10,22 +10,47 @@ import client.IClient;
 import db.interfaces.IEntity;
 import table.MfTable;
 
+/**
+ * @author shaielb
+ *
+ * @param <TEntity>
+ */
 @SuppressWarnings({ "rawtypes" })
 public class MfUpdateDecorator<TEntity extends IEntity> extends TableDecorator<TEntity> {
 
+	/**
+	 * 
+	 */
 	protected ActionControl _updateAction;
 
+	/**
+	 * 
+	 */
 	private IClient _client;
 
+	/**
+	 * 
+	 */
 	private Set<IEntity> _updateEntities = new HashSet<IEntity>();
 
+	/**
+	 * 
+	 */
 	private Set<ControlAdapter> _updateControls = new HashSet<ControlAdapter>();
 
+	/**
+	 * @param table
+	 * @param client
+	 * @throws Exception
+	 */
 	public void setTable(MfTable<TEntity> table, IClient client) throws Exception {
 		_client = client;
 		super.setTable(table);
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	protected void apply() {
 		_updateAction = new ActionControl();
@@ -54,6 +79,9 @@ public class MfUpdateDecorator<TEntity extends IEntity> extends TableDecorator<T
 		});
 	}
 
+	/**
+	 * 
+	 */
 	protected void clearUpdate() {
 		_updateEntities.clear();
 		for (ControlAdapter control : _updateControls) {
@@ -63,6 +91,9 @@ public class MfUpdateDecorator<TEntity extends IEntity> extends TableDecorator<T
 		_updateAction.getControl().getInstance().setDisable(true);
 	}
 
+	/**
+	 * @return
+	 */
 	public ActionControl getUpdateAction() {
 		return _updateAction;
 	}

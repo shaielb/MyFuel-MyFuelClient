@@ -7,27 +7,61 @@ import javafx.scene.Scene;
 
 @SuppressWarnings("rawtypes")
 public class SceneBase {
-
+	
+	/**
+	 * @author shaielb
+	 *
+	 */
 	public interface ISceneSwitcher {
 		public void switchScene(String sceneName);
 	}
 	
+	/**
+	 * 
+	 */
 	protected Scene _scene;
 	
+	/**
+	 * 
+	 */
 	protected IEntity _entity;
 	
+	/**
+	 * 
+	 */
 	protected ISceneSwitcher _switcher;
 	
+	/**
+	 * 
+	 */
 	protected IClient _client;
 	
-	protected SceneBase(ISceneSwitcher sceneSwitcher, IClient client) throws Exception {
+	/**
+	 * 
+	 */
+	protected Context _context;
+	
+	/**
+	 * @param sceneSwitcher
+	 * @param client
+	 * @param context
+	 * @throws Exception
+	 */
+	protected SceneBase(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		_switcher = sceneSwitcher;
 		_client = client;
+		_context = context;
 		initialize();
 	}
 	
+	/**
+	 * @throws Exception
+	 */
 	public void initialize() throws Exception {}
 	
+	/**
+	 * @param adapters
+	 */
 	protected void groupControls(ControlAdapter[] adapters) {
 		for (ControlAdapter adapter1 : adapters) {
 			for (ControlAdapter adapter2 : adapters) {
@@ -44,14 +78,23 @@ public class SceneBase {
 		}
 	}
 	
+	/**
+	 * @return
+	 */
 	public Scene getScene() {
 		return _scene;
 	}
 	
+	/**
+	 * @return
+	 */
 	public IEntity getEntity() {
 		return _entity;
 	}
 	
+	/**
+	 * @param switcher
+	 */
 	public void setSceneSwitcher(ISceneSwitcher switcher) {
 		_switcher = switcher;
 	}

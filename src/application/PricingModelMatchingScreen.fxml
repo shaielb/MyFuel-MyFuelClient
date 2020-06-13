@@ -92,10 +92,5 @@
          </font>
       </Text>
       <Text fx:id="table$customer$person$last_name" layoutX="503.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="44.0" />
-      <ImageView fx:id="action$collect$customer" fitHeight="30.0" fitWidth="93.0" layoutX="631.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/images/Search_btn.png" />
-         </image>
-      </ImageView>
    </children>
 </Pane>

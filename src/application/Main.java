@@ -15,27 +15,39 @@ import javafx.stage.WindowEvent;
 import sceneswitch.ScenesSwitch;
 
 
+/**
+ * @author shaielb
+ *
+ */
 public class Main extends Application {
 
+	/**
+	 * 
+	 */
 	private IClient _client;
 
+	/**
+	 *
+	 */
 	@Override
 	public void start(Stage stage) {
 		try {
 			Services.initialize();
-			stage.setTitle("Employee Details");
+			stage.setTitle("MyFuel");
+			_client = new Client("localhost", 5555);
+			
+			ScenesSwitch sceneSwitch = new ScenesSwitch(stage, _client);
 			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			    @Override
 			    public void handle(WindowEvent event) {
 			        try {
+			        	sceneSwitch.onClose();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 			    }
 			});
-
-			_client = new Client("localhost", 5555);
 
 			Set<String> tables = Services.getTables();
 			List<String> list = new ArrayList<String>();
@@ -56,7 +68,6 @@ public class Main extends Application {
 
 			//Parent root = FXMLLoader.load(getClass().getResource("CustomerCharacterizationReportScreen.fxml"));
 
-			ScenesSwitch sceneSwitch = new ScenesSwitch(stage, _client);
 			Scene scene = sceneSwitch.getScene("LogInScreen").getScene();
 
 			//Parent root = FXMLLoader.load(getClass().getResource("HomeHeatingTrack.fxml"));
@@ -73,6 +84,9 @@ public class Main extends Application {
 
 
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
