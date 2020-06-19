@@ -2,8 +2,10 @@ package client;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 import db.interfaces.IEntity;
+import messages.Header.RequestType;
 import messages.request.ICollect;
 import messages.request.IFilter;
 import messages.request.IInsert;
@@ -42,6 +44,16 @@ public interface IClient {
 	 * @return
 	 */
 	public IRemove getRemoveRequest();
+	
+	/**
+	 * @return
+	 */
+	public IFilter getLoginRequest();
+	
+	/**
+	 * @return
+	 */
+	public IRequest getRequest(RequestType requestType);
 
 	/**
 	 * @param request
@@ -71,4 +83,18 @@ public interface IClient {
 	 * @return
 	 */
 	public IEntity getEnum(String enumTable, String keyValue);
+	
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
+	public List<? extends IEntity> getEnum(Class<? extends IEntity> enumClass);
+	
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
+	public <TEntity extends IEntity> TEntity getEnum(Class<TEntity> enumClass, String keyValue);
 }

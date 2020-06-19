@@ -5,12 +5,14 @@ import application.Main;
 import client.IClient;
 import controls.MfImageView;
 import db.entity.StationSupplyOrder;
+import db.interfaces.IEntity;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfSingleDecorator;
@@ -28,9 +30,9 @@ public class OrdersStationManagerScreen extends SceneBase {
 
 	public OrdersStationManagerScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("OrdersStationManagerScreen.fxml"));
 		_scene = new Scene(root);
@@ -43,7 +45,9 @@ public class OrdersStationManagerScreen extends SceneBase {
 		_supplyOrderConfirmPopScreenControl.addEvent((event) -> { _switcher.switchScene("SupplyOrderConfirmPopScreen"); });
 
 		//entities instantiation
-		_stationSupplyOrder = new StationSupplyOrder();
+		if (_stationSupplyOrder == null) {
+			_stationSupplyOrder = new StationSupplyOrder();
+		}
 
 		//tables instantiation
 		BorderPane stationSupplyOrderBp = (BorderPane) _scene.lookup("#uitable$noneditable$single$station_supply_order");
@@ -56,6 +60,16 @@ public class OrdersStationManagerScreen extends SceneBase {
 		stationSupplyOrderBp.setCenter(_stationSupplyOrderTable);
 
 
+	}
+
+	@Override
+	protected void onLoad() {
+		
+	}
+
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
 	}
 
 

@@ -34,17 +34,12 @@
          </cursor>
       </ImageView>
       <BorderPane fx:id="uitable$editable$addremove$special_sales_enum" layoutX="255.0" layoutY="280.0" prefHeight="322.0" prefWidth="921.0" />
-      <Text layoutX="148.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Managment --&gt;" wrappingWidth="154.3604278564453">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
       <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="300.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Sales">
+      <Text layoutX="149.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Sales">
          <font>
             <Font size="15.0" />
          </font>
@@ -54,11 +49,6 @@
             <Font name="Constantia" size="22.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$SalesManagementScreen" fitHeight="43.0" fitWidth="137.0" layoutX="888.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resource/images/Back_btn.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="action$update$special_sales_enum" accessibleRole="BUTTON" fitHeight="43.0" fitWidth="150.0" layoutX="1028.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/Commit_btn.png" />

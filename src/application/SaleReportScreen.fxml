@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale Report" wrappingWidth="399.4701232910156">
@@ -28,7 +28,7 @@
       </Text>
       <ImageView fx:id="scene$MaimMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -46,7 +46,7 @@
       </Text>
       <ImageView fx:id="scene$SalesManagmentScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1045.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Back_btn.png" />
+            <Image url="@resource/images/Back_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -72,7 +72,7 @@
       <DatePicker fx:id="table$special_sales_enum$fueling_purchase$date_time$$$dt" layoutX="735.0" layoutY="247.0" prefHeight="25.0" prefWidth="110.0" />
       <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1043.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MakeAReport_btn.png" />
+            <Image url="@resource/images/MakeAReport_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

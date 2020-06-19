@@ -6,6 +6,7 @@ import java.util.Map;
 import adapter.base.ControlAdapter;
 import client.IClient;
 import messages.Header.RequestType;
+import messages.response.IPreSendRequest;
 import messages.response.IResponseCallBack;
 
 /**
@@ -29,6 +30,11 @@ public class ActionControl {
 	 * 
 	 */
 	private IResponseCallBack _callback;
+
+	/**
+	 * 
+	 */
+	private IPreSendRequest _preSendRequest;
 
 	/**
 	 * 
@@ -65,6 +71,13 @@ public class ActionControl {
 		}
 	}
 
+	public void setPreSend(IPreSendRequest preSendRequest) {
+		_preSendRequest = preSendRequest;
+		for (CapabilityDecorator capability: _capabilities.values()) {
+			capability.set(preSendRequest);
+		}
+	}
+
 	/**
 	 * @param control
 	 */
@@ -81,7 +94,7 @@ public class ActionControl {
 	public ControlAdapter getControl() {
 		return _control;
 	}
-	
+
 	/**
 	 * @param <TCapability>
 	 * @param type

@@ -9,14 +9,6 @@ import javafx.scene.Scene;
 public class SceneBase {
 	
 	/**
-	 * @author shaielb
-	 *
-	 */
-	public interface ISceneSwitcher {
-		public void switchScene(String sceneName);
-	}
-	
-	/**
 	 * 
 	 */
 	protected Scene _scene;
@@ -41,6 +33,8 @@ public class SceneBase {
 	 */
 	protected Context _context;
 	
+	protected IEntity[] _entitiesParameters;
+	
 	/**
 	 * @param sceneSwitcher
 	 * @param client
@@ -51,8 +45,9 @@ public class SceneBase {
 		_switcher = sceneSwitcher;
 		_client = client;
 		_context = context;
-		initialize();
 	}
+	
+	protected void onLoad() throws Exception {}
 	
 	/**
 	 * @throws Exception
@@ -76,6 +71,10 @@ public class SceneBase {
 				}
 			}
 		}
+	}
+	
+	public void setParameters(IEntity[] entities) {
+		_entitiesParameters = entities;
 	}
 	
 	/**

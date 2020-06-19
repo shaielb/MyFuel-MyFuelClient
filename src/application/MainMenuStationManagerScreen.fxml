@@ -13,17 +13,17 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station Manager Main Menu" wrappingWidth="617.0384521484375">
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu" wrappingWidth="617.0384521484375">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
       <ImageView fx:id="scene$FuelThresholdLevelScreen" accessibleRole="BUTTON" fitHeight="337.0" fitWidth="318.0" layoutX="228.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/FuelThresholdLevel_btn.jpg" />
+            <Image url="@resource/images/FuelThresholdLevel_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -34,7 +34,7 @@
       </ImageView>
       <ImageView fx:id="scene$OrdersStationManagerScreen" accessibleRole="BUTTON" fitHeight="336.0" fitWidth="322.0" layoutX="879.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/FuelOrderManagement_btn.jpg" />
+            <Image url="@resource/images/FuelOrderManagement_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -53,22 +53,9 @@
             <InnerShadow />
          </effect>
       </Separator>
-      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="86.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resource/images/LogOut_btn.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <Text fontSmoothingType="LCD" layoutX="63.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
       <ImageView fx:id="scene$InventoryReportScreen" accessibleRole="BUTTON" fitHeight="112.0" fitWidth="323.0" layoutX="550.0" layoutY="293.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/inventory_btn.png" />
+            <Image url="@resource/images/inventory_btn.png" />
          </image>
          <effect>
             <InnerShadow />
@@ -79,7 +66,7 @@
       </ImageView>
       <ImageView fx:id="scene$IncomeReportScreen" accessibleRole="BUTTON" fitHeight="115.0" fitWidth="323.0" layoutX="550.0" layoutY="406.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/IncomeReports_btn.jpg.png" />
+            <Image url="@resource/images/IncomeReports_btn.jpg.png" />
          </image>
          <effect>
             <InnerShadow />
@@ -90,7 +77,7 @@
       </ImageView>
       <ImageView fx:id="scene$ExpenseReportScreen" accessibleRole="BUTTON" fitHeight="130.0" fitWidth="341.0" layoutX="542.0" layoutY="509.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ExpenseReports_btn.png" />
+            <Image url="@resource/images/ExpenseReports_btn.png" />
          </image>
          <effect>
             <InnerShadow />
@@ -98,6 +85,34 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="72.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/LogOut_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="65.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="54.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="context$employee$first_name" layoutX="132.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="90.2666015625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="21.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/UserIcon.png" />
+         </image>
       </ImageView>
    </children>
 </Pane>

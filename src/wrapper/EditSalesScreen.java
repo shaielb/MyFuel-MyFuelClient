@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfAddremoveDecorator;
@@ -30,15 +31,14 @@ public class EditSalesScreen extends SceneBase {
 	private MfImageView _mainMenuMarketingScreenControl;
 	private Table<SpecialSalesEnum> _specialSalesEnumTableWrapper;
 	private MfTable<SpecialSalesEnum> _specialSalesEnumTable;
-	private MfImageView _salesManagementScreenControl;
 	private MfImageView _updateSpecialSalesEnumControl;
 	private ActionControl _specialSalesEnumupdateAction;
 
 	public EditSalesScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("EditSalesScreen.fxml"));
 		_scene = new Scene(root);
@@ -47,11 +47,10 @@ public class EditSalesScreen extends SceneBase {
 		_mainMenuMarketingScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$MainMenuMarketingScreen"));
 		_mainMenuMarketingScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuMarketingScreen"); });
 
-		_salesManagementScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$SalesManagementScreen"));
-		_salesManagementScreenControl.addEvent((event) -> { _switcher.switchScene("SalesManagementScreen"); });
-
 		//entities instantiation
-		_specialSalesEnum = new SpecialSalesEnum();
+		if (_specialSalesEnum == null) {
+			_specialSalesEnum = new SpecialSalesEnum();
+		}
 
 		//tables instantiation
 		BorderPane specialSalesEnumBp = (BorderPane) _scene.lookup("#uitable$editable$addremove$special_sales_enum");
@@ -65,6 +64,8 @@ public class EditSalesScreen extends SceneBase {
 
 		//initializations
 		_updateSpecialSalesEnumControl = new MfImageView((ImageView) _scene.lookup("#action$update$special_sales_enum"));
+		_updateSpecialSalesEnumControl.
+			setMouseImages("@resource/images/Commit_btn.png", "@resource/images/Commit_overbtn.png", "@resource/images/Commit_clickbtn.png");
 		_specialSalesEnumupdateAction = new ActionControl();
 		_specialSalesEnumupdateAction.setControl(_updateSpecialSalesEnumControl);
 		UpdateCapability specialSalesEnumUpdateCapability = new UpdateCapability();
@@ -72,11 +73,25 @@ public class EditSalesScreen extends SceneBase {
 		specialSalesEnumUpdateCapability.setEntities(specialSalesEnumUpdateEntities);
 		_specialSalesEnumupdateAction.addCapability(specialSalesEnumUpdateCapability);
 		_specialSalesEnumupdateAction.setClient(_client);
+		_specialSalesEnumupdateAction.setPreSend((request) -> {
+
+			return true;
+		});
 		_specialSalesEnumupdateAction.setCallback((response) -> {
 			
 		});
 
 
+	}
+
+	@Override
+	protected void onLoad() {
+		
+	}
+
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
 	}
 
 

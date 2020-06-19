@@ -41,7 +41,7 @@ public class Main extends Application {
 			    @Override
 			    public void handle(WindowEvent event) {
 			        try {
-			        	sceneSwitch.onClose();
+			        	sceneSwitch.logout();
 						System.exit(0);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -68,7 +68,9 @@ public class Main extends Application {
 
 			//Parent root = FXMLLoader.load(getClass().getResource("CustomerCharacterizationReportScreen.fxml"));
 
-			Scene scene = sceneSwitch.getScene("LogInScreen").getScene();
+			Scene scene = sceneSwitch.getScene("CustomerCharacterizationReportScreen").getScene();
+			//Scene scene = sceneSwitch.getScene("SignUpAddCarScreen").getScene();
+			//Scene scene = sceneSwitch.getScene("CustomerManagementScreen").getScene();
 
 			//Parent root = FXMLLoader.load(getClass().getResource("HomeHeatingTrack.fxml"));
 

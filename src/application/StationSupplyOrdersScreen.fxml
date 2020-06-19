@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/BackGround.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuSupplierScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/ReturnMain_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back To Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="148.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station Supply Orders">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="43.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="310.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station Supply Orders">
+         <font>
+            <Font name="Constantia Bold Italic" size="48.0" />
+         </font>
+      </Text>
+      <BorderPane fx:id="uitable$editable$single$station_supply_order" layoutX="250.0" layoutY="241.0" prefHeight="368.0" prefWidth="926.0" />
+      <ImageView fx:id="action$update$station_supply_order" fitHeight="43.0" fitWidth="126.0" layoutX="1061.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/Done_btn.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

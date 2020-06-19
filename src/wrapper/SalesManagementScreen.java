@@ -1,6 +1,14 @@
 package wrapper;
 
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import action.ActionControl;
@@ -10,16 +18,24 @@ import application.Main;
 import client.IClient;
 import controls.MfImageView;
 import controls.MfTextField;
+import db.entity.FuelCompanyEnum;
 import db.entity.SpecialSalesEnum;
 import db.entity.SpecialSalesHistory;
 import db.interfaces.IEntity;
+import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import messages.QueryContainer;
+import messages.request.IFilter;
+import messages.request.IInsert;
+import messages.response.ResponseEvent;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfSingleDecorator;
@@ -37,15 +53,16 @@ public class SalesManagementScreen extends SceneBase {
 	private MfImageView _updateSpecialSalesEnumControl;
 	private ActionControl _specialSalesEnumupdateAction;
 	private MfImageView _saleReportScreenControl;
-	private MfImageView _editSalesScreenControl;
 	private MfTextField _endTimeControl;
 	private MfTextField _startTimeControl;
+	
+	private MfSingleDecorator<SpecialSalesEnum> _specialSalesEnumSingleDecorator;
 
 	public SalesManagementScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("SalesManagementScreen.fxml"));
 		_scene = new Scene(root);
@@ -55,14 +72,15 @@ public class SalesManagementScreen extends SceneBase {
 		_mainMenuMarketingScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuMarketingScreen"); });
 
 		_saleReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$SaleReportScreen"));
-		_saleReportScreenControl.addEvent((event) -> { _switcher.switchScene("SaleReportScreen"); });
-
-		_editSalesScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$EditSalesScreen"));
-		_editSalesScreenControl.addEvent((event) -> { _switcher.switchScene("EditSalesScreen"); });
+		_saleReportScreenControl.addEvent((event) -> { _switcher.switchScene("SaleReportScreen", _specialSalesEnumSingleDecorator.getSelectedEntity()); });
 
 		//entities instantiation
-		_specialSalesEnum = new SpecialSalesEnum();
-		_specialSalesHistory = new SpecialSalesHistory();
+		if (_specialSalesEnum == null) {
+			_specialSalesEnum = new SpecialSalesEnum();
+		}
+		if (_specialSalesHistory == null) {
+			_specialSalesHistory = new SpecialSalesHistory();
+		}
 
 		//entities assignments
 		_specialSalesHistory.setSpecialSalesEnum(_specialSalesEnum);
@@ -74,15 +92,17 @@ public class SalesManagementScreen extends SceneBase {
 		//tables instantiation
 		BorderPane specialSalesEnumBp = (BorderPane) _scene.lookup("#uitable$editable$single$special_sales_enum");
 		_specialSalesEnumTableWrapper = new Table<SpecialSalesEnum>();
-		_specialSalesEnumTable = new MfTable<SpecialSalesEnum>(SpecialSalesEnum.class);
-		_specialSalesEnumTable.setEditable(true);
-		MfSingleDecorator<SpecialSalesEnum> specialSalesEnumSingleDecorator = new MfSingleDecorator<SpecialSalesEnum>();
-		_specialSalesEnumTableWrapper.addDecorator(specialSalesEnumSingleDecorator);
+		_specialSalesEnumTable = new MfTable<SpecialSalesEnum>(SpecialSalesEnum.class, false);
+		_specialSalesEnumTable.setEditable(false);
+		_specialSalesEnumSingleDecorator = new MfSingleDecorator<SpecialSalesEnum>();
+		_specialSalesEnumTableWrapper.addDecorator(_specialSalesEnumSingleDecorator);
 		_specialSalesEnumTableWrapper.setTable(_specialSalesEnumTable);
 		specialSalesEnumBp.setCenter(_specialSalesEnumTable);
 
 		//initializations
 		_updateSpecialSalesEnumControl = new MfImageView((ImageView) _scene.lookup("#action$update$special_sales_enum"));
+		_updateSpecialSalesEnumControl.
+			setMouseImages("@resource/images/Commit_btn.png", "@resource/images/Commit_overbtn.png", "@resource/images/Commit_clickbtn.png");
 		_specialSalesEnumupdateAction = new ActionControl();
 		_specialSalesEnumupdateAction.setControl(_updateSpecialSalesEnumControl);
 		UpdateCapability specialSalesEnumUpdateCapability = new UpdateCapability();
@@ -90,8 +110,36 @@ public class SalesManagementScreen extends SceneBase {
 		specialSalesEnumUpdateCapability.setEntities(specialSalesEnumUpdateEntities);
 		_specialSalesEnumupdateAction.addCapability(specialSalesEnumUpdateCapability);
 		_specialSalesEnumupdateAction.setClient(_client);
-		_specialSalesEnumupdateAction.setCallback((response) -> {
+		_specialSalesEnumupdateAction.setPreSend((request) -> {
+			SpecialSalesEnum sse = (SpecialSalesEnum) _specialSalesEnumSingleDecorator.getSelectedEntity();
+			sse.setActiveSale(true);
+			specialSalesEnumUpdateEntities.add(sse);
+			System.out.println();
 			
+			IInsert insertRequest = _client.getInsertRequest();
+			insertRequest.addEntity(_specialSalesHistory);
+			try {
+				ResponseEvent responseEvent = _client.sendRequest(insertRequest);
+				responseEvent.continueWith((response) -> {
+					if (response.isPassed()) {
+						UiHandler.showAlert(AlertType.INFORMATION, "Sale Update", "", "Sale Was Updated Successfuly");
+					}
+					else {
+						UiHandler.showAlert(AlertType.ERROR, "Sale Update", "", response.getDescription());
+					}
+				});
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return true;
+		});
+		_specialSalesEnumupdateAction.setCallback((response) -> {
+			if (response.isPassed()) {
+				_specialSalesEnumTable.update();
+			}
+			else {
+				UiHandler.showAlert(AlertType.ERROR, "Sale Update", "", response.getDescription());
+			}
 		});
 
 		//fields initializations
@@ -100,8 +148,60 @@ public class SalesManagementScreen extends SceneBase {
 
 		_startTimeControl.setField(_specialSalesHistory.getClass().getDeclaredField("_start_time"));
 		_startTimeControl.setEntity(_specialSalesHistory);
+	}
 
+	@Override
+	protected void onLoad() throws Exception {
+		IFilter filterRequest = _client.getFilterRequest();
+		QueryContainer qc = new QueryContainer();
+		qc.setQueryEntity(_specialSalesEnum);
+		Map<String, String> queryMap = new HashMap<String, String>();
+		
+		FuelCompanyEnum fce = null;//_context.getEmployee().getFuelCompanyEnum();
+		if (fce != null) {
+			queryMap.put("fuel_company_enum_fk", "=");
+			_specialSalesEnum.setFuelCompanyEnum(_context.getEmployee().getFuelCompanyEnum());
+		}
+		filterRequest.addQueryContainer(qc);
+		
+		try {
+			ResponseEvent responseEvent = _client.sendRequest(filterRequest);
+			responseEvent.continueWith((response) -> {
+				if (response.isPassed()) {
+					List<SpecialSalesEnum> list = new ArrayList<SpecialSalesEnum>();
+					for (IEntity entity : response.getEntities()) {
+						list.add((SpecialSalesEnum) entity);
+					}
+					_specialSalesEnumTable.setRows(list);
+				}
+			});
+			
+			Date dt = new Date();
+			Calendar c = Calendar.getInstance(); 
+			c.setTime(dt);
+			c.add(Calendar.DATE, 0);
+			c.set(Calendar.HOUR_OF_DAY, 0);            // set hour to midnight
+			c.set(Calendar.MINUTE, 0);                 // set minute in hour
+			c.set(Calendar.SECOND, 0);                 // set second in minute
+			c.set(Calendar.MILLISECOND, 0); 
+			dt = c.getTime();
+			
+			Timestamp timestampStart = new Timestamp(dt.getTime());
+			c.add(Calendar.DATE, 1);
+			Timestamp timestampEnd = new Timestamp(dt.getTime());
+			_specialSalesHistory.setStartTime(timestampStart);
+			_specialSalesHistory.setEndTime(timestampEnd);
+			
+			_endTimeControl.update();
+			_startTimeControl.update();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
 	}
 
 

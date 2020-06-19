@@ -3,6 +3,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,22 +13,22 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
          <viewport>
             <Rectangle2D width="127.0" />
          </viewport>
       </ImageView>
-      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketing Main Menu ">
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu ">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$PricingModelMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$SignUpPersonalDetailsScreen" accessibleRole="BUTTON" fitHeight="205.0" fitWidth="338.0" layoutX="315.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/PricingModelUpdate_btn.jpg" />
+            <Image url="@resource/images/SignUp_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -36,9 +37,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$CustomerManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$PricingModelMatchingScreen" accessibleRole="BUTTON" fitHeight="205.0" fitWidth="338.0" layoutX="811.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/CustomerManagement_btn.jpg" />
+            <Image url="@resource/images/PricingModelUpdate_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -47,9 +48,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$SalesManagementScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$PurchasePlanMatchingScreen" accessibleRole="BUTTON" fitHeight="205.0" fitWidth="338.0" layoutX="315.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/SalesManagement_btn.jpg" />
+            <Image url="@resource/images/PurchasePlanUpdate_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -58,9 +59,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$SignUpPersonalDetailsScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="228.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$CustomerManagementScreen" accessibleRole="BUTTON" fitHeight="205.0" fitWidth="338.0" layoutX="811.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/SignUp_btn.jpg" />
+            <Image url="@resource/images/CustomerManagement_btn.jpg" />
          </image>
          <effect>
             <InnerShadow />
@@ -69,55 +70,51 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$PurchasePlanMatchingScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="555.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+      <Separator layoutX="689.0" layoutY="230.0" orientation="VERTICAL" prefHeight="440.0" prefWidth="57.0" />
+      <Separator layoutX="313.0" layoutY="434.0" prefHeight="20.0" prefWidth="806.0" />
+      <ImageView disable="true" fitHeight="60.0" fitWidth="60.0" layoutX="649.0" layoutY="166.0" opacity="0.37" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@../../resource/images/PurchasePlanUpdate_btn.jpg" />
+            <Image url="@resource/images/NextPage_btn.png" />
          </image>
-         <effect>
-            <InnerShadow />
-         </effect>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuMarketingNextScreen" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="60.0" layoutX="728.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/NextPage_btn.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <effect>
+            <Blend />
+         </effect>
       </ImageView>
-      <ImageView fx:id="scene$SetPriceScreen" accessibleRole="BUTTON" fitHeight="212.0" fitWidth="322.0" layoutX="879.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="72.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/RateUpdate_btn.jpg" />
-         </image>
-         <effect>
-            <InnerShadow />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <Separator disable="true" layoutX="225.0" layoutY="438.0" prefHeight="20.0" prefWidth="976.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Separator>
-      <Separator layoutX="550.0" layoutY="223.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="3.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Separator>
-      <Separator disable="true" layoutX="875.0" layoutY="224.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="3.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Separator>
-      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="76.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resource/images/LogOut_btn.png" />
+            <Image url="@resource/images/LogOut_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Text fontSmoothingType="LCD" layoutX="53.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+      <Text fontSmoothingType="LCD" layoutX="65.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <Text layoutX="53.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="context$person$first_name" layoutX="131.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="93.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="20.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/UserIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

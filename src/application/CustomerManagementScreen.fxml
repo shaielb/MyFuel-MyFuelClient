@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers Management">
@@ -25,7 +25,7 @@
       <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
       <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -36,11 +36,11 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="table$customer$customer_id" layoutX="271.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
-      <BorderPane fx:id="uitable$editable$multi$customer" layoutX="243.0" layoutY="282.0" prefHeight="322.0" prefWidth="947.0" />
-      <ImageView fx:id="scene$CustomerCharacterizationReportScreen" fitHeight="150.0" fitWidth="350.0" layoutX="826.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="table$customers_view$id" layoutX="271.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+      <BorderPane fx:id="uitable$noneeditable$single$customers_view" layoutX="243.0" layoutY="282.0" prefHeight="322.0" prefWidth="947.0" />
+      <ImageView fx:id="scene$UpdatePersonalDetailsScreen" fitHeight="53.0" fitWidth="176.0" layoutX="989.0" layoutY="615.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/GenerateCharacterization_btn.png" />
+            <Image url="@resource/images/edit_btn.png" />
          </image>
       </ImageView>
       <Text layoutX="245.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="35.457275390625">
@@ -48,27 +48,27 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="table$customer$person$first_name" layoutX="483.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField fx:id="table$customers_view$first_name" layoutX="483.0" layoutY="238.0" prefHeight="26.0" prefWidth="116.0" />
       <Text layoutX="393.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="115.77032089233398">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="table$customer$person$last_name" layoutX="693.0" layoutY="239.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField fx:id="table$customers_view$last_name" layoutX="693.0" layoutY="239.0" prefHeight="26.0" prefWidth="116.0" />
       <Text layoutX="605.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="111.38085937500023">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="table$customer$person$phone_number" layoutX="942.0" layoutY="240.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField fx:id="table$customers_view$phone_number" layoutX="942.0" layoutY="240.0" prefHeight="26.0" prefWidth="116.0" />
       <Text layoutX="817.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="142.31427001953148">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <ImageView fx:id="action$collect$customer" fitHeight="140.0" fitWidth="90.0" layoutX="1082.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="action$collect$customers_view" fitHeight="140.0" fitWidth="90.0" layoutX="1082.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Search_btn.png" />
+            <Image url="@resource/images/Search_btn.png" />
          </image>
       </ImageView>
       <Text layoutX="147.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers Management" wrappingWidth="193.8270721435547">

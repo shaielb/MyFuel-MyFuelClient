@@ -50,8 +50,10 @@ public class CollectCapability extends CapabilityDecorator {
 		ICollect request = _client.getCollectRequest();
 		request.setTables(_tables);
 		try {
-			ResponseEvent responseEvent = _client.sendRequest(request);
-			responseEvent.continueWith(_callback);
+			if (_preSendRequest.execute(request)) {
+				ResponseEvent responseEvent = _client.sendRequest(request);
+				responseEvent.continueWith(_callback);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

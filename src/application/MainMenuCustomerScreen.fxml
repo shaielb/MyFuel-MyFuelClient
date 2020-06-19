@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,17 +13,17 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Main Menu ">
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu ">
          <font>
-            <Font name="Constantia" size="48.0" />
+            <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
       <ImageView fx:id="scene$HomeHeatingNewOrderScreen" accessibleRole="BUTTON" fitHeight="377.0" fitWidth="377.0" layoutX="288.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/HomeHeating_btn.jpg" />
+            <Image url="@resource/images/HomeHeating_btn.jpg" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -33,7 +34,7 @@
       </ImageView>
       <ImageView fx:id="scene$TrackMyOrderScreen" accessibleRole="BUTTON" fitHeight="377.0" fitWidth="377.0" layoutX="742.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/TrackMyOrder_btn.jpg" />
+            <Image url="@resource/images/TrackMyOrder_btn.jpg" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -42,18 +43,34 @@
             <InnerShadow />
          </effect>
       </ImageView>
-      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <Separator layoutX="699.0" layoutY="267.0" orientation="VERTICAL" prefHeight="377.0" prefWidth="5.0" />
+      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="72.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/LogOut_btn.png" />
+            <Image url="@resource/images/LogOut_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Text fontSmoothingType="LCD" layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+      <Text fontSmoothingType="LCD" layoutX="65.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <Text layoutX="57.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="context$person$first_name" layoutX="136.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="22.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/UserIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

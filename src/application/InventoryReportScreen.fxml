@@ -12,9 +12,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Report" wrappingWidth="393.0">
@@ -26,7 +26,7 @@
       <Hyperlink accessibleRole="TEXT" layoutX="143.0" layoutY="203.0" prefHeight="23.0" prefWidth="100.0" textFill="#000011" />
       <ImageView fx:id="scene$MainMenuStationManagerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -37,89 +37,89 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <ImageView fitHeight="331.0" fitWidth="673.0" layoutX="243.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="331.0" fitWidth="673.0" layoutX="283.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/InventoryTableBackground.png" />
+            <Image url="@resource/images/InventoryTableBackground.png" />
          </image>
       </ImageView>
-      <Text layoutX="931.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station:" wrappingWidth="100.0">
+      <Text layoutX="234.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station:" wrappingWidth="111.17431640625">
          <font>
-            <Font size="26.0" />
+            <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="931.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="100.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text layoutX="350.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin" wrappingWidth="136.3604278564453">
+      <Text layoutX="374.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin" wrappingWidth="136.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text layoutX="350.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler" wrappingWidth="136.3604278564453">
+      <Text layoutX="374.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler" wrappingWidth="136.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text layoutX="343.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motorcycle" wrappingWidth="231.3604278564453">
+      <Text layoutX="367.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motorcycle" wrappingWidth="231.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text fx:id="table$station_manager_reports$station$stations_fuel$fuel_enum$$$soler$current_amount$$$txt" layoutX="674.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
+      <Text fx:id="table$station_manager_reports$fuel_enum$$$soler$amount" layoutX="674.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text fx:id="table$station_manager_reports$station$stations_fuel$fuel_enum$$$motorcycle$current_amount$$$txt" layoutX="681.0" layoutY="623.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
+      <Text fx:id="table$station_manager_reports$fuel_enum$$$motorcycles$amount" layoutX="674.0" layoutY="623.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text fx:id="table$station_manager_reports$report_date$$$txt" layoutX="1019.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
+      <Text fx:id="table$station_manager_reports$station$station_name" layoutX="324.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
          <font>
-            <Font size="34.0" />
+            <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="table$station_manager_reports$station$station_name" layoutX="1031.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Text>
-      <Text fx:id="table$station_manager_reports$station$stations_fuel$fuel_enum$$$benzin$current_amount" layoutX="674.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
+      <Text fx:id="table$station_manager_reports$fuel_enum$$$benzin$amount" layoutX="674.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.3604278564453">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
       <Text layoutX="979.0" layoutY="671.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For Support please call: 04-1111111" wrappingWidth="216.9830722808838" />
-      <Text fontSmoothingType="LCD" layoutX="249.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Date:" wrappingWidth="216.9830722808838">
+      <Text fontSmoothingType="LCD" layoutX="234.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose year:" wrappingWidth="142.9830722808838">
          <font>
-            <Font size="31.0" />
+            <Font size="24.0" />
          </font>
          <effect>
             <InnerShadow />
          </effect>
       </Text>
-      <ImageView fx:id="action$collect$station_manager_reports" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" focusTraversable="true" layoutX="955.0" layoutY="573.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="action$collect$stations_fuel" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="183.0" focusTraversable="true" layoutX="971.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ProduceReport_btn.png" />
+            <Image url="@resource/images/Search_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Text layoutX="974.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information" underline="true">
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="145.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Report">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <ComboBox fx:id="table$station_manager_reports$report_year" layoutX="384.0" layoutY="281.0" prefWidth="150.0" />
+      <Text fontSmoothingType="LCD" layoutX="578.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose quarter:" wrappingWidth="172.9830722808838">
+         <font>
+            <Font size="24.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
       </Text>
-      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" />
-      <Text layoutX="128.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Report" />
-      <ComboBox fx:id="table$station_manager_reports$report_date$$$cmb" layoutX="441.0" layoutY="276.0" prefWidth="150.0" />
-      <ImageView fx:id="action$collect$station_manager_reports" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="124.0" layoutX="614.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+      <ComboBox fx:id="table$station_manager_reports$report_quarter" layoutX="763.0" layoutY="281.0" prefWidth="150.0" />
+      <ImageView fx:id="action$insert$station_manager_reports" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="183.0" focusTraversable="true" layoutX="995.0" layoutY="609.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Maor_search.png" />
+            <Image url="@resource/images/ProduceReport_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

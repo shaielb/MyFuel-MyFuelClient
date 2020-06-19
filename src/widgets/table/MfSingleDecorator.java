@@ -34,10 +34,13 @@ public class MfSingleDecorator<TEntity extends IEntity> extends TableDecorator<T
 	protected void apply() {
 		MfRadioButton mfRb = new MfRadioButton();
 		mfRb.setColumnName("Select");
-		_table.addColumn(UiHandler.createColumn(mfRb, () -> { return new MfRadioButton(); },
+		_table.addColumn(0, UiHandler.createColumn(mfRb, () -> { 
+			MfRadioButton mrb = new MfRadioButton();
+			((RadioButton) mrb.getInstance()).setToggleGroup(_toggleGroup);
+			return mrb;
+			},
 				(entity, control) -> {
 					RadioButton rb = (RadioButton) control.getInstance();
-					rb.setToggleGroup(_toggleGroup);
 					if (rb.isSelected()) {
 						_selectedEntity = entity;
 					}

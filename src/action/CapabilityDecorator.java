@@ -3,6 +3,7 @@ package action;
 import adapter.base.ControlAdapter;
 import client.IClient;
 import messages.Header.RequestType;
+import messages.response.IPreSendRequest;
 import messages.response.IResponseCallBack;
 
 /**
@@ -30,6 +31,11 @@ public abstract class CapabilityDecorator {
 	/**
 	 * 
 	 */
+	protected IPreSendRequest _preSendRequest;
+	
+	/**
+	 * 
+	 */
 	protected ControlAdapter _control;
 	
 	/**
@@ -44,6 +50,13 @@ public abstract class CapabilityDecorator {
 	 */
 	public void set(IResponseCallBack callback) {
 		_callback = callback;
+	}
+	
+	/**
+	 * @param callback
+	 */
+	public void set(IPreSendRequest preSendRequest) {
+		_preSendRequest = preSendRequest;
 	}
 	
 	/**

@@ -13,13 +13,13 @@
    <children>
       <ImageView fitHeight="686.0" fitWidth="1206.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <ButtonBar layoutX="749.0" layoutY="531.0" prefHeight="40.0" prefWidth="280.0" />
       <ImageView fx:id="scene$MainMenuStationManagerScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -33,7 +33,7 @@
       <BorderPane fx:id="uitable$noneditable$single$station_supply_order" layoutX="275.0" layoutY="246.0" prefHeight="288.0" prefWidth="810.0" />
       <ImageView fx:id="scene$SupplyOrderConfirmPopScreen" fitHeight="45.0" fitWidth="173.0" layoutX="934.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ShowOrderDetails_btn.png" />
+            <Image url="@resource/images/ShowOrderDetails_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

@@ -63,7 +63,7 @@ public class MfUpdateDecorator<TEntity extends IEntity> extends TableDecorator<T
 		_updateAction.addCapability(updateCapability);
 
 		_updateAction.setCallback((response) -> {
-			if (!response.isIndicator()) {
+			if (!response.isPassed()) {
 				_updateAction.getControl().getInstance().setDisable(false);
 			}
 			else {

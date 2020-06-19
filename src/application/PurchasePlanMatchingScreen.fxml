@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1556.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="table$customer$customer_id" layoutX="460.0" layoutY="254.0" />
@@ -45,7 +45,7 @@
       </Text>
       <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -58,7 +58,7 @@
       </Text>
       <ImageView fx:id="action$collect$customer" fitHeight="31.0" fitWidth="103.0" layoutX="661.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/SmallSearch_btn.png" />
+            <Image url="@resource/images/SmallSearch_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -66,7 +66,7 @@
       </ImageView>
       <ImageView fx:id="action$update$subscription_plan" fitHeight="42.0" fitWidth="97.0" layoutX="526.0" layoutY="616.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Finish_btn.png" />
+            <Image url="@resource/images/Finish_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

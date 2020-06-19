@@ -2,6 +2,7 @@ package sceneswitch;
 
 import db.entity.Customer;
 import db.entity.Employee;
+import db.entity.Person;
 import db.entity.SystemUser;
 
 /**
@@ -24,6 +25,18 @@ public class Context {
 	 * 
 	 */
 	private Customer _customer;
+	
+	/**
+	 * 
+	 */
+	private Person _person;
+	
+	public void clear() {
+		_systemUser = null;
+		_employee = null;
+		_customer = null;
+		_person = null;
+	}
 	
 	/**
 	 * @return
@@ -53,5 +66,13 @@ public class Context {
 
 	public void setCustomer(Customer customer) {
 		_customer = customer;
+	}
+
+	public Person getPerson() {
+		return _person;
+	}
+
+	public void setPerson(Person person) {
+		_person = person;
 	}
 }

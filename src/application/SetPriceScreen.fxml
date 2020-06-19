@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,19 +13,18 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <ButtonBar layoutX="759.0" layoutY="541.0" prefHeight="40.0" prefWidth="280.0" />
-      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Price" wrappingWidth="329.0">
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount Request" wrappingWidth="433.0">
          <font>
             <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <TextField fx:id="table$fuel_company_enum$fuel_in_company$$$motorcycle$company_price" layoutX="317.0" layoutY="377.0" prefHeight="31.0" prefWidth="171.0" text="price/litter" />
       <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -38,78 +36,117 @@
          </font>
       </Text>
       <Text layoutX="968.0" layoutY="676.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For Support please call: 04-1111111" wrappingWidth="216.9830722808838" />
-      <ComboBox fx:id="table$fuel_company_enum$company_name_key" layoutX="635.0" layoutY="251.0" prefHeight="31.0" prefWidth="171.0" />
-      <Text layoutX="432.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Company:" wrappingWidth="171.0">
+      <Text layoutX="477.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Company:" wrappingWidth="171.0">
          <font>
             <Font size="24.0" />
          </font></Text>
-      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" />
-      <Text layoutX="124.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Price" />
-      <Text layoutX="254.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="144.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discount Request">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="259.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="current discount:">
          <font>
             <Font size="24.0" />
          </font></Text>
-      <Text layoutX="254.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
+      <Text layoutX="254.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="table$fuel_company_enum$fuel_in_company$fuel_enum$$$motorcycle$max_price_per_type" layoutX="431.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
+      <Text fx:id="table$fuel_enum$$$motorcycle$max_price_per_type" layoutX="431.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="action$update$fuel_in_company" accessibleRole="BUTTON" fitHeight="57.0" fitWidth="182.0" layoutX="1003.0" layoutY="591.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resource/images/Confirm_btn.jpg" />
-         </image>
+      <Text layoutX="637.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="952.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="284.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motorcycle" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="table$fuel_company_enum$company_discount_request" layoutX="847.0" layoutY="316.0" prefHeight="31.0" prefWidth="171.0" promptText="the new discount" />
+      <Text layoutX="645.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="the new discount:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="570.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fuel_enum$$$soler$max_price_per_type" layoutX="751.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="876.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fuel_enum$$$benzin$max_price_per_type" layoutX="1057.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fuel_company_enum$company_name_key" layoutX="646.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="210.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="action$update$fuel_company_enum" accessibleRole="BUTTON" fitHeight="56.0" fitWidth="178.0" layoutX="968.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <image>
+            <Image url="@resource/images/SendRequest_btn.png" />
+         </image>
       </ImageView>
-      <Text layoutX="647.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soler" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+      <Text fx:id="table$fuel_company_enum$company_discount" layoutX="444.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="985.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benzin" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+      <Text layoutX="254.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="price after discount:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="318.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motorcycle" textAlignment="CENTER" underline="true" x="1.0" y="1.0">
+      <Text fx:id="calculate_motorcycles" layoutX="465.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.30078125">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="table$fuel_company_enum$fuel_in_company$$$soler$company_price" layoutX="633.0" layoutY="377.0" prefHeight="31.0" prefWidth="171.0" text="price/litter" />
-      <Text layoutX="570.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+      <Text layoutX="562.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="price after discount:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="570.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
+      <Text fx:id="calculate_soler" layoutX="772.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.30078125">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="table$fuel_company_enum$fuel_in_company$fuel_enum$$$soler$max_price_per_type" layoutX="751.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
+      <Text layoutX="879.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="price after discount:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="table$fuel_company_enum$fuel_in_company$$$benzin$company_price" layoutX="939.0" layoutY="378.0" prefHeight="31.0" prefWidth="171.0" text="price/litter" />
-      <Text layoutX="876.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="876.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The max price is:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text fx:id="table$fuel_company_enum$fuel_in_company$fuel_enum$$$benzin$max_price_per_type" layoutX="1057.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="118.30078125">
+      <Text fx:id="calculate_benzin" layoutX="1090.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.30078125">
          <font>
             <Font size="24.0" />
          </font>

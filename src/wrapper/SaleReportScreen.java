@@ -27,6 +27,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import messages.QueryContainer;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfSingleDecorator;
@@ -49,9 +50,9 @@ public class SaleReportScreen extends SceneBase {
 
 	public SaleReportScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("SaleReportScreen.fxml"));
 		_scene = new Scene(root);
@@ -64,8 +65,12 @@ public class SaleReportScreen extends SceneBase {
 		_salesManagmentScreenControl.addEvent((event) -> { _switcher.switchScene("SalesManagmentScreen"); });
 
 		//entities instantiation
-		_specialSalesEnum = new SpecialSalesEnum();
-		_fuelingPurchase = new FuelingPurchase();
+		if (_specialSalesEnum == null) {
+			_specialSalesEnum = new SpecialSalesEnum();
+		}
+		if (_fuelingPurchase == null) {
+			_fuelingPurchase = new FuelingPurchase();
+		}
 
 		//entities assignments
 		_fuelingPurchase.setSpecialSalesEnum(_specialSalesEnum);
@@ -86,12 +91,18 @@ public class SaleReportScreen extends SceneBase {
 
 		//initializations
 		_filterFuelingPurchaseControl = new MfImageView((ImageView) _scene.lookup("#action$collect$fueling_purchase"));
+		_filterFuelingPurchaseControl.
+			setMouseImages("@resource/images/MakeAReport_btn.png", "@resource/images/MakeAReport_overbtn.png", "@resource/images/MakeAReport_clickbtn.png");
 		_fuelingPurchasefilterAction = new ActionControl();
 		_fuelingPurchasefilterAction.setControl(_filterFuelingPurchaseControl);
 		FilterCapability fuelingPurchaseFilterCapability = new FilterCapability();
 		fuelingPurchaseFilterCapability.setQueryContainers(prepareQuery(_fuelingPurchase));
 		_fuelingPurchasefilterAction.addCapability(fuelingPurchaseFilterCapability);
 		_fuelingPurchasefilterAction.setClient(_client);
+		_fuelingPurchasefilterAction.setPreSend((request) -> {
+
+			return true;
+		});
 		_fuelingPurchasefilterAction.setCallback((response) -> {
 			Collection<IEntity> entities = response.getEntities();
 			for (IEntity ientity : entities) {
@@ -112,6 +123,19 @@ public class SaleReportScreen extends SceneBase {
 		//grouping
 		groupControls(new ControlAdapter[] { _dateTimeControlDt, _dateTimeControlDt });
 
+	}
+
+	@Override
+	protected void onLoad() {
+		
+	}
+
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
+		if (entities != null && entities.length > 0) {
+			_specialSalesEnum = (SpecialSalesEnum) entities[0];
+		}
 	}
 
 	private List<QueryContainer> prepareQuery(FuelingPurchase fuelingPurchase) {

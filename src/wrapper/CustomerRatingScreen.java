@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import messages.QueryContainer;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfSingleDecorator;
@@ -41,9 +42,9 @@ public class CustomerRatingScreen extends SceneBase {
 
 	public CustomerRatingScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("CustomerRatingScreen.fxml"));
 		_scene = new Scene(root);
@@ -53,8 +54,12 @@ public class CustomerRatingScreen extends SceneBase {
 		_mainMenuMarketingScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuMarketingScreen"); });
 
 		//entities instantiation
-		_customersRatings = new CustomersRatings();
-		_analyticalRatings = new AnalyticalRatings();
+		if (_customersRatings == null) {
+			_customersRatings = new CustomersRatings();
+		}
+		if (_analyticalRatings == null) {
+			_analyticalRatings = new AnalyticalRatings();
+		}
 
 		//tables instantiation
 		BorderPane customersRatingsBp = (BorderPane) _scene.lookup("#uitable$noneditable$single$customers_ratings");
@@ -68,12 +73,18 @@ public class CustomerRatingScreen extends SceneBase {
 
 		//initializations
 		_filterAnalyticalRatingsControl = new MfImageView((ImageView) _scene.lookup("#action$collect$analytical_ratings"));
+		_filterAnalyticalRatingsControl.
+			setMouseImages("@resource/images/Search_btn.png", "@resource/images/Search_overbtn.png", "@resource/images/Search_clickbtn.png");
 		_analyticalRatingsfilterAction = new ActionControl();
 		_analyticalRatingsfilterAction.setControl(_filterAnalyticalRatingsControl);
 		FilterCapability analyticalRatingsFilterCapability = new FilterCapability();
 		analyticalRatingsFilterCapability.setQueryContainers(prepareQuery(_analyticalRatings));
 		_analyticalRatingsfilterAction.addCapability(analyticalRatingsFilterCapability);
 		_analyticalRatingsfilterAction.setClient(_client);
+		_analyticalRatingsfilterAction.setPreSend((request) -> {
+
+			return true;
+		});
 		_analyticalRatingsfilterAction.setCallback((response) -> {
 			Collection<IEntity> entities = response.getEntities();
 			for (IEntity ientity : entities) {
@@ -82,6 +93,16 @@ public class CustomerRatingScreen extends SceneBase {
 		});
 
 
+	}
+
+	@Override
+	protected void onLoad() {
+		
+	}
+
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
 	}
 
 	private List<QueryContainer> prepareQuery(AnalyticalRatings analyticalRatings) {

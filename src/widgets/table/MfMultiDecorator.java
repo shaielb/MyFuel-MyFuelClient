@@ -29,7 +29,7 @@ public class MfMultiDecorator<TEntity extends IEntity> extends TableDecorator<TE
 	protected void apply() {
 		MfCheckBox mfCb = new MfCheckBox();
 		mfCb.setColumnName("Select");
-		_table.addColumn(UiHandler.createColumn(mfCb, () -> { return new MfCheckBox(); },
+		_table.addColumn(0, UiHandler.createColumn(mfCb, () -> { return new MfCheckBox(); },
 				(entity, control) -> {
 					CheckBox cb = (CheckBox) control.getInstance();
 					if (cb.isSelected()) {

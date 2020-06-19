@@ -52,8 +52,10 @@ public class UpdateCapability extends CapabilityDecorator {
 		IUpdate request = _client.getUpdateRequest();
 		request.setEntities(_entities);
 		try {
-			ResponseEvent responseEvent = _client.sendRequest(request);
-			responseEvent.continueWith(_callback);
+			if (_preSendRequest.execute(request)) {
+				ResponseEvent responseEvent = _client.sendRequest(request);
+				responseEvent.continueWith(_callback);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

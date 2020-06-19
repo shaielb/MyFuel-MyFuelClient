@@ -16,7 +16,6 @@ import controls.MfButton;
 import controls.MfComboBox;
 import db.interfaces.IEntity;
 import handler.UiHandler;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -24,6 +23,7 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -40,6 +40,8 @@ import utilities.StringUtil;
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SearchPanel<TEntity extends IEntity> extends BorderPane {
+	
+	private BorderPane _bp = new BorderPane();
 
 	/**
 	 * 
@@ -153,14 +155,20 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 	 * @throws Exception
 	 */
 	private void placeControls() throws Exception {
-		setPadding(new Insets(5, 5, 5, 5));
+		_bp.setPadding(new Insets(5, 5, 5, 5));
 
 		HBox hbSearch = new HBox();
 		hbSearch.getChildren().add(createGridPane());
 		hbSearch.setSpacing(3);
 		BorderPane.setAlignment(hbSearch, Pos.CENTER_LEFT);
-		setLeft(hbSearch);
-		setRight(_searchButton.getControl().getInstance());
+		_bp.setLeft(hbSearch);
+		_bp.setRight(_searchButton.getControl().getInstance());
+		
+		ScrollPane sp = new ScrollPane(_bp);
+		sp.setFitToWidth(true);
+		sp.setFitToHeight(true);
+
+		setCenter(sp);
 	}
 
 	/**
@@ -174,20 +182,19 @@ public class SearchPanel<TEntity extends IEntity> extends BorderPane {
 			type = Number.class;
 		}
 		String[] signs = _signsMap.get(type);
+		ComboBox<String> signControl = new ComboBox<String>();
 		if (signs == null && control instanceof MfComboBox) {
 			signs = new String[] {Comperators.NoFilter, Comperators.E};
+			signControl.getItems().addAll(signs);
+			signControl.setOnAction((new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					String value = ((ComboBox<String>) event.getSource()).getSelectionModel().getSelectedItem();
+					_searchSigns.put(control.getColumnName(), value);
+				}
+			}));
+			signControl.setValue(Comperators.NoFilter);
 		}
-
-		ComboBox<String> signControl = new ComboBox<String>(
-				FXCollections.observableArrayList(signs));
-		signControl.setOnAction((new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				String value = ((ComboBox<String>) event.getSource()).getSelectionModel().getSelectedItem();
-				_searchSigns.put(control.getColumnName(), value);
-			}
-		}));
-		signControl.setValue(Comperators.NoFilter);
 		return signControl;
 	}
 

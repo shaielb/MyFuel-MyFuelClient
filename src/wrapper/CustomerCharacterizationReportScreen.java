@@ -26,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import messages.QueryContainer;
 import sceneswitch.Context;
+import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
 import table.MfTable;
 import widgets.table.MfSingleDecorator;
@@ -40,8 +41,7 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 
 	private MfImageView _mainMenuMarketingScreenControl;
 	private MfImageView _customersManagementScreenControl;
-	private MfDatePicker _dateTimeControlTo;
-	private MfDatePicker _dateTimeControlFrom;
+	private MfDatePicker _dateTimeControl;
 	private Table<FuelingPurchase> _fuelingPurchaseTableWrapper;
 	private MfTable<FuelingPurchase> _fuelingPurchaseTable;
 	private MfImageView _filterFuelingPurchaseControl;
@@ -49,9 +49,9 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 
 	public CustomerCharacterizationReportScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
-		initialize();
 	}
 
+	@Override
 	public void initialize() throws Exception {
 		Parent root = FXMLLoader.load(Main.class.getResource("CustomerCharacterizationReportScreen.fxml"));
 		_scene = new Scene(root);
@@ -64,9 +64,15 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 		_customersManagementScreenControl.addEvent((event) -> { _switcher.switchScene("CustomersManagementScreen"); });
 
 		//entities instantiation
-		_customer = new Customer();
-		_car = new Car();
-		_fuelingPurchase = new FuelingPurchase();
+		if (_customer == null) {
+			_customer = new Customer();
+		}
+		if (_car == null) {
+			_car = new Car();
+		}
+		if (_fuelingPurchase == null) {
+			_fuelingPurchase = new FuelingPurchase();
+		}
 
 		//entities assignments
 		_car.setCustomer(_customer);
@@ -74,8 +80,7 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 		_fuelingPurchase.setCustomer(_customer);
 
 		//controls instantiation
-		_dateTimeControlTo = new MfDatePicker((DatePicker) _scene.lookup("#table$customer$car$fueling_purchase$date_time$$$to"));
-		_dateTimeControlFrom = new MfDatePicker((DatePicker) _scene.lookup("#table$customer$car$fueling_purchase$date_time$$$from"));
+		_dateTimeControl = new MfDatePicker((DatePicker) _scene.lookup("#table$customer$car$fueling_purchase$date_time"));
 
 		//tables instantiation
 		BorderPane fuelingPurchaseBp = (BorderPane) _scene.lookup("#uitable$noneditable$single$fueling_purchase");
@@ -89,12 +94,18 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 
 		//initializations
 		_filterFuelingPurchaseControl = new MfImageView((ImageView) _scene.lookup("#action$collect$fueling_purchase"));
+		_filterFuelingPurchaseControl.
+			setMouseImages("@resource/images/MakeAReport_btn.png", "@resource/images/MakeAReport_overbtn.png", "@resource/images/MakeAReport_clickbtn.png");
 		_fuelingPurchasefilterAction = new ActionControl();
 		_fuelingPurchasefilterAction.setControl(_filterFuelingPurchaseControl);
 		FilterCapability fuelingPurchaseFilterCapability = new FilterCapability();
 		fuelingPurchaseFilterCapability.setQueryContainers(prepareQuery(_fuelingPurchase));
 		_fuelingPurchasefilterAction.addCapability(fuelingPurchaseFilterCapability);
 		_fuelingPurchasefilterAction.setClient(_client);
+		_fuelingPurchasefilterAction.setPreSend((request) -> {
+
+			return true;
+		});
 		_fuelingPurchasefilterAction.setCallback((response) -> {
 			Collection<IEntity> entities = response.getEntities();
 			for (IEntity ientity : entities) {
@@ -103,15 +114,25 @@ public class CustomerCharacterizationReportScreen extends SceneBase {
 		});
 
 		//fields initializations
-		_dateTimeControlTo.setField(_fuelingPurchase.getClass().getDeclaredField("_date_time"));
-		_dateTimeControlTo.setEntity(_fuelingPurchase);
+		_dateTimeControl.setField(_fuelingPurchase.getClass().getDeclaredField("_date_time"));
+		_dateTimeControl.setEntity(_fuelingPurchase);
 
-		_dateTimeControlFrom.setField(_fuelingPurchase.getClass().getDeclaredField("_date_time"));
-		_dateTimeControlFrom.setEntity(_fuelingPurchase);
+		_dateTimeControl.setField(_fuelingPurchase.getClass().getDeclaredField("_date_time"));
+		_dateTimeControl.setEntity(_fuelingPurchase);
 
 		//grouping
-		groupControls(new ControlAdapter[] { _dateTimeControlTo, _dateTimeControlFrom });
+		groupControls(new ControlAdapter[] { _dateTimeControl, _dateTimeControl });
 
+	}
+
+	@Override
+	protected void onLoad() {
+		
+	}
+
+	@Override
+	public void setParameters(IEntity[] entities) {
+		super.setParameters(entities);
 	}
 
 	private List<QueryContainer> prepareQuery(FuelingPurchase fuelingPurchase) {

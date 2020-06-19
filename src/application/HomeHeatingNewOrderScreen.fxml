@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Home Heating Order">
@@ -28,7 +28,7 @@
       </Text>
       <ImageView fx:id="scene$MainMenuCustomerScreen" accessibleRole="TOGGLE_BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -66,7 +66,7 @@
       </Text>
       <ImageView fx:id="scene$HomeHeatingOrderDetailsScreen" accessibleRole="BUTTON" fitHeight="118.0" fitWidth="230.0" layoutX="903.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MakeMyOrder_btn.png" />
+            <Image url="@resource/images/MakeMyOrder_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -84,12 +84,12 @@
       </Text>
       <ImageView fitHeight="74.0" fitWidth="669.0" layoutX="248.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/RegularExpress_Aviv.png" />
+            <Image url="@resource/images/RegularExpress_Aviv.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="98.0" fitWidth="536.0" layoutX="266.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Discount_Aviv.png" />
+            <Image url="@resource/images/Discount_Aviv.png" />
          </image>
       </ImageView>
       <CheckBox fx:id="table$home_heating_order$order_urgency_enum$$regular" layoutX="376.0" layoutY="502.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0">
@@ -108,7 +108,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </CheckBox>
-      <Text layoutX="266.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price per liter:" wrappingWidth="160.57036972045898">
+      <Text layoutX="266.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price per liter:" wrappingWidth="160.57036972045898">
          <font>
             <Font size="24.0" />
          </font>
@@ -118,12 +118,12 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="592.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price includes freight charge" wrappingWidth="306.66180419921875">
+      <Text layoutX="584.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price includes delivery price " wrappingWidth="306.66180419921875">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="table$home_heating_order$price_per_liter" layoutX="418.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="126.66998291015625">
+      <Text fx:id="table$home_heating_order$price_per_liter" layoutX="418.0" layoutY="617.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="126.66998291015625">
          <font>
             <Font size="24.0" />
          </font>

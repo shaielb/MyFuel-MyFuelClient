@@ -2,10 +2,8 @@ package action;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import adapter.base.ControlAdapter;
-import db.interfaces.IEntity;
 import messages.Header.RequestType;
 import messages.QueryContainer;
 import messages.request.IFilter;
@@ -22,7 +20,7 @@ public class FilterCapability extends CapabilityDecorator {
 	 * 
 	 */
 	private List<QueryContainer> _queryContainers;
-	
+
 	/**
 	 * 
 	 */
@@ -51,11 +49,13 @@ public class FilterCapability extends CapabilityDecorator {
 	 * 
 	 */
 	public void filter() {
-		IFilter request = _client.getFilterRequest();
+		IFilter request = (IFilter) _client.getRequest(_type);
 		request.setQueryContainers(_queryContainers);
 		try {
-			ResponseEvent responseEvent = _client.sendRequest(request);
-			responseEvent.continueWith(_callback);
+			if (_preSendRequest.execute(request)) {
+				ResponseEvent responseEvent = _client.sendRequest(request);
+				responseEvent.continueWith(_callback);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

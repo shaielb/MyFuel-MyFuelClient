@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track My Order">
@@ -26,7 +26,7 @@
       <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
       <ImageView fx:id="scene$MainMenuCustomerScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -52,30 +52,30 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <ImageView fx:id="action$collect$home_heating_order$$$iv" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="116.0" layoutX="1079.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="action$collect$home_heating_order$$$btn" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="116.0" layoutX="1079.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/SmallSearch_btn.png" />
+            <Image url="@resource/images/SmallSearch_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Hyperlink fx:id="action$collect$home_heating_order$$$hl" layoutX="267.0" layoutY="291.0" prefHeight="48.0" prefWidth="194.0" text="All orders" underline="true" wrapText="true">
+      <Hyperlink fx:id="action$collect$home_heating_order$$$hl" layoutX="267.0" layoutY="275.0" prefHeight="48.0" prefWidth="194.0" text="All orders" underline="true" wrapText="true">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Hyperlink>
-      <Hyperlink fx:id="action$remove$home_heating_order" layoutX="418.0" layoutY="293.0" prefHeight="48.0" prefWidth="258.0" text="Delete order history" underline="true" wrapText="true">
+      <Hyperlink fx:id="action$remove$home_heating_order" layoutX="418.0" layoutY="275.0" prefHeight="48.0" prefWidth="319.0" text="Delete completed orders " underline="true" wrapText="true">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Hyperlink>
-      <Text layoutX="398.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" textAlignment="CENTER" wrappingWidth="19.45721435546875">
+      <Text layoutX="398.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" textAlignment="CENTER" wrappingWidth="19.45721435546875">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <BorderPane fx:id="uitable$noneditable$single$home_heating_order" layoutX="277.0" layoutY="357.0" prefHeight="239.0" prefWidth="882.0" />
+      <BorderPane fx:id="uitable$noneditable$plain$home_heating_order" layoutX="277.0" layoutY="348.0" prefHeight="248.0" prefWidth="882.0" />
       <Text fx:id="table$home_heating_order$order_status" layoutX="705.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="165.9833984375">
          <font>
             <Font size="15.0" />

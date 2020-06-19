@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/BackGround.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="300.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu" wrappingWidth="617.0384521484375">
+         <font>
+            <Font name="Constantia Bold Italic" size="48.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="scene$FuelPriceApprovalScreen" accessibleRole="BUTTON" fitHeight="346.0" fitWidth="404.0" layoutX="250.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/PriceSetApproval_btn.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Separator layoutX="648.0" layoutY="284.0" orientation="VERTICAL" prefHeight="346.0" prefWidth="9.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Separator>
+      <ImageView fx:id="scene$InventoryReportScreen" accessibleRole="BUTTON" fitHeight="112.0" fitWidth="323.0" layoutX="732.0" layoutY="288.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/inventory_btn.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$IncomeReportScreen" accessibleRole="BUTTON" fitHeight="115.0" fitWidth="323.0" layoutX="732.0" layoutY="401.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/IncomeReports_btn.jpg.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$ExpenseReportScreen" accessibleRole="BUTTON" fitHeight="130.0" fitWidth="341.0" layoutX="724.0" layoutY="505.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/ExpenseReports_btn.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuMyFuelScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="72.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/LogOut_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="65.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="53.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="context$employee$first_name" layoutX="131.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="20.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/UserIcon.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

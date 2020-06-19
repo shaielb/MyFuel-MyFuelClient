@@ -13,42 +13,42 @@
    <content>
       <Pane prefHeight="479.0" prefWidth="500.0">
          <children>
-            <ImageView fitHeight="500.0" fitWidth="215.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="500.0" fitWidth="215.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/PopUp_Background.jpg" />
+                  <Image url="@resource/images/PopUp_Background.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="214.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
+            <Text layoutX="209.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery type:">
+            <Text layoutX="209.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery type:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+            <Text layoutX="209.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order date:">
+            <Text layoutX="209.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You saved:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+            <Text layoutX="209.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress:">
+            <Text layoutX="209.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="214.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card:" wrappingWidth="98.6060791015625">
+            <Text layoutX="209.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card:" wrappingWidth="98.6060791015625">
                <font>
                   <Font size="18.0" />
                </font>
@@ -58,14 +58,14 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Text>
-            <Text layoutX="256.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer details:" underline="true">
+            <Text layoutX="256.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer details:" underline="true">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Text>
             <ImageView fx:id="action$insert$home_heating_order" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="364.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/Confirm_btn.jpg" />
+                  <Image url="@resource/images/Confirm_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -73,38 +73,38 @@
             </ImageView>
             <ImageView fx:id="scene$HomeHeatingNewOrderScreen" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="243.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/Decline_btn.jpg" />
+                  <Image url="@resource/images/Decline_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Text layoutX="286.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
+            <Text fx:id="table$home_heating_order$amount" layoutX="281.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="327.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.800048828125">
+            <Text fx:id="table$home_heating_order$order_urgency_enum$order_urgency_key" layoutX="322.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.800048828125">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="261.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
+            <Text fx:id="table$home_heating_order$total_price" layoutX="256.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="309.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="146.40008544921875">
+            <Text fx:id="table$home_heating_order$order_time" layoutX="302.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="146.40008544921875">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fx:id="table$home_heating_order$customer$payment$credit_card_number" layoutX="314.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.4000244140625">
+            <Text fx:id="table$home_heating_order$customer$payment$credit_card_number" layoutX="310.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.4000244140625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <HBox layoutX="269.0" layoutY="286.0" prefHeight="13.0" prefWidth="218.0">
+            <HBox layoutX="265.0" layoutY="286.0" prefHeight="13.0" prefWidth="218.0">
                <children>
                   <Text fx:id="table$home_heating_order$customer$person$first_name" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.93670654296875">
                      <font>
@@ -118,7 +118,7 @@
                   </Text>
                </children>
             </HBox>
-            <HBox layoutX="277.0" layoutY="326.0" prefHeight="6.0" prefWidth="217.0">
+            <HBox layoutX="272.0" layoutY="326.0" prefHeight="6.0" prefWidth="217.0">
                <children>
                   <Text fx:id="table$home_heating_order$customer$address$city" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="87.7366943359375">
                      <font>
@@ -137,6 +137,21 @@
                   </Text>
                </children>
             </HBox>
+            <Text layoutX="209.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order date:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="table$home_heating_order$saved" layoutX="298.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="37.60009765625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="329.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shekels in this purchase" wrappingWidth="202.4000244140625">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </content>

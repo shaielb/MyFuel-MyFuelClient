@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="500.0" fitWidth="215.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/PopUp_Background.jpg" />
+                  <Image url="@resource/images/PopUp_Background.jpg" />
                </image>
             </ImageView>
             <Text layoutX="214.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID:">
@@ -54,7 +54,7 @@
             </Text>
             <ImageView fx:id="action$update$station_supply_order" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="364.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/Confirm_btn.jpg" />
+                  <Image url="@resource/images/Confirm_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -62,7 +62,7 @@
             </ImageView>
             <ImageView fx:id="scene$OrdersStationManagerScreen" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="243.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resource/images/Decline_btn.jpg" />
+                  <Image url="@resource/images/Decline_btn.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

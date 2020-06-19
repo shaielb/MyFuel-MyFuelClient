@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Gil_MainMenuMyfuel.jpg" />
+            <Image url="@resource/images/Gil_MainMenuMyfuel.jpg" />
          </image>
       </ImageView>
       <Text accessibleRole="BUTTON" disable="true" fill="#e5ff00" layoutX="114.0" layoutY="210.0" opacity="0.51" stroke="#000000fe" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu" underline="true">
@@ -25,7 +25,7 @@
       </Text>
       <ImageView accessibleRole="BUTTON" fitHeight="39.0" fitWidth="54.0" layoutX="127.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Gil_facebook.png" />
+            <Image url="@resource/images/Gil_facebook.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -33,36 +33,28 @@
       </ImageView>
       <ImageView accessibleRole="BUTTON" fitHeight="39.0" fitWidth="40.0" layoutX="231.0" layoutY="638.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Gil_instagram.png" />
+            <Image url="@resource/images/Gil_instagram.png" />
          </image>
       </ImageView>
       <ImageView accessibleRole="BUTTON" fitHeight="38.0" fitWidth="45.0" layoutX="180.0" layoutY="637.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Gil_mail.png" />
+            <Image url="@resource/images/Gil_mail.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$AboutUsScreen" accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MainMenuConnectUs_btn.png" />
+            <Image url="@resource/images/MainMenuAboutUs_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$AboutUsScreen" accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$SignUpPersonalDetailsScreen" accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MainMenuAboutUs_btn.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="scene$SignUpPersonalDetailsScreen" accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resource/images/MainMenuSignUp_btn.png" />
+            <Image url="@resource/images/MainMenuSignUp_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -70,7 +62,7 @@
       </ImageView>
       <ImageView fx:id="scene$LogInScreen" accessibleRole="BUTTON" fitHeight="74.0" fitWidth="395.0" layoutX="36.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MainMenuLogIn_btn.png" />
+            <Image url="@resource/images/MainMenuLogIn_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

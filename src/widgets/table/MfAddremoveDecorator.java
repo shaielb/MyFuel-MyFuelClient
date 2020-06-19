@@ -3,18 +3,31 @@ package widgets.table;
 import java.util.ArrayList;
 import java.util.List;
 
+import controls.MfButton;
 import db.interfaces.IEntity;
 import handler.UiHandler;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 
 /**
  * @author shaielb
  *
  * @param <TEntity>
  */
-@SuppressWarnings({ "unchecked" })
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorator<TEntity> {
 
+	public interface RemoveListener {
+		public void onRemove(IEntity entity);
+	}
+	
+	public interface AddListener {
+		public void onAdd(IEntity entity);
+	}
+
+	public RemoveListener _removeListener;
+	public AddListener _addListener;
+	
 	/**
 	 * 
 	 */
@@ -25,24 +38,28 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 	 */
 	@Override
 	protected void apply() {
-		_table.addColumn(UiHandler.createButtonColumn(
-				(entity) -> {
-					return entity.getId().equals(-1) ? "+" : "X";
-				}, "X", 
+		//TableColumn column = column.setGraphic(button); 
+		TableColumn column = UiHandler.createButtonColumn("X", "",
 				(entity, control) -> {
-					String value = (String) control.getValue();
-					if ("X".equals(value)) {
-						_entities.remove(entity);
-						_table.getObservableList().remove(entity);
-					}
-					else if ("+".equals(value)) {
-						_entities.add(entity);
-						_table.getObservableList().add((TEntity) entity);
-						entity.setId(0);
-						control.setValue("X");
-						addAddRow();
-					}
-				}));
+					_entities.remove(entity);
+					_table.getObservableList().remove(entity);
+					_removeListener.onRemove(entity);
+				});
+		MfButton btn = new MfButton("+");
+		btn.addEvent((event) -> {
+			try {
+				addAddRow();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
+		column.setGraphic(btn.getInstance()); 
+		_table.addColumn(column);
+		/*try {
+			addAddRow();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
 	}
 
 	/**
@@ -54,7 +71,7 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 		for (TEntity entity : entities) {
 			list.add(entity);
 		}
-		addAddRow();
+		//addAddRow();
 	}
 
 	/**
@@ -63,8 +80,10 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 	private void addAddRow() throws Exception {
 		Class<TEntity> entityClass = _table.getEntityClass();
 		TEntity entity = entityClass.newInstance();
-		entity.setId(-1);
-		_table.getObservableList().add(entity);
+		_entities.remove(entity);
+		_entities.add(entity);
+		_table.getObservableList().add(0, entity);
+		_addListener.onAdd(entity);
 	}
 
 	/**
@@ -72,5 +91,13 @@ public class MfAddremoveDecorator<TEntity extends IEntity> extends TableDecorato
 	 */
 	public List<IEntity> getEntities(){
 		return _entities;
+	}
+	
+	public void setRemoveListener(RemoveListener rl) {
+		_removeListener = rl;
+	}
+	
+	public void setAddListener(AddListener al) {
+		_addListener = al;
 	}
 }

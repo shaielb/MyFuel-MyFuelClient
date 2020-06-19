@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="680.0" fitWidth="1209.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/BackGround.jpg" />
+            <Image url="@resource/images/BackGround.jpg" />
          </image>
       </ImageView>
       <Text layoutX="272.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Characterization Report">
@@ -26,7 +26,7 @@
       <TextField layoutX="761.0" layoutY="296.0" promptText="Adress" visible="false" />
       <ImageView fx:id="scene$MainMenuMarketingScreen" accessibleRole="BUTTON" depthTest="ENABLE" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/ReturnMain_btn.png" />
+            <Image url="@resource/images/ReturnMain_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -39,7 +39,7 @@
       </Text>
       <ImageView fx:id="scene$CustomersManagementScreen" accessibleRole="BUTTON" fitHeight="45.0" fitWidth="200.0" layoutX="1022.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/Back_btn.png" />
+            <Image url="@resource/images/Back_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -55,12 +55,12 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time$$$to" layoutX="891.0" layoutY="239.0" prefHeight="25.0" prefWidth="110.0" />
-      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time$$$from" layoutX="720.0" layoutY="238.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="891.0" layoutY="239.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="720.0" layoutY="238.0" prefHeight="25.0" prefWidth="110.0" />
       <BorderPane fx:id="uitable$noneditable$single$fueling_purchase" layoutX="242.0" layoutY="282.0" prefHeight="324.0" prefWidth="942.0" />
       <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1039.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resource/images/MakeAReport_btn.png" />
+            <Image url="@resource/images/MakeAReport_btn.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
