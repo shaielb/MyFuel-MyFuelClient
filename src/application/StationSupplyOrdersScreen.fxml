@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -38,16 +39,34 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="310.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station Supply Orders">
+      <Text layoutX="280.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Station Supply Orders">
          <font>
             <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <BorderPane fx:id="uitable$editable$single$station_supply_order" layoutX="250.0" layoutY="241.0" prefHeight="368.0" prefWidth="926.0" />
-      <ImageView fx:id="action$update$station_supply_order" fitHeight="43.0" fitWidth="126.0" layoutX="1061.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+      <BorderPane fx:id="uitable$noneditable$single$station_supply_order" layoutX="266.0" layoutY="286.0" prefHeight="316.0" prefWidth="902.0" />
+      <ImageView fx:id="scene$SupplyOrderConfirmationPopScreen" fitHeight="66.0" fitWidth="176.0" layoutX="995.0" layoutY="611.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/Done_btn.png" />
+            <Image url="@resource/images/done_btn.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
+      <Hyperlink fx:id="action$collect$station_supply_order" layoutX="277.0" layoutY="243.0" prefHeight="48.0" prefWidth="194.0" text="All orders" underline="true" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="action$remove$station_supply_order" layoutX="428.0" layoutY="243.0" prefHeight="48.0" prefWidth="323.0" text="Delete Completed orders" underline="true" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Hyperlink>
+      <Text layoutX="408.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" textAlignment="CENTER" wrappingWidth="19.45721435546875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

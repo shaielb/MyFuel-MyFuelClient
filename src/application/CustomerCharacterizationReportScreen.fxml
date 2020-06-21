@@ -55,8 +55,8 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="891.0" layoutY="239.0" prefHeight="25.0" prefWidth="110.0" />
-      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time" layoutX="720.0" layoutY="238.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time$$$end" layoutX="891.0" layoutY="239.0" prefHeight="25.0" prefWidth="110.0" />
+      <DatePicker fx:id="table$customer$car$fueling_purchase$date_time$$$start" layoutX="720.0" layoutY="238.0" prefHeight="25.0" prefWidth="110.0" />
       <BorderPane fx:id="uitable$noneditable$single$fueling_purchase" layoutX="242.0" layoutY="282.0" prefHeight="324.0" prefWidth="942.0" />
       <ImageView fx:id="action$collect$fueling_purchase" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="151.0" layoutX="1039.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>

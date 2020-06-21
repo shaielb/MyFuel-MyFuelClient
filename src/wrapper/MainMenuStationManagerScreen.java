@@ -57,11 +57,11 @@ public class MainMenuStationManagerScreen extends SceneBase {
 		_mainMenuMyFuelScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuMyFuelScreen"); });
 
 		//controls instantiation
-		_firstNameControl = new MfText((Text) _scene.lookup("#context$employee$first_name"));
+		_firstNameControl = new MfText((Text) _scene.lookup("#context$person$first_name"));
 
 		//fields initializations
-		_firstNameControl.setField(_context.getEmployee().getClass().getDeclaredField("_first_name"));
-		_firstNameControl.setEntity(_context.getEmployee());
+		_firstNameControl.setField(_context.getPerson().getClass().getDeclaredField("_first_name"));
+		_firstNameControl.setEntity(_context.getPerson());
 
 
 	}

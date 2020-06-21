@@ -10,13 +10,18 @@ import application.Main;
 import client.IClient;
 import controls.MfImageView;
 import controls.MfText;
+import db.entity.Employee;
+import db.entity.FuelEnum;
 import db.entity.Station;
 import db.entity.StationSupplyOrder;
 import db.entity.StationsFuel;
 import db.interfaces.IEntity;
+import enums.Enums;
+import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import sceneswitch.Context;
@@ -29,6 +34,7 @@ public class SupplyOrderConfirmationPopScreen extends SceneBase {
 	private StationSupplyOrder _stationSupplyOrder;
 	private Station _station;
 	private StationsFuel _stationsFuel;
+	private FuelEnum _fuelEnum;
 
 	private MfImageView _updateStationSupplyOrderControl;
 	private ActionControl _stationSupplyOrderupdateAction;
@@ -39,6 +45,8 @@ public class SupplyOrderConfirmationPopScreen extends SceneBase {
 	private MfText _stationNameControl;
 	private MfText _addressControl;
 	private MfText _currentAmountControl;
+	
+	private Set<IEntity> _stationSupplyOrderUpdateEntities;
 
 	public SupplyOrderConfirmationPopScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
@@ -50,26 +58,25 @@ public class SupplyOrderConfirmationPopScreen extends SceneBase {
 		_scene = new Scene(root);
 
 		//scene switchers
-		_ordersStationManagerScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$OrdersStationManagerScreen"));
-		_ordersStationManagerScreenControl.addEvent((event) -> { _switcher.switchScene("OrdersStationManagerScreen"); });
+		_ordersStationManagerScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$FuelOrderManagementScreen"));
+		_ordersStationManagerScreenControl.addEvent((event) -> { _switcher.switchScene("FuelOrderManagementScreen"); });
 
 		//entities instantiation
 		if (_stationSupplyOrder == null) {
 			_stationSupplyOrder = new StationSupplyOrder();
 		}
-		if (_station == null) {
-			_station = new Station();
-		}
 		if (_stationsFuel == null) {
 			_stationsFuel = new StationsFuel();
 		}
+		_station = _context.getEmployee().getStation();
 
 		//entities assignments
 		_stationSupplyOrder.setStation(_station);
 		_stationsFuel.setStation(_station);
+		_fuelEnum = _client.getEnum(FuelEnum.class, _stationSupplyOrder.getFuelEnum().getId());
 
 		//controls instantiation
-		_orderIdControl = new MfText((Text) _scene.lookup("#table$station$station_supply_order$order_id"));
+		_orderIdControl = new MfText((Text) _scene.lookup("#table$station$station_supply_order$id"));
 		_fuelEnumControl = new MfText((Text) _scene.lookup("#table$station$station_supply_order$fuel_enum"));
 		_amountControl = new MfText((Text) _scene.lookup("#table$station$station_supply_order$amount"));
 		_stationNameControl = new MfText((Text) _scene.lookup("#table$station$station_name"));
@@ -79,28 +86,34 @@ public class SupplyOrderConfirmationPopScreen extends SceneBase {
 		//initializations
 		_updateStationSupplyOrderControl = new MfImageView((ImageView) _scene.lookup("#action$update$station_supply_order"));
 		_updateStationSupplyOrderControl.
-			setMouseImages("@resource/images/Confirm_btn.jpg", "@resource/images/Confirm_overbtn.jpg", "@resource/images/Confirm_clickbtn.jpg");
+			setMouseImages("@resource/images/Confirm_btn.jpg", "@resource/images/Confirm_overbtn.png", "@resource/images/Confirm_clickbtn.png");
 		_stationSupplyOrderupdateAction = new ActionControl();
 		_stationSupplyOrderupdateAction.setControl(_updateStationSupplyOrderControl);
 		UpdateCapability stationSupplyOrderUpdateCapability = new UpdateCapability();
-		Set<IEntity> stationSupplyOrderUpdateEntities = new HashSet<IEntity>();
-		stationSupplyOrderUpdateCapability.setEntities(stationSupplyOrderUpdateEntities);
+		_stationSupplyOrderUpdateEntities = new HashSet<IEntity>();
+		_stationSupplyOrderUpdateEntities.add(_stationSupplyOrder);
+		stationSupplyOrderUpdateCapability.setEntities(_stationSupplyOrderUpdateEntities);
 		_stationSupplyOrderupdateAction.addCapability(stationSupplyOrderUpdateCapability);
 		_stationSupplyOrderupdateAction.setClient(_client);
 		_stationSupplyOrderupdateAction.setPreSend((request) -> {
-
+			_stationSupplyOrder.setOrderStatus(Enums.InProcess);
 			return true;
 		});
 		_stationSupplyOrderupdateAction.setCallback((response) -> {
-			
+			if (!response.isPassed()) {
+				UiHandler.showAlert(AlertType.ERROR, "Station Supply Order Status Change", "", response.getDescription());
+			}
+			else {
+				_switcher.switchScene("FuelOrderManagementScreen");
+			}
 		});
 
 		//fields initializations
-		_orderIdControl.setField(_stationSupplyOrder.getClass().getDeclaredField("_order_id"));
+		_orderIdControl.setField(_stationSupplyOrder.getClass().getDeclaredField("_id"));
 		_orderIdControl.setEntity(_stationSupplyOrder);
 
-		_fuelEnumControl.setField(_stationSupplyOrder.getClass().getDeclaredField("_fuel_enum"));
-		_fuelEnumControl.setEntity(_stationSupplyOrder);
+		_fuelEnumControl.setField(_fuelEnum.getClass().getDeclaredField("_fuel_type_key"));
+		_fuelEnumControl.setEntity(_fuelEnum);
 
 		_amountControl.setField(_stationSupplyOrder.getClass().getDeclaredField("_amount"));
 		_amountControl.setEntity(_stationSupplyOrder);
@@ -125,6 +138,15 @@ public class SupplyOrderConfirmationPopScreen extends SceneBase {
 	@Override
 	public void setParameters(IEntity[] entities) {
 		super.setParameters(entities);
+		if (entities.length > 0) {
+			_stationSupplyOrder = (StationSupplyOrder) entities[0];
+		}
+		if (_context.getEmployee() == null) {
+			Employee employee = new Employee();
+			Station station = new Station();
+			station.setId(1);
+			_context.setEmployee(employee);
+		}
 	}
 
 

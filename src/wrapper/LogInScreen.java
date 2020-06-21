@@ -47,7 +47,9 @@ public class LogInScreen extends SceneBase {
 		put("Station Manager", "MainMenuStationManagerScreen");
 		put("Customer", "MainMenuCustomerScreen");
 		put("MyFuel Manager", "MainMenuMarketingScreen");
+		put("Company Marketing Representative", "MainMenuMarketingScreen");
 		put("MyFuel Marketing Representative", "MainMenuMarketingScreen");
+		put("Company Marketing Manager", "MainMenuMarketingScreen");
 		put("Company Manager", "MainMenuCompanyManagerScreen");
 		put("Supplier", "MainMenuSupplierScreen");
 

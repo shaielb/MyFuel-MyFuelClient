@@ -42,6 +42,8 @@ public class HomeHeatingNewOrderScreen extends SceneBase {
 	private MfText _pricePerLiterControl;
 	private MfText _totalPriceControl;
 
+	private HomeHeatingOrderDetailsScreen _homeHeatingOrderDetailsScreen;
+
 	public HomeHeatingNewOrderScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
 	}
@@ -51,12 +53,39 @@ public class HomeHeatingNewOrderScreen extends SceneBase {
 		Parent root = FXMLLoader.load(Main.class.getResource("HomeHeatingNewOrderScreen.fxml"));
 		_scene = new Scene(root);
 
+		_homeHeatingOrderDetailsScreen = new HomeHeatingOrderDetailsScreen(_switcher, _client, _context);
+
 		//scene switchers
 		_mainMenuCustomerScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$MainMenuCustomerScreen"));
 		_mainMenuCustomerScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuCustomerScreen"); });
 
 		_homeHeatingOrderDetailsScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$HomeHeatingOrderDetailsScreen"));
 		_homeHeatingOrderDetailsScreenControl.addEvent((event) -> { 
+
+			/*Alert alert = new Alert(Alert.AlertType.WARNING, "I Warn You!", ButtonType.OK, ButtonType.CANCEL);
+			DialogPane dp = alert.getDialogPane();
+			Stage dialogStage = new Stage(StageStyle.UTILITY);
+			for (ButtonType buttonType : dp.getButtonTypes()) {
+			    ButtonBase button = (ButtonBase) dp.lookupButton(buttonType);
+			    button.setOnAction(evt -> {
+			    	dp.setUserData(buttonType);
+			        dialogStage.close();
+			    });
+			}
+
+			// replace old scene root with placeholder to allow using root in other Scene
+			dp.getScene().setRoot(new Group());
+
+			dp.setPadding(new Insets(10, 0, 10, 0));
+			Scene scene = new Scene(dp);*/
+
+			/*Stage dialogStage = new Stage(StageStyle.UTILITY);
+			dialogStage.setScene(_homeHeatingOrderDetailsScreen.getScene());
+			dialogStage.initModality(Modality.APPLICATION_MODAL);
+			dialogStage.setAlwaysOnTop(true);
+			dialogStage.setResizable(false);
+			dialogStage.showAndWait();*/
+
 			_switcher.switchScene("HomeHeatingOrderDetailsScreen", _homeHeatingOrder); 
 		});
 

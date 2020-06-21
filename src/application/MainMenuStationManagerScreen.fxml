@@ -104,7 +104,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="context$employee$first_name" layoutX="132.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="90.2666015625">
+      <Text fx:id="context$person$first_name" layoutX="132.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="90.2666015625">
          <font>
             <Font size="18.0" />
          </font>

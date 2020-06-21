@@ -107,7 +107,7 @@ public class HomeHeatingOrderDetailsScreen extends SceneBase {
 		//initializations
 		_insertHomeHeatingOrderControl = new MfImageView((ImageView) _scene.lookup("#action$insert$home_heating_order"));
 		_insertHomeHeatingOrderControl.
-		setMouseImages("@resource/images/Confirm_btn.jpg", "@resource/images/Confirm_overbtn.jpg", "@resource/images/Confirm_clickbtn.jpg");
+		setMouseImages("@resource/images/Confirm_btn.jpg", "@resource/images/Confirm_overbtn.png", "@resource/images/Confirm_clickbtn.png");
 		_homeHeatingOrderinsertAction = new ActionControl();
 		_homeHeatingOrderinsertAction.setControl(_insertHomeHeatingOrderControl);
 		InsertCapability homeHeatingOrderInsertCapability = new InsertCapability();
@@ -127,9 +127,8 @@ public class HomeHeatingOrderDetailsScreen extends SceneBase {
 			else {
 				List<IEntity> entities = response.getEntitiesAsList();
 				HomeHeatingOrder hho = (HomeHeatingOrder) entities.get(0);
-				hho.setOrderId(hho.getId());
 				UiHandler.showAlert(AlertType.INFORMATION, "Order Submition", "", 
-						"Your Order Was Submited, Order Id: " + hho.getOrderId());
+						"Your Order Was Submited, Order Id: ");
 				IUpdate updateRequest = _client.getUpdateRequest();
 				updateRequest.addEntity(hho);
 				try {
@@ -137,6 +136,7 @@ public class HomeHeatingOrderDetailsScreen extends SceneBase {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				_switcher.switchScene("HomeHeatingNewOrderScreen");
 			}
 		});
 
@@ -146,7 +146,11 @@ public class HomeHeatingOrderDetailsScreen extends SceneBase {
 		if (result < 0) {
 			result = 0d;
 		}
-		((Text)_savedControl.getInstance()).setText(result.toString());
+		String resultStr = result.toString();
+		if (resultStr.contains(".")) {
+			resultStr = resultStr.substring(0, resultStr.lastIndexOf(".") + 2);
+		}
+		((Text)_savedControl.getInstance()).setText(resultStr);
 
 		_homeHeatingOrder.setOrderTime(new Timestamp(System.currentTimeMillis()));
 

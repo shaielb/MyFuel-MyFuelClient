@@ -37,27 +37,27 @@ public class MainMenuCompanyManagerScreen extends SceneBase {
 		_scene = new Scene(root);
 
 		//scene switchers
-		_fuelPriceApprovalScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$FuelPriceApprovalScreen"));
-		_fuelPriceApprovalScreenControl.addEvent((event) -> { _switcher.switchScene("FuelPriceApprovalScreen"); });
+		_fuelPriceApprovalScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$FuelDiscountApprovalScreen"));
+		_fuelPriceApprovalScreenControl.addEvent((event) -> { _switcher.switchScene("FuelDiscountApprovalScreen"); });
 
-		_inventoryReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$InventoryReportScreen"));
-		_inventoryReportScreenControl.addEvent((event) -> { _switcher.switchScene("InventoryReportScreen"); });
+		_inventoryReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$CompanyManagerInventoryScreen"));
+		_inventoryReportScreenControl.addEvent((event) -> { _switcher.switchScene("CompanyManagerInventoryScreen"); });
 
-		_incomeReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$IncomeReportScreen"));
-		_incomeReportScreenControl.addEvent((event) -> { _switcher.switchScene("IncomeReportScreen"); });
+		_incomeReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$CompanyManagerIncomeReportScreen"));
+		_incomeReportScreenControl.addEvent((event) -> { _switcher.switchScene("CompanyManagerIncomeReportScreen"); });
 
-		_expenseReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$ExpenseReportScreen"));
-		_expenseReportScreenControl.addEvent((event) -> { _switcher.switchScene("ExpenseReportScreen"); });
+		_expenseReportScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$CompanyManagerExpenseReportScreen"));
+		_expenseReportScreenControl.addEvent((event) -> { _switcher.switchScene("CompanyManagerExpenseReportScreen"); });
 
 		_mainMenuMyFuelScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$MainMenuMyFuelScreen"));
 		_mainMenuMyFuelScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuMyFuelScreen"); });
 
 		//controls instantiation
-		_firstNameControl = new MfText((Text) _scene.lookup("#context$employee$first_name"));
+		_firstNameControl = new MfText((Text) _scene.lookup("#context$person$first_name"));
 
 		//fields initializations
-		_firstNameControl.setField(_context.getEmployee().getClass().getDeclaredField("_first_name"));
-		_firstNameControl.setEntity(_context.getEmployee());
+		_firstNameControl.setField(_context.getPerson().getClass().getDeclaredField("_first_name"));
+		_firstNameControl.setEntity(_context.getPerson());
 
 
 	}

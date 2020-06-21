@@ -19,6 +19,7 @@ import controls.MfNumberField;
 import controls.MfText;
 import db.entity.HomeHeatingOrder;
 import db.interfaces.IEntity;
+import enums.Enums;
 import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -77,7 +78,7 @@ public class TrackMyOrderScreen extends SceneBase {
 		_homeHeatingOrder.setCustomer(_context.getCustomer());
 
 		//controls instantiation
-		_orderIdControl = new MfNumberField((TextField) _scene.lookup("#table$home_heating_order$order_id"), Integer.class);
+		_orderIdControl = new MfNumberField((TextField) _scene.lookup("#table$home_heating_order$id"), Integer.class);
 		_orderStatusControl = new MfText((Text) _scene.lookup("#table$home_heating_order$order_status"));
 
 		//tables instantiation
@@ -99,7 +100,7 @@ public class TrackMyOrderScreen extends SceneBase {
 		_homeHeatingOrderfilterActionBtn.addCapability(homeHeatingOrderFilterCapabilityBtn);
 		_homeHeatingOrderfilterActionBtn.setClient(_client);
 		_homeHeatingOrderfilterActionBtn.setPreSend((request) -> {
-			_filterQueryContainer.getQueryMap().put("order_id", "=");
+			_filterQueryContainer.getQueryMap().put("id", "=");
 			_filterQueryContainer.getQueryMap().put("customer_fk", "=");
 			return true;
 		});
@@ -146,11 +147,10 @@ public class TrackMyOrderScreen extends SceneBase {
 		_homeHeatingOrderremoveAction.addCapability(homeHeatingOrderRemoveCapability);
 		_homeHeatingOrderremoveAction.setClient(_client);
 		_homeHeatingOrderremoveAction.setPreSend((request) -> {
-			if (!UiHandler.showAlert(AlertType.WARNING, "About To Delete Completed Orders", "", 
-					"You Are About To Delete All Completed Orders, Continue?")) {
+			if (!UiHandler.showAlert(AlertType.WARNING, "Delete Completed Orders", "", 
+					"You Are About To Delete All Completed Orders Deleted")) {
 				return false;
 			}
-			// add remove allot functionality
 			return true;
 		});
 		_homeHeatingOrderremoveAction.setCallback((response) -> {
@@ -179,7 +179,7 @@ public class TrackMyOrderScreen extends SceneBase {
 		});
 
 		//fields initializations
-		_orderIdControl.setField(_homeHeatingOrder.getClass().getDeclaredField("_order_id"));
+		_orderIdControl.setField(_homeHeatingOrder.getClass().getDeclaredField("_id"));
 		_orderIdControl.setEntity(_homeHeatingOrder);
 
 		_orderStatusControl.setField(_homeHeatingOrder.getClass().getDeclaredField("_order_status"));
@@ -200,7 +200,7 @@ public class TrackMyOrderScreen extends SceneBase {
 		List<QueryContainer> containers = new ArrayList<QueryContainer>();
 
 		Map<String, String> queryMap = new HashMap<String, String>();
-		queryMap.put("order_id", "=");
+		queryMap.put("id", "=");
 		queryMap.put("customer_fk", "=");
 
 		QueryContainer container = _filterQueryContainer = new QueryContainer();
@@ -212,7 +212,7 @@ public class TrackMyOrderScreen extends SceneBase {
 
 	private List<QueryContainer> prepareRemoveQuery() {
 		HomeHeatingOrder homeHeatingOrder = new HomeHeatingOrder();
-		homeHeatingOrder.setOrderStatus("Done");
+		homeHeatingOrder.setOrderStatus(Enums.Done);
 		homeHeatingOrder.setCustomer(_context.getCustomer());
 		List<QueryContainer> containers = new ArrayList<QueryContainer>();
 

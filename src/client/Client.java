@@ -206,7 +206,9 @@ public class Client extends AbstractClient implements IClient
 				if (enumsTables == null) {
 					Cache.put(Globals.EnumTables, enumsTables = new HashMap<String, List<IEntity>>());
 				}
-				enumsTables.putAll(response.getTablesMap());
+				if (response.getTablesMap() != null) {
+					enumsTables.putAll(response.getTablesMap());
+				}
 				callback.execute(response);
 			});
 		}
@@ -230,14 +232,14 @@ public class Client extends AbstractClient implements IClient
 		}
 		return  null;
 	}
-	
+
 	/**
 	 * @param enumTable
 	 * @param keyValue
 	 * @return
 	 */
 	@Override
-	public List<? extends IEntity> getEnum(Class<? extends IEntity> enumClass){
+	public List<? extends IEntity> getEnum(Class<? extends IEntity> enumClass) {
 		String enumTable = enumClass.getAnnotation(Table.class).Name();
 		Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
 		return enumsTables.get(enumTable);
@@ -263,6 +265,38 @@ public class Client extends AbstractClient implements IClient
 		}
 		return  null;
 	}
+
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
+	public List<String> getEnumAsStringList(Class<? extends IEntity> enumClass) {
+		List<? extends IEntity> list = getEnum(enumClass);
+		List<String> strList = new ArrayList<String>();
+		for (IEntity entity : list) {
+			strList.add(((IEnum) entity).getKey());
+		}
+		return strList;
+	}
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
+	public <TEntity extends IEntity> TEntity getEnum(Class<TEntity> enumClass, Integer enumId) {
+		String enumTable = enumClass.getAnnotation(Table.class).Name();
+		Map<String, List<IEntity>> enumsTables = (Map<String, List<IEntity>>) Cache.get(Globals.EnumTables);
+		List<IEntity> entities = enumsTables.get(enumTable);
+		if (entities != null) {
+			for (IEntity entity : entities) {
+				if (entity.getId().equals(enumId)) {
+					return (TEntity) entity;
+				}
+			}
+		}
+		return  null;
+	}
 	// Cache ************************************************
 
 	//Response methods ************************************************
@@ -275,6 +309,7 @@ public class Client extends AbstractClient implements IClient
 	@Override
 	public synchronized void handleMessageFromServer(Object msg) 
 	{
+		System.out.println("enter handleMessageFromServer");
 		Response response = (Response) msg;
 		Collection<IEntity> entities = response.getEntities();
 		String table = null;

@@ -53,7 +53,7 @@ public class MainMenuMarketingScreen extends SceneBase {
 		_purchasePlanMatchingScreenControl.getInstance().setDisable(true);
 
 		_customerManagementScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$CustomerManagementScreen"));
-		_customerManagementScreenControl.addEvent((event) -> { _switcher.switchScene("CustomerManagementScreen3"); });
+		_customerManagementScreenControl.addEvent((event) -> { _switcher.switchScene("CustomerManagementScreen"); });
 		_customerManagementScreenControl.getInstance().setDisable(true);
 
 		_mainMenuMarketingNextScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$MainMenuMarketingNextScreen"));

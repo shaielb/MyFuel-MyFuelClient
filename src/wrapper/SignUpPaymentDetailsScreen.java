@@ -13,9 +13,12 @@ import client.IClient;
 import controls.MfCheckBox;
 import controls.MfImageView;
 import controls.MfNumberField;
+import controls.MfTextField;
 import db.entity.Customer;
 import db.entity.Payment;
+import db.entity.PricingModelEnum;
 import db.interfaces.IEntity;
+import enums.Enums;
 import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,7 +40,7 @@ public class SignUpPaymentDetailsScreen extends SceneBase {
 	private Customer _customer;
 	private Payment _payment;
 
-	private MfNumberField _creditCardNumberControl;
+	private MfTextField _creditCardNumberControl;
 	private MfImageView _signUpAddCarScreenControl;
 	private MfImageView _creditCardNumberControlAe;
 	private MfNumberField _expirationDateMonthControl;
@@ -88,7 +91,7 @@ public class SignUpPaymentDetailsScreen extends SceneBase {
 		_customer.setPayment(_payment);
 
 		//controls instantiation
-		_creditCardNumberControl = new MfNumberField((TextField) _scene.lookup("#table$customer$payment$credit_card_number"), Integer.class);
+		_creditCardNumberControl = new MfTextField((TextField) _scene.lookup("#table$customer$payment$credit_card_number"));
 		_creditCardNumberControlAe = new MfImageView((ImageView) _scene.lookup("#table$customer$payment$credit_card_number$$$ae"));
 		_expirationDateMonthControl = new MfNumberField((TextField) _scene.lookup("#table$customer$payment$expiration_date_month"), Integer.class);
 		_expirationDateYearControl = new MfNumberField((TextField) _scene.lookup("#table$customer$payment$expiration_date_year"), Integer.class);
@@ -130,14 +133,19 @@ public class SignUpPaymentDetailsScreen extends SceneBase {
 	private void insertCustomer() {
 		IInsert insertRequest = _client.getInsertRequest();
 		Set<IEntity> set = new HashSet<IEntity>();
+		Boolean cash = _customer.getPayment().getCash();
+		_customer.setPricingModelEnum(_client.getEnum(PricingModelEnum.class, Enums.Standard));
+		if (cash == null) {
+			_customer.getPayment().setCash(false);
+		}
 		set.add(_customer);
-		set.add(_customer.getPayment());
 		insertRequest.setEntities(set);
 
 		try {
 			ResponseEvent responseEvent = _client.sendRequest(insertRequest);
 			responseEvent.continueWith((response) -> {
 				if (response.isPassed()) {
+					_customer.setId(response.getEntitiesAsList().get(0).getId());
 					_switcher.switchScene("SignUpAddCarScreen", _customer); 
 				}
 				else {
@@ -161,8 +169,8 @@ public class SignUpPaymentDetailsScreen extends SceneBase {
 		if (_payment.getExpirationDateMonth() == null || _payment.getExpirationDateMonth().toString().length() > 2) {
 			errorsList.add("- Expiration Date Month Should Be Populated And Contain a Maximul Value Of 2 Characters");
 		}
-		if (_payment.getExpirationDateYear() == null || _payment.getExpirationDateYear().toString().length() != 4) {
-			errorsList.add("- Expiration Date Month Should Be Populated And Contain Exactly 4 Characters");
+		if (_payment.getExpirationDateYear() == null || _payment.getExpirationDateYear().toString().length() > 2) {
+			errorsList.add("- Expiration Date Month Should Be Populated And Contain a Maximul Value Of 2 Characters");
 		}
 		return errorsList;
 	}
@@ -175,7 +183,7 @@ public class SignUpPaymentDetailsScreen extends SceneBase {
 	@Override
 	public void setParameters(IEntity[] entities) {
 		super.setParameters(entities);
-		if (_customer != null) {
+		if (entities != null && entities.length > 0) {
 			_customer = (Customer) entities[0];
 		}
 	}

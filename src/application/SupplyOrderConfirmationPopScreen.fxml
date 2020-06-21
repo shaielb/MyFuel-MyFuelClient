@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <Pane prefHeight="479.0" prefWidth="500.0">
          <children>
@@ -60,7 +60,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="scene$OrdersStationManagerScreen" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="243.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="scene$FuelOrderManagementScreen" accessibleRole="BUTTON" fitHeight="37.0" fitWidth="86.0" layoutX="243.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resource/images/Decline_btn.jpg" />
                </image>
@@ -68,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Text fx:id="table$station$station_supply_order$order_id" layoutX="300.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
+            <Text fx:id="table$station$station_supply_order$id" layoutX="300.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="92.800048828125">
                <font>
                   <Font size="18.0" />
                </font>
@@ -89,16 +89,6 @@
                </font>
             </Text>
             <Text fx:id="table$station$address" layoutX="286.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.800048828125">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="table$station$stations_fuel$current_amount" layoutX="350.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.800048828125">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="214.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Amount:">
                <font>
                   <Font size="18.0" />
                </font>

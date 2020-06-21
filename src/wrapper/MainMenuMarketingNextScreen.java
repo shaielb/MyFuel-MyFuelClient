@@ -91,7 +91,7 @@ public class MainMenuMarketingNextScreen extends SceneBase {
 		if (Arrays.asList(new String[] { 
 				"Company Markteing Representative" , "Company Marketing Manager" })
 				.contains(_context.getSystemUser().getPermission())) {
-			_editSalesScreenControl.getInstance().setDisable(true);
+			_editSalesScreenControl.getInstance().setDisable(false);
 		}
 	}
 

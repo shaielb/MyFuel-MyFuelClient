@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -74,19 +75,19 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Text fx:id="table$fueling_purchase$customer$person$first_name" layoutX="435.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0">
+      <Text fx:id="table$fastfueling_pricing_model_view$first_name" layoutX="435.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.0">
          <font>
             <Font size="33.0" />
          </font></Text>
-      <Text fx:id="table$fueling_purchase$price_per_liter" layoutX="388.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
+      <Text fx:id="table$fastfueling_pricing_model_view$max_price" layoutX="388.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
          <font>
             <Font size="33.0" />
          </font></Text>
-      <Text fx:id="table$fueling_purchase$total_price" layoutX="739.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0">
+      <Text fx:id="table$fueling_purchase$total_price" layoutX="739.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="167.2000732421875">
          <font>
             <Font size="33.0" />
          </font></Text>
-      <Text fx:id="table$fueling_purchase$fuel_enum$fuel_type_key" layoutX="645.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
+      <Text fx:id="table$fastfueling_pricing_model_view$fuel_type" layoutX="645.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="120.0">
          <font>
             <Font size="33.0" />
          </font></Text>
@@ -100,26 +101,50 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Text layoutX="411.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="you saved:">
+      <Text layoutX="411.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="you save:">
          <font>
             <Font size="33.0" />
          </font>
       </Text>
-      <Text layoutX="772.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ILS   in this purchase">
+      <Text layoutX="772.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ILS in this purchase">
          <font>
             <Font size="33.0" />
          </font>
       </Text>
-      <Text fx:id="table$fueling_purchase$total_price" layoutX="594.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0">
+      <Text fx:id="table$fueling_purchase$save" layoutX="594.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0">
          <font>
             <Font size="33.0" />
          </font>
       </Text>
-      <TextField fx:id="table$fueling_purchase$car$plate_number" layoutX="847.0" layoutY="295.0" opacity="0.4" promptText="car number">
+      <TextField fx:id="table$fastfueling_pricing_model_view$plate_number" layoutX="847.0" layoutY="295.0" promptText="car number">
          <font>
             <Font size="13.0" />
          </font>
       </TextField>
-      <TextField fx:id="table$fueling_purchase$amount" layoutX="745.0" layoutY="497.0" opacity="0.3" prefHeight="44.0" prefWidth="162.0" promptText="amount" />
+      <TextField fx:id="table$fueling_purchase$amount" layoutX="739.0" layoutY="497.0" prefHeight="44.0" prefWidth="162.0" promptText="amount" />
+      <Text fx:id="table$special_sales_enum$title_key" layoutX="482.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="269.0">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <TextField fx:id="table$fueling_purchase$station$station_name" layoutX="340.0" layoutY="142.0" prefHeight="25.0" prefWidth="141.0" promptText="station name" />
+      <Text layoutX="231.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="station:">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="action$collect$fastfueling_pricing_model_view" accessibleRole="BUTTON" fitHeight="61.0" fitWidth="106.0" layoutX="1061.0" layoutY="587.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/Fuel_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fx:id="table$special_sales_enum$title_key" layoutX="444.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="432.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

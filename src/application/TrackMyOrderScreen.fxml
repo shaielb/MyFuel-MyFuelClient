@@ -42,7 +42,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="table$home_heating_order$order_id" layoutX="834.0" layoutY="285.0" prefHeight="34.0" prefWidth="230.0" promptText="Tap here ID Order...">
+      <TextField fx:id="table$home_heating_order$id" layoutX="834.0" layoutY="285.0" prefHeight="34.0" prefWidth="230.0" promptText="Tap here ID Order...">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>

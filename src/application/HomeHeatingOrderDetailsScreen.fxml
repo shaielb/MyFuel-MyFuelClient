@@ -94,9 +94,9 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fx:id="table$home_heating_order$order_time" layoutX="302.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="146.40008544921875">
+            <Text fx:id="table$home_heating_order$order_time" layoutX="302.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="191.2000732421875">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
             <Text fx:id="table$home_heating_order$customer$payment$credit_card_number" layoutX="310.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.4000244140625">

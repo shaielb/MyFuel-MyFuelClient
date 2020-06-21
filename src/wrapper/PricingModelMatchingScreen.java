@@ -2,10 +2,8 @@ package wrapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import action.ActionControl;
@@ -16,19 +14,22 @@ import application.Main;
 import client.IClient;
 import controls.MfComboBox;
 import controls.MfImageView;
-import controls.MfListView;
 import controls.MfNumberField;
 import controls.MfText;
+import db.entity.Address;
 import db.entity.Car;
 import db.entity.Customer;
 import db.entity.Person;
 import db.entity.PricingModelEnum;
+import db.entity.SystemUser;
 import db.interfaces.IEntity;
+import enums.Enums;
+import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -46,7 +47,6 @@ public class PricingModelMatchingScreen extends SceneBase {
 	private Person _person;
 
 	private MfNumberField _customerIdControl;
-	private MfListView _plateNumberControl;
 	private MfImageView _mainMenuMarketingScreenControl;
 	private MfImageView _updatePricingModelEnumControl;
 	private ActionControl _pricingModelEnumupdateAction;
@@ -56,6 +56,10 @@ public class PricingModelMatchingScreen extends SceneBase {
 	private MfImageView _filterCustomerControl;
 	private ActionControl _customerfilterAction;
 	private MfComboBox _modelTypeKeyControl;
+	
+	private Set<IEntity> _pricingModelEnumUpdateEntities;
+	
+	private Integer _carsNumber;
 
 	public PricingModelMatchingScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
@@ -91,7 +95,6 @@ public class PricingModelMatchingScreen extends SceneBase {
 
 		//controls instantiation
 		_customerIdControl = new MfNumberField((TextField) _scene.lookup("#table$customer$customer_id"), Integer.class);
-		_plateNumberControl = new MfListView((ListView) _scene.lookup("#table$customer$car$plate_number"));
 		_firstNameControl = new MfText((Text) _scene.lookup("#table$customer$person$first_name"));
 		_emailControl = new MfText((Text) _scene.lookup("#table$customer$person$email"));
 		_phoneNumberControl = new MfText((Text) _scene.lookup("#table$customer$person$phone_number"));
@@ -100,25 +103,52 @@ public class PricingModelMatchingScreen extends SceneBase {
 		//initializations
 		_updatePricingModelEnumControl = new MfImageView((ImageView) _scene.lookup("#action$update$customer$pricing_model_enum"));
 		_updatePricingModelEnumControl.
-			setMouseImages("@resource/images/SaveChanges_btn.png", "@resource/images/SaveChanges_overbtn.png", "@resource/images/SaveChanges_clickbtn.png");
+		setMouseImages("@resource/images/SaveChanges_btn.png", "@resource/images/SaveChanges_overbtn.png", "@resource/images/SaveChanges_clickbtn.png");
 		_pricingModelEnumupdateAction = new ActionControl();
 		_pricingModelEnumupdateAction.setControl(_updatePricingModelEnumControl);
 		UpdateCapability pricingModelEnumUpdateCapability = new UpdateCapability();
-		Set<IEntity> pricingModelEnumUpdateEntities = new HashSet<IEntity>();
-		pricingModelEnumUpdateCapability.setEntities(pricingModelEnumUpdateEntities);
+		_pricingModelEnumUpdateEntities = new HashSet<IEntity>();
+		_pricingModelEnumUpdateEntities.add(_customer);
+		pricingModelEnumUpdateCapability.setEntities(_pricingModelEnumUpdateEntities);
 		_pricingModelEnumupdateAction.addCapability(pricingModelEnumUpdateCapability);
 		_pricingModelEnumupdateAction.setClient(_client);
 		_pricingModelEnumupdateAction.setPreSend((request) -> {
-
+			if (Enums.Standard.equals(_pricingModelEnum.getModelTypeKey())) {
+				
+			}
+			else if (Enums.MonthlyS.equals(_pricingModelEnum.getModelTypeKey())) {
+				if (_carsNumber > 1) {
+					UiHandler.showAlert(AlertType.ERROR, "Pricing Model Matching", "", "'" + Enums.MonthlyS + "' Cant Have More Than 1 Car Related");
+					return false;
+				}
+			}
+			else if (Enums.MonthlyM.equals(_pricingModelEnum.getModelTypeKey())) {
+				if (_carsNumber <= 1) {
+					UiHandler.showAlert(AlertType.ERROR, "Pricing Model Matching", "", "'" + Enums.Standard + "' Cant Have Less Than 2 Cars Related");
+					return false;
+				}
+			}
+			else if (Enums.MonthlyFS.equals(_pricingModelEnum.getModelTypeKey())) {
+				if (_carsNumber > 1) {
+					UiHandler.showAlert(AlertType.ERROR, "Pricing Model Matching", "", "'" + Enums.MonthlyFS + "' Cant Have More Than 1 Car Related");
+					return false;
+				}
+			}
+			_customer.setPricingModelEnum(_client.getEnum(PricingModelEnum.class, ((ComboBox) _modelTypeKeyControl.getInstance()).getValue().toString()));
 			return true;
 		});
 		_pricingModelEnumupdateAction.setCallback((response) -> {
-			
+			if (!response.isPassed()) {
+				UiHandler.showAlert(AlertType.ERROR, "Pricing Model Matching", "", response.getDescription());
+			}
+			else {
+				UiHandler.showAlert(AlertType.INFORMATION, "Pricing Model Matching", "", "Pricing Model Was Changed");
+			}
 		});
 
 		_filterCustomerControl = new MfImageView((ImageView) _scene.lookup("#action$collect$customer"));
 		_filterCustomerControl.
-			setMouseImages("@resource/images/Search_btn.png", "@resource/images/Search_overbtn.png", "@resource/images/Search_clickbtn.png");
+		setMouseImages("@resource/images/Search_btn.png", "@resource/images/Search_overbtn.png", "@resource/images/Search_clickbtn.png");
 		_customerfilterAction = new ActionControl();
 		_customerfilterAction.setControl(_filterCustomerControl);
 		FilterCapability customerFilterCapability = new FilterCapability();
@@ -131,17 +161,42 @@ public class PricingModelMatchingScreen extends SceneBase {
 		});
 		_customerfilterAction.setCallback((response) -> {
 			Collection<IEntity> entities = response.getEntities();
+			_carsNumber = 0;
 			for (IEntity ientity : entities) {
-				Customer entity = (Customer) ientity;
+				if (ientity instanceof Customer) {
+					UiHandler.clone(ientity, _customer, true);
+				}
+				else if (ientity instanceof Person) {
+					UiHandler.clone(ientity, _person, true);
+				}
+				else if (ientity instanceof PricingModelEnum) {
+					UiHandler.clone(ientity, _pricingModelEnum, true);
+				}
+				else if (ientity instanceof Car) {
+					++_carsNumber;
+				}
+			}
+			Text carsTxt = (Text) _scene.lookup("#table$car$number");
+			carsTxt.setText(_carsNumber.toString());
+			if (response.isPassed()) {
+				try {
+					_customerIdControl.update();
+					_firstNameControl.update();
+					_emailControl.update();
+					_phoneNumberControl.update();
+					((ComboBox) _modelTypeKeyControl.getInstance()).setValue(_pricingModelEnum.getKey());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else {
+				UiHandler.showAlert(AlertType.ERROR, "Customers Collections", "", response.getDescription());
 			}
 		});
 
 		//fields initializations
 		_customerIdControl.setField(_customer.getClass().getDeclaredField("_customer_id"));
 		_customerIdControl.setEntity(_customer);
-
-		_plateNumberControl.setField(_car.getClass().getDeclaredField("_plate_number"));
-		_plateNumberControl.setEntity(_car);
 
 		_firstNameControl.setField(_person.getClass().getDeclaredField("_first_name"));
 		_firstNameControl.setEntity(_person);
@@ -154,13 +209,14 @@ public class PricingModelMatchingScreen extends SceneBase {
 
 		_modelTypeKeyControl.setField(_pricingModelEnum.getClass().getDeclaredField("_model_type_key"));
 		_modelTypeKeyControl.setEntity(_pricingModelEnum);
+		_modelTypeKeyControl.setValues(_client.getEnumAsStringList(PricingModelEnum.class));
 
 
 	}
 
 	@Override
 	protected void onLoad() {
-		
+
 	}
 
 	@Override
@@ -170,45 +226,66 @@ public class PricingModelMatchingScreen extends SceneBase {
 
 	private List<QueryContainer> prepareQuery(Customer customer) {
 		List<QueryContainer> containers = new ArrayList<QueryContainer>();
-		
-		Map<String, String> queryMap = new HashMap<String, String>();
-		
-		QueryContainer container = new QueryContainer();
-		container.setQueryEntity(customer);
-		container.setQueryMap(queryMap);
-		containers.add(container);
+
+		SystemUser sysUser = new SystemUser();
+		Person person = new Person();
+		Address address = new Address();
+		PricingModelEnum pModel = new PricingModelEnum();
+		Car car = new Car();
+
+		QueryContainer customerQueryContainer = new QueryContainer(_customer);
+		QueryContainer sysUserQueryContainer = new QueryContainer(sysUser);
+		QueryContainer personQueryContainer = new QueryContainer(person);
+		QueryContainer addressQueryContainer = new QueryContainer(address);
+		QueryContainer pModelQueryContainer = new QueryContainer(pModel);
+		QueryContainer carQueryContainer = new QueryContainer(car);
+
+		customerQueryContainer.addQueryCondition("customer_id", "=");
+		sysUserQueryContainer.addQueryCondition("id", "=");
+		personQueryContainer.addQueryCondition("id", "=");
+		addressQueryContainer.addQueryCondition("id", "=");
+		pModelQueryContainer.addQueryCondition("id", "=");
+		carQueryContainer.addQueryCondition("customer_fk", "=");
+
+		customerQueryContainer.addNext(sysUserQueryContainer);
+		customerQueryContainer.addNext(personQueryContainer);
+		customerQueryContainer.addNext(addressQueryContainer);
+		customerQueryContainer.addNext(pModelQueryContainer);
+		customerQueryContainer.addNext(carQueryContainer);
+
+		containers.add(customerQueryContainer);
 		return containers;
 	}
 
 	public Customer getCustomer() {
-		 return _customer;
+		return _customer;
 	}
 
 	public void setCustomer(Customer customer) {
-		 _customer = customer;
+		_customer = customer;
 	}
 
 	public Car getCar() {
-		 return _car;
+		return _car;
 	}
 
 	public void setCar(Car car) {
-		 _car = car;
+		_car = car;
 	}
 
 	public Person getPerson() {
-		 return _person;
+		return _person;
 	}
 
 	public void setPerson(Person person) {
-		 _person = person;
+		_person = person;
 	}
 
 	public PricingModelEnum getPricingModelEnum() {
-		 return _pricingModelEnum;
+		return _pricingModelEnum;
 	}
 
 	public void setPricingModelEnum(PricingModelEnum pricingModelEnum) {
-		 _pricingModelEnum = pricingModelEnum;
+		_pricingModelEnum = pricingModelEnum;
 	}
 }

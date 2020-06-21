@@ -56,20 +56,13 @@ public class Main extends Application {
 					list.add(table);
 				}
 			}
-			_client.cacheTables(list, (response) -> {
-				synchronized (stage) {
-					stage.notifyAll();
-				}
-			});
-
-			synchronized (stage) {
-				stage.wait();
-			}
+			_client.cacheTables(list, (response) -> { });
 
 			//Parent root = FXMLLoader.load(getClass().getResource("CustomerCharacterizationReportScreen.fxml"));
 
-			Scene scene = sceneSwitch.getScene("CustomerCharacterizationReportScreen").getScene();
-			//Scene scene = sceneSwitch.getScene("SignUpAddCarScreen").getScene();
+			Scene scene = sceneSwitch.getScene("FastFuelingScreen").getScene();
+			//Scene scene = sceneSwitch.getScene("FastFuelingScreen").getScene();
+			//Scene scene = sceneSwitch.getScene("HomeHeatingOrderDetailsScreen").getScene();
 			//Scene scene = sceneSwitch.getScene("CustomerManagementScreen").getScene();
 
 			//Parent root = FXMLLoader.load(getClass().getResource("HomeHeatingTrack.fxml"));

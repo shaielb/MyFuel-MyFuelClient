@@ -21,9 +21,9 @@
             <Font name="Constantia Bold Italic" size="48.0" />
          </font>
       </Text>
-      <ImageView fx:id="scene$FuelPriceApprovalScreen" accessibleRole="BUTTON" fitHeight="346.0" fitWidth="404.0" layoutX="250.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$FuelDiscountApprovalScreen" accessibleRole="BUTTON" fitHeight="346.0" fitWidth="404.0" layoutX="249.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resource/images/PriceSetApproval_btn.png" />
+            <Image url="@resource/images/FuelDiscountApproval_btn.png" />
          </image>
          <effect>
             <InnerShadow />
@@ -37,7 +37,7 @@
             <InnerShadow />
          </effect>
       </Separator>
-      <ImageView fx:id="scene$InventoryReportScreen" accessibleRole="BUTTON" fitHeight="112.0" fitWidth="323.0" layoutX="732.0" layoutY="288.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$CompanyManagerInventoryScreen" accessibleRole="BUTTON" fitHeight="112.0" fitWidth="323.0" layoutX="732.0" layoutY="288.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/inventory_btn.png" />
          </image>
@@ -48,7 +48,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$IncomeReportScreen" accessibleRole="BUTTON" fitHeight="115.0" fitWidth="323.0" layoutX="732.0" layoutY="401.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$CompanyManagerIncomeReportScreen" accessibleRole="BUTTON" fitHeight="115.0" fitWidth="323.0" layoutX="732.0" layoutY="401.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/IncomeReports_btn.jpg.png" />
          </image>
@@ -59,7 +59,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="scene$ExpenseReportScreen" accessibleRole="BUTTON" fitHeight="130.0" fitWidth="341.0" layoutX="724.0" layoutY="505.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scene$CompanyManagerExpenseReportScreen" accessibleRole="BUTTON" fitHeight="130.0" fitWidth="341.0" layoutX="724.0" layoutY="505.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/ExpenseReports_btn.png" />
          </image>
@@ -88,7 +88,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="context$employee$first_name" layoutX="131.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.0">
+      <Text fx:id="context$person$first_name" layoutX="131.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.0">
          <font>
             <Font size="18.0" />
          </font>

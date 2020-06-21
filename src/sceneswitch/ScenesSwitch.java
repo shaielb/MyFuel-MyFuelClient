@@ -100,12 +100,12 @@ public class ScenesSwitch {
 					_scenesMap.put("FastFuelingScreen", sb = new FastFuelingScreen(_sceneSwitcher, _client, _context));
 					break;
 
-				case "FuelOrderManagementScreen" : 
-					_scenesMap.put("FuelOrderManagementScreen", sb = new FuelOrderManagementScreen(_sceneSwitcher, _client, _context));
+				case "FuelDiscountApprovalScreen" : 
+					_scenesMap.put("FuelDiscountApprovalScreen", sb = new FuelDiscountApprovalScreen(_sceneSwitcher, _client, _context));
 					break;
 
-				case "FuelPriceApprovalScreen" : 
-					_scenesMap.put("FuelPriceApprovalScreen", sb = new FuelPriceApprovalScreen(_sceneSwitcher, _client, _context));
+				case "FuelOrderManagementScreen" : 
+					_scenesMap.put("FuelOrderManagementScreen", sb = new FuelOrderManagementScreen(_sceneSwitcher, _client, _context));
 					break;
 
 				case "FuelThresholdLevelScreen" : 
@@ -239,10 +239,11 @@ public class ScenesSwitch {
 				e.printStackTrace();
 			}
 		}
-		else if (sb instanceof MainMenuMyFuelScreen) {
+		if (sb instanceof MainMenuMyFuelScreen) {
 			try {
 				logout();
-				return getScene("MainMenuMyFuelScreen");
+				_scenesMap.put("MainMenuMyFuelScreen", sb);
+				return sb;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -90,6 +90,8 @@ public class SignUpPersonalDetailsScreen extends SceneBase {
 			List<String> errorsList = validate();
 			if (errorsList == null || errorsList.size() == 0) {
 				_systemUser.setUserName(_customer.getCustomerId().toString());
+				_systemUser.setPermission("Customer");
+				_systemUser.setOnlineStatus(false);
 				_switcher.switchScene("SignUpPaymentDetailsScreen", _customer);
 			}
 			else {
@@ -202,10 +204,12 @@ public class SignUpPersonalDetailsScreen extends SceneBase {
 		groupControls(new ControlAdapter[] { _customerTypeControlCompany_owner, _customerTypeControlPrivate });
 
 		_customerTypeControlCompany_owner.addEvent((event) -> {
-			if ("company_owner".equals(_customer.getCustomerType())) {
+			if (event instanceof Boolean && (Boolean) event) {
 				_companyNameControl.getInstance().setDisable(false);
 			}
-			else {
+		});
+		_customerTypeControlPrivate.addEvent((event) -> {
+			if (event instanceof Boolean && (Boolean) event) {
 				try {
 					_companyNameControl.setValue("");
 				} catch (Exception e) {

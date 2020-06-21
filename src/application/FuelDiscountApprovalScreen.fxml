@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/BackGround.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scene$MainMenuCompanyManagerScreen" accessibleRole="BUTTON" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/ReturnMain_btn.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text layoutX="43.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back To Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="148.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Discount Approval">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="43.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="310.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel Discount Approval">
+         <font>
+            <Font name="Constantia Bold Italic" size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="502.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Discount:" wrappingWidth="258.2161865234375">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fuel_company_enum$company_discount" layoutX="764.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="67.6025390625">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="457.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketing's Request:" wrappingWidth="306.13671875">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$fuel_company_enum$company_discount_request" layoutX="764.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="76.49230957031247">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="action$update$fuel_company_enum" accessibleRole="BUTTON" fitHeight="68.0" fitWidth="183.0" layoutX="482.0" layoutY="586.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/Decline_btn.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="action$update$fuel_company_enum$$$btn" accessibleRole="BUTTON" fitHeight="67.0" fitWidth="203.0" layoutX="757.0" layoutY="586.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resource/images/Confirm_btn.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Separator layoutX="422.0" layoutY="385.0" prefHeight="2.0" prefWidth="503.0" />
+      <Text fontSmoothingType="LCD" layoutX="842.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="842.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

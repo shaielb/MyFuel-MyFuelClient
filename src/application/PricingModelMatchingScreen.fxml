@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -29,9 +28,10 @@
          </font>
       </Text>
       <TextField fx:id="table$customer$customer_id" layoutX="471.0" layoutY="244.0" />
-      <ListView fx:id="table$customer$car$plate_number" disable="true" editable="true" layoutX="371.0" layoutY="406.0" prefHeight="164.0" prefWidth="134.0" />
-      <Text layoutX="286.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Plan:" underline="true" />
-      <Text disable="true" layoutX="308.0" layoutY="420.0" opacity="0.37" strokeType="OUTSIDE" strokeWidth="0.0" text="Car List:" underline="true" wrappingWidth="72.04035949707031" />
+      <Text layoutX="241.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Plan:" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
       <ImageView fx:id="scene$MainMenuMarketingScreen" fitHeight="102.0" fitWidth="80.0" layoutX="66.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/ReturnMain_btn.png" />
@@ -73,17 +73,40 @@
       <Text fx:id="table$customer$person$first_name" layoutX="894.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.07129669189453" />
       <Text fx:id="table$customer$person$email" layoutX="894.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="117.859375" />
       <Text fx:id="table$customer$person$phone_number" layoutX="894.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="137.8593749999999" />
-      <Text fill="#e10000" fontSmoothingType="LCD" layoutX="517.0" layoutY="369.0" opacity="0.73" strokeType="OUTSIDE" strokeWidth="0.0" text="*Some plans may be invalid due to the number of cars owned" wrappingWidth="220.65235805511472">
+      <Text fill="#e10000" fontSmoothingType="LCD" layoutX="528.0" layoutY="369.0" opacity="0.73" strokeType="OUTSIDE" strokeWidth="0.0" text="*Some plans may be invalid due to the number of cars owned" wrappingWidth="220.65235805511472">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <ImageView fx:id="action$collect$customer" fitHeight="30.0" fitWidth="93.0" layoutX="636.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="action$collect$customer" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="93.0" layoutX="668.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/images/Search_btn.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </ImageView>
       <ComboBox fx:id="table$customer$pricing_model_enum$model_type_key" layoutX="358.0" layoutY="357.0" prefHeight="25.0" prefWidth="149.0" />
       <Separator layoutX="785.0" layoutY="224.0" orientation="VERTICAL" prefHeight="457.0" prefWidth="5.0" />
+      <Text layoutX="272.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car List:" underline="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="table$car$number" layoutX="362.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="103.39453125">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="153.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pricing Model Matching" wrappingWidth="187.4270782470703">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu --&gt;" wrappingWidth="154.3604278564453">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

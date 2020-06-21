@@ -1,7 +1,7 @@
 package wrapper;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,15 +14,22 @@ import application.Main;
 import client.IClient;
 import controls.MfHyperlink;
 import controls.MfImageView;
+import db.entity.Employee;
+import db.entity.Station;
 import db.entity.StationSupplyOrder;
 import db.interfaces.IEntity;
+import enums.Enums;
+import handler.UiHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import messages.QueryContainer;
+import messages.request.IFilter;
+import messages.response.ResponseEvent;
 import sceneswitch.Context;
 import sceneswitch.ISceneSwitcher;
 import sceneswitch.SceneBase;
@@ -44,6 +51,8 @@ public class FuelOrderManagementScreen extends SceneBase {
 	private MfHyperlink _removeStationSupplyOrderControl;
 	private ActionControl _stationSupplyOrderremoveAction;
 
+	private MfSingleDecorator<StationSupplyOrder> _stationSupplyOrderSingleDecorator;
+
 	public FuelOrderManagementScreen(ISceneSwitcher sceneSwitcher, IClient client, Context context) throws Exception {
 		super(sceneSwitcher, client, context);
 	}
@@ -58,20 +67,29 @@ public class FuelOrderManagementScreen extends SceneBase {
 		_mainMenuStationManagerScreenControl.addEvent((event) -> { _switcher.switchScene("MainMenuStationManagerScreen"); });
 
 		_supplyOrderConfirmationPopScreenControl = new MfImageView((ImageView) _scene.lookup("#scene$SupplyOrderConfirmationPopScreen"));
-		_supplyOrderConfirmationPopScreenControl.addEvent((event) -> { _switcher.switchScene("SupplyOrderConfirmationPopScreen"); });
+		_supplyOrderConfirmationPopScreenControl.addEvent((event) -> {
+			StationSupplyOrder sso = (StationSupplyOrder) _stationSupplyOrderSingleDecorator.getSelectedEntity();
+			if (!Enums.WaitingForApproval.equals(sso.getOrderStatus())) {
+				UiHandler.showAlert(AlertType.ERROR, "Station Supply Order", "", "Can Only Select 'Waiting For Approval' Requests");
+			}
+			else {
+				_switcher.switchScene("SupplyOrderConfirmationPopScreen", sso); 
+			}
+		});
 
 		//entities instantiation
 		if (_stationSupplyOrder == null) {
 			_stationSupplyOrder = new StationSupplyOrder();
 		}
+		_stationSupplyOrder.setStation(_context.getEmployee().getStation());
 
 		//tables instantiation
 		BorderPane stationSupplyOrderBp = (BorderPane) _scene.lookup("#uitable$noneditable$single$station_supply_order");
 		_stationSupplyOrderTableWrapper = new Table<StationSupplyOrder>();
 		_stationSupplyOrderTable = new MfTable<StationSupplyOrder>(StationSupplyOrder.class);
 		_stationSupplyOrderTable.setEditable(false);
-		MfSingleDecorator<StationSupplyOrder> stationSupplyOrderSingleDecorator = new MfSingleDecorator<StationSupplyOrder>();
-		_stationSupplyOrderTableWrapper.addDecorator(stationSupplyOrderSingleDecorator);
+		_stationSupplyOrderSingleDecorator = new MfSingleDecorator<StationSupplyOrder>();
+		_stationSupplyOrderTableWrapper.addDecorator(_stationSupplyOrderSingleDecorator);
 		_stationSupplyOrderTableWrapper.setTable(_stationSupplyOrderTable);
 		stationSupplyOrderBp.setCenter(_stationSupplyOrderTable);
 
@@ -84,13 +102,14 @@ public class FuelOrderManagementScreen extends SceneBase {
 		_stationSupplyOrderfilterAction.addCapability(stationSupplyOrderFilterCapability);
 		_stationSupplyOrderfilterAction.setClient(_client);
 		_stationSupplyOrderfilterAction.setPreSend((request) -> {
-
 			return true;
 		});
 		_stationSupplyOrderfilterAction.setCallback((response) -> {
-			Collection<IEntity> entities = response.getEntities();
-			for (IEntity ientity : entities) {
-				StationSupplyOrder entity = (StationSupplyOrder) ientity;
+			if (!response.isPassed()) {
+				UiHandler.showAlert(AlertType.ERROR, "Station Supply Order", "", response.getDescription());
+			}
+			else {
+				_stationSupplyOrderTable.setRows(response.getEntitiesAsType());
 			}
 		});
 
@@ -98,15 +117,37 @@ public class FuelOrderManagementScreen extends SceneBase {
 		_stationSupplyOrderremoveAction = new ActionControl();
 		_stationSupplyOrderremoveAction.setControl(_removeStationSupplyOrderControl);
 		RemoveCapability stationSupplyOrderRemoveCapability = new RemoveCapability();
-		stationSupplyOrderRemoveCapability.addEntity(_stationSupplyOrder);
+		stationSupplyOrderRemoveCapability.setQueryContainers(prepareRemoveQuery());
 		_stationSupplyOrderremoveAction.addCapability(stationSupplyOrderRemoveCapability);
 		_stationSupplyOrderremoveAction.setClient(_client);
 		_stationSupplyOrderremoveAction.setPreSend((request) -> {
-
+			if (!UiHandler.showAlert(AlertType.WARNING, "Delete Completed Orders", "", 
+					"You Are About To Delete All Completed Orders Deleted")) {
+				return false;
+			}
 			return true;
 		});
 		_stationSupplyOrderremoveAction.setCallback((response) -> {
-			
+			if (!response.isPassed()) {
+				UiHandler.showAlert(AlertType.ERROR, "Orders Deletion", "", response.getDescription());
+			}
+			else {
+				IFilter filterQuery = _client.getFilterRequest();
+				filterQuery.setQueryContainers(prepareQuery(_stationSupplyOrder));
+				try {
+					ResponseEvent responseEvent = _client.sendRequest(filterQuery);
+					responseEvent.continueWith((responseAfterDeletion) -> {
+						if (!responseAfterDeletion.isPassed()) {
+							UiHandler.showAlert(AlertType.ERROR, "Orders Deletion", "", responseAfterDeletion.getDescription());
+						}
+						else {
+							_stationSupplyOrderTable.setEntities(responseAfterDeletion.getEntities());
+						}
+					});
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		});
 
 
@@ -114,19 +155,44 @@ public class FuelOrderManagementScreen extends SceneBase {
 
 	@Override
 	protected void onLoad() {
-		
+
+	}
+
+	private List<QueryContainer> prepareRemoveQuery() {
+		StationSupplyOrder sso = new StationSupplyOrder();
+		sso.setOrderStatus(Enums.Done);
+		sso.setStation(_context.getEmployee().getStation());
+		List<QueryContainer> containers = new ArrayList<QueryContainer>();
+
+		Map<String, String> queryMap = new HashMap<String, String>();
+		queryMap.put("order_status", "=");
+		queryMap.put("station_fk", "=");
+
+		QueryContainer container = new QueryContainer();
+		container.setQueryEntity(sso);
+		container.setQueryMap(queryMap);
+		containers.add(container);
+		return containers;
 	}
 
 	@Override
 	public void setParameters(IEntity[] entities) {
 		super.setParameters(entities);
+		if (_context.getEmployee() == null) {
+			Employee employee = new Employee();
+			Station station = new Station();
+			employee.setStation(station);
+			station.setId(2);
+			_context.setEmployee(employee);
+		}
 	}
 
 	private List<QueryContainer> prepareQuery(StationSupplyOrder stationSupplyOrder) {
 		List<QueryContainer> containers = new ArrayList<QueryContainer>();
-		
+
 		Map<String, String> queryMap = new HashMap<String, String>();
-		
+		queryMap.put("station_fk", "=");
+
 		QueryContainer container = new QueryContainer();
 		container.setQueryEntity(stationSupplyOrder);
 		container.setQueryMap(queryMap);

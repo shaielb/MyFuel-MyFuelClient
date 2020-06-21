@@ -96,5 +96,19 @@ public interface IClient {
 	 * @param keyValue
 	 * @return
 	 */
+	public List<String> getEnumAsStringList(Class<? extends IEntity> enumClass);
+	
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
 	public <TEntity extends IEntity> TEntity getEnum(Class<TEntity> enumClass, String keyValue);
+	
+	/**
+	 * @param enumTable
+	 * @param keyValue
+	 * @return
+	 */
+	public <TEntity extends IEntity> TEntity getEnum(Class<TEntity> enumClass, Integer enumId);
 }
